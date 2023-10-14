@@ -67,6 +67,9 @@ crashlytics-build.properties
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
 
-# Temporary auto-generated Android Assets
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
+# Kingdom\ of\ Nerds special
+*.DS_Store
+*.dwlt
+Kingdom of Nerds/ProjectSettings/ProjectSettings.asset
+Kingdom of Nerds/UserSettings/EditorUserSettings.asset
+*.icloud
