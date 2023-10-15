@@ -47,6 +47,9 @@ TagManager:
   - name: Walls
     uniqueID: 1594665049
     locked: 0
+  - name: Bullets
+    uniqueID: 839734945
+    locked: 0
   - name: Actors
     uniqueID: 3444317009
     locked: 0
