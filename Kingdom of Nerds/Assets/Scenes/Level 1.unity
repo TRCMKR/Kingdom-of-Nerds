@@ -116538,6 +116538,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 138607218, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 138607218, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: walkSpeed
       value: 700
       objectReference: {fileID: 0}
@@ -116545,6 +116549,10 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 138607216}
+    - target: {fileID: 138607219, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_RootOrder
       value: 1
