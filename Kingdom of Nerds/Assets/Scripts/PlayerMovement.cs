@@ -15,6 +15,17 @@ public class PlayerMovement : MonoBehaviour
     private CustomInput input = null;
     private Vector2 moveVector = Vector2.zero;
 
+    [Header("Speed Settings")]
+    [SerializeField] private float _acceleration;
+    [SerializeField] private float _minSpeed;
+    [SerializeField] private float _maxWalkSpeed;
+
+    [Header("Curves")]
+    [SerializeField] private AnimationCurve _speedFactor;
+    [SerializeField] private AnimationCurve _turnFactor;
+    [SerializeField] private float _maxSpeedTurnFactor;
+    [SerializeField] private AnimationCurve _slowFactor;
+
     private void Awake()
     {
         input = new CustomInput();
@@ -47,16 +58,45 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Debug.Log(moveVector);
+        // _direction = moveVector;
 
-        // _direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
-        _direction = moveVector;
-
-        body.velocity = _direction * walkSpeed * Time.deltaTime;
+        // body.velocity = _direction * walkSpeed * Time.deltaTime;
         
         if (!spriteRenderer.flipX && _direction.x < 0)
             spriteRenderer.flipX = true;
         else if (spriteRenderer.flipX && _direction.x > 0)
             spriteRenderer.flipX = false;
+
+        float slowFactor = _slowFactor.Evaluate(body.velocity.magnitude / _maxWalkSpeed);
+
+        if (slowFactor < body.velocity.magnitude)
+            body.velocity = body.velocity.normalized * (body.velocity.magnitude - slowFactor);
+        else
+            body.velocity = Vector2.zero;
+
+        if (moveVector != Vector2.zero)
+        {
+            float speedFactor = _speedFactor.Evaluate(body.velocity.magnitude / _maxWalkSpeed);
+            float velocityDot = Vector2.Dot(body.velocity.normalized, moveVector);
+            float turnFactor = _turnFactor.Evaluate(velocityDot);
+
+            if (body.velocity.magnitude <= _maxWalkSpeed)
+            {
+                body.AddRelativeForce((turnFactor + speedFactor) * _acceleration * moveVector, ForceMode2D.Force);
+            }
+            else
+            {
+                body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _maxSpeedTurnFactor);
+            }
+        }
+
+        if (body.velocity.magnitude < _minSpeed)
+        {
+            body.velocity = Vector2.zero;
+        }
+        else if (body.velocity.magnitude >= _maxWalkSpeed)
+        {
+            body.velocity = body.velocity.normalized * _maxWalkSpeed;
+        }
     }
 }
