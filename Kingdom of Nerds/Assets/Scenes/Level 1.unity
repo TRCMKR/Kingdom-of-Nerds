@@ -115694,6 +115694,33 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &873205310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4488763573164223290, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+  m_PrefabInstance: {fileID: 6431492128299152605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &873205311 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5699189656495972216, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+  m_PrefabInstance: {fileID: 6431492128299152605}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &873205312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873205310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2451ecaa5929884e91f1801ffd6b08e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  shotDir: {fileID: 1281976588}
+  ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
+  timeshot: 0
+  startTime: 0
 --- !u!1 &900243632
 GameObject:
   m_ObjectHideFlags: 0
@@ -120921,6 +120948,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
+--- !u!1 &1281976587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1281976588}
+  m_Layer: 8
+  m_Name: shotdir
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1281976588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281976587}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.65, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 873205311}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1426672568
 GameObject:
   m_ObjectHideFlags: 0
@@ -121080,6 +121138,10 @@ PrefabInstance:
     - target: {fileID: 3782609058534330020, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_UseFullKinematicContacts
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5699189656495972216, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.078
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
