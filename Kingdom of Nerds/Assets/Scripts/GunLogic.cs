@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Threading;
 using UnityEngine;
 
-public class bullet : MonoBehaviour
+public class GunLogic : MonoBehaviour
 {
     public float offset;
     public Transform shotDir;
@@ -27,7 +27,7 @@ public class bullet : MonoBehaviour
 
         if (timeshot <= 0)
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 Instantiate(ammo, shotDir.position, transform.rotation);
                 timeshot = startTime;

@@ -11,7 +11,7 @@ public class ammo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("Destroyammo", destroyTime);
+        Invoke("DestroyAmmo", destroyTime);
     }
 
     // Update is called once per frame
