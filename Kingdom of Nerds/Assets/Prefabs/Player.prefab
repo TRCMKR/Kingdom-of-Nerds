@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 3381680640356024076}
   - component: {fileID: 7002245209848637287}
   m_Layer: 6
-  m_Name: gun
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -271,11 +271,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2451ecaa5929884e91f1801ffd6b08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -2
-  shotDir: {fileID: 62483684699346316}
+  shootDirection: {fileID: 62483684699346316}
   ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
   timeshot: 0
   startTime: 1
+  speed: 10
 --- !u!1 &7931997008423799196
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,7 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62483684699346316}
   m_Layer: 6
-  m_Name: shotdir
+  m_Name: Shooting Directory
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

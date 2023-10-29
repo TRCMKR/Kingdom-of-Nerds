@@ -10,7 +10,7 @@ public class BulletLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyAmmo", destroyTime);
+        Invoke(nameof(DestroyAmmo), destroyTime);
     }
 
     private void DestroyAmmo()

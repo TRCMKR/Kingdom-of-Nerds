@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Actor
+  - Player
   - Blocking
-  - Bullets
-  - 
-  - 
+  - Player Bullets
+  - Enemy Bullets
+  - Enemy
   - 
   - 
   - 

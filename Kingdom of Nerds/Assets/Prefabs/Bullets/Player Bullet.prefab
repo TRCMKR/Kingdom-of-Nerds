@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8193309607033113681}
   - component: {fileID: -2323788037539479201}
   m_Layer: 8
-  m_Name: Bullet Player
+  m_Name: Player Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8898723722757511942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c67f84ed265223e49b0aaaeef11ca387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   destroyTime: 15
 --- !u!50 &-8193309607033113681
 Rigidbody2D:
@@ -121,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &-2323788037539479201
 BoxCollider2D:
   m_ObjectHideFlags: 0
