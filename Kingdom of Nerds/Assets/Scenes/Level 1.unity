@@ -121089,9 +121089,13 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.078
       objectReference: {fileID: 0}
+    - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7931997008423799196, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_Name
-      value: Shooting Dir
+      value: Shooting Directory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}

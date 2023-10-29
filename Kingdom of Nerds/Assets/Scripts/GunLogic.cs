@@ -11,7 +11,7 @@ public class GunLogic : MonoBehaviour
     public GameObject ammo;
     public float timeshot;
     public float startTime;
-
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +22,17 @@ public class GunLogic : MonoBehaviour
     void Update()
     {
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + offset);
+        float rotationAngleX= Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
+        float rotationAngleY = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(rotationAngleX, rotationAngleY,0f);
+
 
         if (timeshot <= 0)
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Instantiate(ammo, shotDir.position, transform.rotation);
+                var bullet = Instantiate(ammo, shotDir.position, transform.rotation);
+                bullet.GetComponent<Rigidbody2D>().AddForce(difference * speed*Time.deltaTime);
                 timeshot = startTime;
             }
         }
