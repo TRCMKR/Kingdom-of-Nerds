@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Threading;
 using UnityEngine;
 
-public class ammo : MonoBehaviour
+public class Ammo : MonoBehaviour
 {
     public float speed;
     public float destroyTime;
@@ -17,12 +15,15 @@ public class ammo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.right*speed*Time.deltaTime);
-        
+        Rigidbody2D bulletBody2D = gameObject.GetComponent<Rigidbody2D>();
+        bulletBody2D.velocity = Vector2.right * speed * Time.deltaTime;
+
     }
 
     void DestroyAmmo()
     {
         Destroy(gameObject);
     }
+
+   
 }
