@@ -139,7 +139,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &65449189
 Transform:
@@ -45582,7 +45582,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &704167625
 Transform:
@@ -115623,7 +115623,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &900243633
 Transform:
@@ -115977,7 +115977,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1154748085
 Transform:
@@ -120430,7 +120430,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1258784886
 Transform:
@@ -120854,7 +120854,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!156049354 &1426672569
 Grid:
@@ -120895,6 +120895,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7133326799910875289, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
+      propertyPath: orthographic size
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133326799910876005, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7133326800366787881, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 919353854}
     - target: {fileID: 7133326800531211846, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -120943,9 +120955,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7133326800790301208, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
-      propertyPath: lookAt
-      value: 
-      objectReference: {fileID: 919353854}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}

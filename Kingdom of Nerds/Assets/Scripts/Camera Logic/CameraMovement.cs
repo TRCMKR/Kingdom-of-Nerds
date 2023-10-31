@@ -4,27 +4,12 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    // public Transform lookAt;
-    // private Vector3 deltaMove;
-    
-    
     public Transform lookAt;
     public float boundX;
     public float boundY;
     
-    void FixedUpdate()
+    void LateUpdate()
     {
-        // Vector3 delta = Vector3.zero;
-        // Vector3 lookAtPosition = lookAt.position;
-        // Vector3 position = transform.position;
-        //
-        // delta.x = lookAtPosition.x - position.x;
-        // delta.y = lookAtPosition.y - position.y;
-        //
-        // deltaMove = Vector3.Lerp(deltaMove, delta, Time.deltaTime);
-        //
-        // transform.position = new Vector3(deltaMove.x, deltaMove.y, position.z);
-        
         Vector3 delta = Vector3.zero;
 
         float deltaX = lookAt.position.x - transform.position.x;
