@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
 {
     public bool isPaused = false;
     public GameObject pausePanel;
+    public GameObject settingsPanel;
+    public GameObject controlsPanel;
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -33,12 +35,12 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        //TODO
+        settingsPanel.SetActive(true);
     }
 
     public void OpenControls()
     {
-        //TODO
+        controlsPanel.SetActive(true);
     }
 
     public void Exit()
