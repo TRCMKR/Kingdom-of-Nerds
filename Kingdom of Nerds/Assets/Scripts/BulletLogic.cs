@@ -7,6 +7,10 @@ public class BulletLogic : MonoBehaviour
 {
     
     public float destroyTime;
+    public int damage = 2;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +28,18 @@ public class BulletLogic : MonoBehaviour
         {
             DestroyAmmo();
         }
+        if (collision.gameObject.name == "Dummy Square")
+        {
+            DestroyAmmo();
+            collision.gameObject.GetComponent<EnemyDeath>().TakeDamage(damage);
+        
+        }
+
+
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+       
     }
 
 
