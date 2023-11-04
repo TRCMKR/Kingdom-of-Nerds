@@ -42,10 +42,15 @@ public class PortalLogic : MonoBehaviour
                         SceneManager.LoadScene("Level 3");
                         break;
                     case "Level 3":
-                        Application.Quit();
+                        EndGame();
                         break;
                 }
             }
         }
+    }
+
+    void EndGame()
+    {
+        EndingController.ShowEnding();
     }
 }
