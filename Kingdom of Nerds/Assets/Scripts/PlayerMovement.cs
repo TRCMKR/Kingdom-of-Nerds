@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
         // _direction = moveVector;
 
         // body.velocity = _direction * walkSpeed * Time.deltaTime;
+        // moveVector *= (float)1.5;
         
         if (!spriteRenderer.flipX && _direction.x < 0)
             spriteRenderer.flipX = true;
@@ -82,11 +83,12 @@ public class PlayerMovement : MonoBehaviour
 
             if (body.velocity.magnitude <= _maxWalkSpeed)
             {
+                // Debug.Log(((turnFactor + speedFactor) * _acceleration * moveVector).magnitude);
                 body.AddRelativeForce((turnFactor + speedFactor) * _acceleration * moveVector, ForceMode2D.Force);
             }
             else
             {
-                body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _maxSpeedTurnFactor);
+                body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, 1);
             }
         }
 
@@ -94,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = Vector2.zero;
         }
-        else if (body.velocity.magnitude >= _maxWalkSpeed)
+        else if (body.velocity.magnitude > _maxWalkSpeed)
         {
             body.velocity = body.velocity.normalized * _maxWalkSpeed;
         }
