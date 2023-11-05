@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _acceleration;
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _maxWalkSpeed;
+    [SerializeField] private float _Lerp;
 
     [Header("Curves")]
     [SerializeField] private AnimationCurve _speedFactor;
@@ -86,10 +87,11 @@ public class PlayerMovement : MonoBehaviour
                 // Debug.Log(((turnFactor + speedFactor) * _acceleration * moveVector).magnitude);
                 body.AddRelativeForce((turnFactor + speedFactor) * _acceleration * moveVector, ForceMode2D.Force);
             }
-            else
-            {
-                body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, 1);
-            }
+            // else
+            // {
+            //     body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _Lerp);
+            // }
+            body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _Lerp);
         }
 
         if (body.velocity.magnitude < _minSpeed)
