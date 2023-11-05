@@ -116512,6 +116512,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &711045067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3488709354644382409, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+  m_PrefabInstance: {fileID: 772763417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &757930104
 GameObject:
   m_ObjectHideFlags: 0
@@ -117143,6 +117148,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
   m_PrefabInstance: {fileID: 772763417}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097680508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711045067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4219965fb6121c54a80b2be2ea40e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 10
+  hpDmg: 2
 --- !u!1 &1154748084
 GameObject:
   m_ObjectHideFlags: 0
@@ -123260,6 +123279,10 @@ PrefabInstance:
     - target: {fileID: 1369616075260689880, guid: 0e168fb258d0847a09b9bab39b6edfca, type: 3}
       propertyPath: m_Name
       value: Dummy Square
+      objectReference: {fileID: 0}
+    - target: {fileID: 1369616075260689880, guid: 0e168fb258d0847a09b9bab39b6edfca, type: 3}
+      propertyPath: m_TagString
+      value: DumSq
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e168fb258d0847a09b9bab39b6edfca, type: 3}
