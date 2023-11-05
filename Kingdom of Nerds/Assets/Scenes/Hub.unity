@@ -120895,14 +120895,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7133326799910875289, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
-      propertyPath: orthographic size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 7133326799910876005, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 7133326800366787881, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
       propertyPath: player
       value: 

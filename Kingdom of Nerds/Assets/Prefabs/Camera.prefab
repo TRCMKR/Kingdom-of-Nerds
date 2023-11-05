@@ -46,10 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 7133326799910875289}
   player: {fileID: 0}
-  minFocusDist: 7
-  maxFocusDist: 11
+  maxFocusDist: 6.8
   smoothTime: 0.1
-  smoothingCoef: 3
 --- !u!1 &7133326799910876005
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +64,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7133326799910876004
 Transform:
@@ -106,11 +104,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 0
+  orthographic size: 17
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -250,7 +248,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 34
   orthographic: 1
