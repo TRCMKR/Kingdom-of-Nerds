@@ -4,41 +4,44 @@ using UnityEngine;
 
 public class EnemyCharging : MonoBehaviour
 {
-    public GameObject player;
-    private Rigidbody2D body;
+    private GameObject _player;
+    private Rigidbody2D _body;
     
     public float chargeForce;
     public float chargePeriod;
     public float chargeDuration;
-    private float timer;
+    private float _timer;
     [Tooltip("<calm>, <charge>")]
     public string status;
 
+    private SpriteRenderer _spriteRenderer;
+
     void Start()
     {
-        body = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        _body = GetComponent<Rigidbody2D>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         status = "calm";
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
+        _timer += Time.deltaTime;
         if (status == "charge")
         {
-            if (timer > chargeDuration)
+            if (_timer > chargeDuration)
             {
-                timer = 0;
+                _timer = 0;
                 status = "calm";
                 ChargeOff();
             }
             return;
         }
 
-        if (timer > chargePeriod)
+        if (_timer > chargePeriod)
         {
-            timer = 0;
+            _timer = 0;
             status = "charge";
             ChargeOn();
         }   
@@ -46,12 +49,17 @@ public class EnemyCharging : MonoBehaviour
 
     void ChargeOn()
     {
-        Vector2 direction = player.transform.position - transform.position;
-        body.velocity = new Vector2(direction.x, direction.y).normalized * chargeForce;
+        Vector2 direction = _player.transform.position - transform.position;
+        if (!_spriteRenderer.flipX && direction.x < 0)
+            _spriteRenderer.flipX = true;
+        else if (_spriteRenderer.flipX && direction.x > 0)
+            _spriteRenderer.flipX = false;
+        
+        _body.velocity = direction.normalized * chargeForce;
     }
 
     void ChargeOff()
     {
-        body.velocity = Vector2.zero;
+        _body.velocity = Vector2.zero;
     }
 }

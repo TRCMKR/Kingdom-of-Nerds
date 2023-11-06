@@ -119996,8 +119996,8 @@ MonoBehaviour:
   - {fileID: 1665897162}
   startTimeBtwSpawns: 3
   numberOfEnemies: 5
-  Enemy1: {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
-  Enemy2: {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
+  enemy1: {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+  enemy2: {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
 --- !u!4 &1456525562
 Transform:
   m_ObjectHideFlags: 0
@@ -120022,6 +120022,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7133326800366787881, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 627919842}
     - target: {fileID: 7133326800531211846, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -120070,10 +120074,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7133326800790301208, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
-      propertyPath: lookAt
-      value: 
-      objectReference: {fileID: 627919842}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92a10fbb543954bce960314adc5b6c37, type: 3}
 --- !u!1 &1665897161

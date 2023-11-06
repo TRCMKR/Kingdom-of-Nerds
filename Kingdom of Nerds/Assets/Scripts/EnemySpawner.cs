@@ -4,48 +4,46 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] spawnEnemy;
+    private List<GameObject> spawnEnemy;
     [SerializeField]
-    private Transform[] spawnPoint;
-    private int randEnemy;
-    private int randPoint;
+    private List<Transform> spawnPoint;
     public float startTimeBtwSpawns;
-    private float timeBtwSpawns;
+    private float _timeBtwSpawns;
     public int numberOfEnemies;
-    private int enemiesNow;
-    public GameObject Enemy1;
-    public GameObject Enemy2;
-    private GameObject Enemy;
+    private int _enemiesNow;
+    public GameObject enemy1;
+    public GameObject enemy2;
+    private GameObject _enemy;
 
     void Start()
     {
-        timeBtwSpawns = startTimeBtwSpawns;
+        _timeBtwSpawns = startTimeBtwSpawns;
     }
     void Update()
     {
-        int randSpawnPoint = Random.Range(0, spawnPoint.Length);
-        randPoint = Random.Range(0, spawnEnemy.Length);
+        int randPoint = Random.Range(0, spawnEnemy.Count);
 
-        if (enemiesNow < numberOfEnemies)
+        if (_enemiesNow < numberOfEnemies)
         {
-            if (timeBtwSpawns < 0)
+            if (_timeBtwSpawns < 0)
             {
 
                 if (randPoint == 0)
                 {
-                    Enemy = Enemy1;
+                    _enemy = enemy1;
+                    _enemy.transform.position = spawnPoint[randPoint].position;
                 }
                 else
                 {
-                    Enemy = Enemy2;
-                }               
-                Enemy.transform.position = spawnPoint[randSpawnPoint].position;
-                Instantiate(Enemy);
-                timeBtwSpawns = startTimeBtwSpawns;
-                enemiesNow++;
+                    _enemy = enemy2;
+                    _enemy.transform.position = spawnPoint[randPoint].position;
+                }
+                Instantiate(_enemy);
+                _timeBtwSpawns = startTimeBtwSpawns;
+                _enemiesNow++;
             }
 
-            timeBtwSpawns -= Time.deltaTime;
+            _timeBtwSpawns -= Time.deltaTime;
         }
     }
 }

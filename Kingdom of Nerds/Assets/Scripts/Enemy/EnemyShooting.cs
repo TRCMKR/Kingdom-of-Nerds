@@ -4,32 +4,42 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-    public Rigidbody2D body;
-    public GameObject player;
+    // public Rigidbody2D body;
+    private GameObject _player;
+    public float force;
 
     public float period;
-    private float timer;
+    private float _timer;
 
     public GameObject bullet;
-    public Transform bulletPos;
-    
+    private SpriteRenderer _spriteRenderer;
+
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer > period)
+        _timer += Time.deltaTime;
+        if (_timer > period)
         {
-            timer = 0;
+            _timer = 0;
             Shoot();
         }
     }
 
     void Shoot()
     {
-        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        Rigidbody2D bulletBody = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<Rigidbody2D>();
+        Vector2 direction = _player.transform.position - transform.position;
+        
+        if (!_spriteRenderer.flipX && direction.x < 0)
+            _spriteRenderer.flipX = true;
+        else if (_spriteRenderer.flipX && direction.x > 0)
+            _spriteRenderer.flipX = false;
+        
+        bulletBody.AddForce(direction.normalized * force);
     }
 }
