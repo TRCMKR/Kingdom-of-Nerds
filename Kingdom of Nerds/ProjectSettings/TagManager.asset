@@ -7,6 +7,7 @@ TagManager:
   - DumSq
   - EndMenu
   - Enemy
+  - UI
   layers:
   - Default
   - TransparentFX
