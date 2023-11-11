@@ -5,25 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
-    public int hp;
-   
-    public int hpDmg;
-
-    void Start()
+    [SerializeField]
+    private int _hp;
+    public static int hp;
+    public static void takeDamage(int Damage)
     {
-       
-    }
 
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Dummy Square")
+        hp -= Damage;
+        if (hp <= 0)
         {
-            hp -= hpDmg;
-            if (hp == 0)
-            {
-                SceneManager.LoadScene("MainMenu");
-            }
+            SceneManager.LoadScene("MainMenu");
         }
     }
+    void Awake()
+    {
+        hp = _hp;
+    }
+
+
 }
 
