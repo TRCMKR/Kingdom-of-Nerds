@@ -29,21 +29,24 @@ public class PortalLogic : MonoBehaviour
             timeSpent += Time.deltaTime;
             if (timeSpent > 3)
             {
-                timeSpent = 0;
-                switch (sceneName)
+                if (GameObject.FindWithTag("Enemy") == null)
                 {
-                    case "Hub":
-                        SceneManager.LoadScene("Level 1");
-                        break;
-                    case "Level 1":
-                        SceneManager.LoadScene("Level 2");
-                        break;
-                    case "Level 2":
-                        SceneManager.LoadScene("Level 3");
-                        break;
-                    case "Level 3":
-                        EndGame();
-                        break;
+                    timeSpent = 0;
+                    switch (sceneName)
+                    {
+                        case "Hub":
+                            SceneManager.LoadScene("Level 1");
+                            break;
+                        case "Level 1":
+                            SceneManager.LoadScene("Level 2");
+                            break;
+                        case "Level 2":
+                            SceneManager.LoadScene("Level 3");
+                            break;
+                        case "Level 3":
+                            EndGame();
+                            break;
+                    }
                 }
             }
         }
