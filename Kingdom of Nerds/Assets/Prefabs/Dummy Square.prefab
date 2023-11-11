@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -244270387220251406}
   - component: {fileID: 8695451267687750814}
   - component: {fileID: 8055038352488710615}
-  - component: {fileID: 1613180535}
+  - component: {fileID: 4585201559231876537}
   m_Layer: 10
   m_Name: Dummy Square
   m_TagString: Enemy
@@ -134,7 +134,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &1613180535
+--- !u!114 &4585201559231876537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+  healthNow: 10

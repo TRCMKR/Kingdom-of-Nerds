@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDeath : MonoBehaviour
+public class EnemyHP : MonoBehaviour
 {
     public int health = 10;
+    public int healthNow = 10;
 
 
     public void TakeDamage( int damage)
     {
-        health -= damage;
+        healthNow -= damage;
 
-        if (health <= 0)
+        if (healthNow <= 0)
         {
             Die();
         }

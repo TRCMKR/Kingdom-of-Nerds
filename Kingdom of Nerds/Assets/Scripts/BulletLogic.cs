@@ -24,22 +24,13 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Blocking")
-        {
-            DestroyAmmo();
-        }
-        if (collision.gameObject.name == "Dummy Square")
-        {
-            DestroyAmmo();
-            collision.gameObject.GetComponent<EnemyDeath>().TakeDamage(damage);
+        DestroyAmmo();
+        if (collision.gameObject.tag == "Enemy") 
+            collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
         
-        }
-
-
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-       
-    }
+
+   
+
 
 }
