@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool isPaused = false;
+    public static bool isPaused = false;
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
+    public UIController uiController;
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -19,9 +20,9 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    private void Pause()
+    public void Pause()
     {      
-        Time.timeScale = 0f;
+        Time.timeScale = 0f;        
         pausePanel.SetActive(true);
         isPaused = true;
     }
@@ -35,11 +36,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
+        uiController.HideUI();
         settingsPanel.SetActive(true);
     }
 
     public void OpenControls()
     {
+        uiController.HideUI();
         controlsPanel.SetActive(true);
     }
 
