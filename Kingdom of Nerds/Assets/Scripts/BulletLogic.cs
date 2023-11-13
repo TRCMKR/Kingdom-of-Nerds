@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
-    
     public float destroyTime;
     public int damage = 2;
-
-
-
+    private bool hasCollided;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +22,11 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyAmmo();
-        if (collision.gameObject.tag == "Enemy") 
-            collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
+        if (hasCollided) return;
         
+        DestroyAmmo();
+        if (collision.gameObject.CompareTag("Enemy"))
+            collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
+        hasCollided = true;
     }
-
-   
-
-
 }

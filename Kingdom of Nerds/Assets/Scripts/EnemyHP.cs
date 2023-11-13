@@ -1,10 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    public int health = 10;
+    public int maxHealth = 10;
     public int healthNow = 10;
 
 
@@ -20,6 +19,7 @@ public class EnemyHP : MonoBehaviour
 
     void Die()
     {
+        EnemySpawner.EnemiesNow--;
         Destroy(gameObject);
     }
 }

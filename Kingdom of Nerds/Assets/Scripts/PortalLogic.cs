@@ -5,48 +5,45 @@ using UnityEngine.SceneManagement;
 
 public class PortalLogic : MonoBehaviour
 {
-    public string playerName;
     private string sceneName;
     private double timeSpent;
-    private bool playerInPortal;
+    public double timeToTeleport;
+    // private bool playerInPortal;
     void Awake()
     {
         sceneName = SceneManager.GetActiveScene().name;
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.name == playerName)
+        if (other.CompareTag("Player"))
         {
-            playerInPortal = false;
+            // playerInPortal = false;
             timeSpent = 0;
         }
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.name == playerName)
+        if (other.CompareTag("Player"))
         {
-            playerInPortal = true;
+            // playerInPortal = true;
             timeSpent += Time.deltaTime;
-            if (timeSpent > 3)
+            if (timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
             {
-                if (GameObject.FindWithTag("Enemy") == null)
+                timeSpent = 0;
+                switch (sceneName)
                 {
-                    timeSpent = 0;
-                    switch (sceneName)
-                    {
-                        case "Hub":
-                            SceneManager.LoadScene("Level 1");
-                            break;
-                        case "Level 1":
-                            SceneManager.LoadScene("Level 2");
-                            break;
-                        case "Level 2":
-                            SceneManager.LoadScene("Level 3");
-                            break;
-                        case "Level 3":
-                            EndGame();
-                            break;
-                    }
+                    case "Hub":
+                        SceneManager.LoadScene("Level 1");
+                        break;
+                    case "Level 1":
+                        SceneManager.LoadScene("Level 2");
+                        break;
+                    case "Level 2":
+                        SceneManager.LoadScene("Level 3");
+                        break;
+                    case "Level 3":
+                        EndGame();
+                        break;
                 }
             }
         }
