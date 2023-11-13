@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -5231709664412779070}
   - component: {fileID: 2783725123909599372}
   - component: {fileID: 481073427597399927}
+  - component: {fileID: -2168971578465979653}
+  - component: {fileID: 8372662604557496757}
   m_Layer: 10
   m_Name: Enemy 2
   m_TagString: Enemy
@@ -99,8 +101,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 6
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -146,6 +148,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fdfc99e88cc1e6c8f9d196955ee95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
-  period: 1
+  force: 300
+  period: 0.5
   bullet: {fileID: 8898723722757511942, guid: 2cce9172a452b4bac8067febf3149aff, type: 3}
+--- !u!114 &-2168971578465979653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727414561320306023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 840af74e0de224649bcf3c972f1f11dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyCollisionDamage: 1
+--- !u!114 &8372662604557496757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3727414561320306023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aff6a41d2af154f438a0fc73b2a891b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  healthNow: 10

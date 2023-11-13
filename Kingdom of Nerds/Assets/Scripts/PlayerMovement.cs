@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        // _direction = moveVector;
+        _direction = moveVector;
 
         // body.velocity = _direction * walkSpeed * Time.deltaTime;
         

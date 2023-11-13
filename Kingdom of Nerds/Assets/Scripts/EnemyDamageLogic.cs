@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class EnemyDamageLogic : MonoBehaviour
 {
-    public int enemyCollisionDamage;
+    public int enemyCollisionDamage = 1;
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        GameObject collisionGameObject = collision.gameObject;
+        if (collisionGameObject.name == "Player")
         {
-            HP.takeDamage(enemyCollisionDamage);
+            collisionGameObject.GetComponent<HP>().TakeDamage(enemyCollisionDamage);
         }
     }
 }

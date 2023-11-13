@@ -5,23 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
-    [SerializeField]
-    private int _hp;
-    public static int hp;
-    public static void takeDamage(int Damage)
+    public int maxHealth;
+    public int health;
+    public void TakeDamage(int damage)
     {
 
-        hp -= Damage;
-        if (hp <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             SceneManager.LoadScene("MainMenu");
         }
     }
     void Awake()
     {
-        hp = _hp;
+        maxHealth = health;
     }
-
-
+    
 }
 

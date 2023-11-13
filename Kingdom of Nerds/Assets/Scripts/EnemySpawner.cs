@@ -7,44 +7,46 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> spawnEnemy;
     [SerializeField]
     private List<Transform> spawnPoint;
+    
     public float startTimeBtwSpawns;
     private float _timeBtwSpawns;
-    public int numberOfEnemies;
-    private int _enemiesNow;
-    public GameObject enemy1;
-    public GameObject enemy2;
+    
+    public int maxEnemies;
+    public static int EnemiesNow;
+    private int _enemiesSpawned;
+    
     private GameObject _enemy;
+
+    public bool spawn = true;
 
     void Start()
     {
+        EnemiesNow = GameObject.FindGameObjectsWithTag("Enemy").Length;
         _timeBtwSpawns = startTimeBtwSpawns;
     }
     void Update()
     {
-        int randPoint = Random.Range(0, spawnEnemy.Count);
-
-        if (_enemiesNow < numberOfEnemies)
+        int randEnemy = Random.Range(0, spawnEnemy.Count);
+        
+        if (spawn && _enemiesSpawned < maxEnemies)
         {
             if (_timeBtwSpawns < 0)
             {
-
-                if (randPoint == 0)
-                {
-                    _enemy = enemy1;
-                    _enemy.transform.position = spawnPoint[randPoint].position;
-                }
-                else
-                {
-                    _enemy = enemy2;
-                    _enemy.transform.position = spawnPoint[randPoint].position;
-                }
+                _enemy = spawnEnemy[randEnemy];
+                _enemy.transform.position = spawnPoint[randEnemy].position; // пока так
                 Instantiate(_enemy);
+                _enemiesSpawned++;
+                EnemiesNow++;
+                
                 _timeBtwSpawns = startTimeBtwSpawns;
-                _enemiesNow++;
             }
 
             _timeBtwSpawns -= Time.deltaTime;
+
+            if (_enemiesSpawned == maxEnemies)
+                spawn = false;
         }
+
     }
 }
 

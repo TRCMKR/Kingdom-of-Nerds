@@ -15,13 +15,13 @@ public class UIController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<HP>();
         playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
-        healthBar.maxValue = playerHP.hp;
+        healthBar.maxValue = playerHP.health;
         ammoBar.maxValue = playerGun.currentAmmo;
     }
 
     void Update()
     {
-        healthBar.value = playerHP.hp;
+        healthBar.value = playerHP.health;
         ammoBar.value = playerGun.currentAmmo;
     }
 

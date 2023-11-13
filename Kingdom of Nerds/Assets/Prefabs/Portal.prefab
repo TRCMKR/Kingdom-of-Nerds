@@ -93,4 +93,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45469d490c3c21c4db855ea3c9b41b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: Player
+  timeToTeleport: 2
