@@ -13,8 +13,9 @@ public class HP : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            SceneManager.LoadScene("MainMenu");
+            DeathScreen.Show();
         }
+        UIController.UpdateHealth();
     }
     void Awake()
     {

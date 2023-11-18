@@ -38,6 +38,7 @@ public class GunLogic : MonoBehaviour
                 bullet.AddForce(difference.normalized*speed);
                 timeshot = startTime;
                 currentAmmo -= 1;
+                UIController.TakeAmmo();
             }
         }
         else
