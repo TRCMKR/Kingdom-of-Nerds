@@ -45,4 +45,5 @@ public class GunLogic : MonoBehaviour
             timeshot -= Time.deltaTime;
         }
     }
+   
 }
