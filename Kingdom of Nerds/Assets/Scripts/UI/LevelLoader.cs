@@ -14,7 +14,7 @@ public class LevelLoader : MonoBehaviour
     public TMP_Text progressText;
     void Awake()
     {
-        loadAction += Load;
+        loadAction = Load;
     }
 
     public static void LoadLevel(string sceneName)

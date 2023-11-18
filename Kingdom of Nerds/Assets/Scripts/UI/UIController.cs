@@ -33,11 +33,11 @@ public class UIController : MonoBehaviour
             Instantiate(ammoSprite, ammoDisplay);
         }
 
-        hideAction += Hide;
-        showAction += Show;
-        updateHealth += RefreshHealth;
-        takeAmmo += RemoveBullet;
-        addAmmo += AddBullet;
+        hideAction = Hide;
+        showAction = Show;
+        updateHealth = RefreshHealth;
+        takeAmmo = RemoveBullet;
+        addAmmo = AddBullet;
         
     }
 
