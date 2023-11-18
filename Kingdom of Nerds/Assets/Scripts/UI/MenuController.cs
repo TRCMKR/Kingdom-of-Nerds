@@ -9,7 +9,7 @@ public class MenuController : MonoBehaviour
     public GameObject controlsPanel;
     public void PlayGame()
     {
-        SceneManager.LoadScene("Hub");
+        LevelLoader.LoadLevel("Hub");
     }
 
     public void ExitGame()

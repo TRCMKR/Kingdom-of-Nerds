@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
-    public UIController uiController;
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -18,6 +17,7 @@ public class PauseMenu : MonoBehaviour
             if (!isPaused) Pause();
             else Resume();
         }
+        if (Keyboard.current.rKey.wasPressedThisFrame) UIController.AddAmmo();//for testing
     }
 
     public void Pause()
@@ -36,13 +36,13 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        uiController.HideUI();
+        UIController.HideUI();
         settingsPanel.SetActive(true);
     }
 
     public void OpenControls()
     {
-        uiController.HideUI();
+        UIController.HideUI();
         controlsPanel.SetActive(true);
     }
 

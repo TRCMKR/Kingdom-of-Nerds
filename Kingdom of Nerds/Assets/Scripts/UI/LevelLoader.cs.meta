@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3d554d43e6e698240b407986876ab4f6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - loadngScreen: {fileID: 1809684890331998890, guid: c76f21e64af40e64990d49e76755a89f, type: 3}
+  - progressBar: {instanceID: 0}
+  - progressText: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
