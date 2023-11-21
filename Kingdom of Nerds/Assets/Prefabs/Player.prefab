@@ -124,27 +124,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 3782609058534330020}
   spriteRenderer: {fileID: 4924946643477058237}
-  _acceleration: 300
+  _acceleration: 80
   _minSpeed: 0.6
-  _maxWalkSpeed: 16
-  _smoothing: 0.5
+  _maxWalkSpeed: 20
+  _smoothing: 0.3
   _slowFactor:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.008230664
-      value: 0.9503214
-      inSlope: 0.03656965
-      outSlope: 0.03656965
+      time: -0.009875456
+      value: 1.1562586
+      inSlope: 0.009118064
+      outSlope: 0.009118064
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0087643
-      value: 0.9875125
-      inSlope: 0.03656965
-      outSlope: 0.03656965
+      time: 0.99887276
+      value: 1.1654564
+      inSlope: 0.009118064
+      outSlope: 0.009118064
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
