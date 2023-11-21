@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 3782609058534330020}
   spriteRenderer: {fileID: 4924946643477058237}
-  _acceleration: 80
+  _acceleration: 5
   _minSpeed: 0.6
   _maxWalkSpeed: 20
   _smoothing: 0.3
