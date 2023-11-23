@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,12 @@ public class HP : MonoBehaviour
 {
     public int maxHealth;
     public int health;
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
+
     public void TakeDamage(int damage)
     {
 

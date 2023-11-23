@@ -10,7 +10,6 @@ public class UIController : MonoBehaviour
     private HP playerHP;
     private GunLogic playerGun;
     public Slider healthBar;
-    
 
     public Transform ammoDisplay;
     public GameObject ammoSprite;
@@ -28,7 +27,7 @@ public class UIController : MonoBehaviour
         playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
         healthBar.maxValue = playerHP.health;
         
-        for (int i = 0; i < 12; i++)//need maxAmmo
+        for (int i = 0; i < playerGun.maxAmmo; i++)//need maxAmmo
         {
             Instantiate(ammoSprite, ammoDisplay);
         }
@@ -38,7 +37,6 @@ public class UIController : MonoBehaviour
         updateHealth = RefreshHealth;
         takeAmmo = RemoveBullet;
         addAmmo = AddBullet;
-        
     }
 
     #region Static Actions
@@ -95,9 +93,9 @@ public class UIController : MonoBehaviour
 
     private void AddBullet()
     {
-        if (playerGun.currentAmmo < 12)//need maxAmmo
+        if (playerGun.currentAmmo <= playerGun.maxAmmo)
         {
-            playerGun.currentAmmo++;
+            //playerGun.currentAmmo++;
             Instantiate(ammoSprite, ammoDisplay);
         }
     }

@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class DeathScreen : MonoBehaviour
 {
     private static Action showDeathScreen;
-    public GameObject deathPanel;
+    private GameObject _deathPanel;
+    
     void Awake()
     {
-        showDeathScreen += ShowDeathPanel;
+        showDeathScreen = ShowDeathPanel;
+        _deathPanel = transform.Find("DeathPanel").gameObject;
     }
 
     public static void Show()
@@ -21,7 +23,7 @@ public class DeathScreen : MonoBehaviour
     private void ShowDeathPanel()
     {
         Time.timeScale = 0f;
-        deathPanel.SetActive(true);
+        _deathPanel.SetActive(true);
         UIController.HideUI();
     }
 

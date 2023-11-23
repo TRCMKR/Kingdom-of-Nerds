@@ -12,6 +12,7 @@ public class GunLogic : MonoBehaviour
     public float timeshot;
     public float startTime;
     public float speed = 10;
+    public int maxAmmo = 6;
     public int currentAmmo = 6;
 
 
@@ -20,6 +21,7 @@ public class GunLogic : MonoBehaviour
     void Start()
     {
         _mainCamera = Camera.main;
+        currentAmmo = maxAmmo;
     }
 
     
