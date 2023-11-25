@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public Slider healthBar;
+
     private GameObject player;
     private HP playerHP;
     private GunLogic playerGun;
-    public Slider healthBar;
 
     public Transform ammoDisplay;
     public GameObject ammoSprite;
@@ -22,12 +23,14 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerHP = player.GetComponent<HP>();
+        player = GameObject.FindGameObjectWithTag("Player");   
         playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
-        healthBar.maxValue = playerHP.health;
+        playerHP = player.GetComponent<HP>();
+
+        healthBar.maxValue = playerHP.maxHealth;
+        healthBar.value = playerHP.health;  
         
-        for (int i = 0; i < playerGun.maxAmmo; i++)//need maxAmmo
+        for (int i = 0; i < playerGun.maxAmmo; i++)
         {
             Instantiate(ammoSprite, ammoDisplay);
         }
@@ -95,7 +98,6 @@ public class UIController : MonoBehaviour
     {
         if (playerGun.currentAmmo <= playerGun.maxAmmo)
         {
-            //playerGun.currentAmmo++;
             Instantiate(ammoSprite, ammoDisplay);
         }
     }

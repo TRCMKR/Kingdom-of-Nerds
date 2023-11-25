@@ -7,17 +7,17 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
+    private bool isInSettings = false;
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame && !isInSettings)
         {
             if (!isPaused) Pause();
             else Resume();
         }
-        if (Keyboard.current.rKey.wasPressedThisFrame) UIController.AddAmmo();//for testing
     }
 
     public void Pause()
@@ -37,13 +37,29 @@ public class PauseMenu : MonoBehaviour
     public void OpenSettings()
     {
         UIController.HideUI();
+        isInSettings = true;
         settingsPanel.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        UIController.ShowUI();
+        isInSettings = false;
+        settingsPanel.SetActive(false);
     }
 
     public void OpenControls()
     {
         UIController.HideUI();
+        isInSettings = true;
         controlsPanel.SetActive(true);
+    }
+
+    public void CloseControls()
+    {
+        UIController.ShowUI();
+        isInSettings = false;
+        controlsPanel.SetActive(false);
     }
 
     public void Exit()
