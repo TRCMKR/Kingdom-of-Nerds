@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Threading;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GunLogic : MonoBehaviour
@@ -12,6 +13,7 @@ public class GunLogic : MonoBehaviour
     public float timeshot;
     public float startTime;
     public float speed = 10;
+    public float bulletSpread = 7;
     public int maxAmmo = 6;
     public int currentAmmo = 6;
 
@@ -27,17 +29,23 @@ public class GunLogic : MonoBehaviour
     
     void Update()
     {
-        Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float rotationAngle= Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
-       
-
         if (timeshot < 0)
         {
-            if (Input.GetMouseButtonDown(0) && currentAmmo > 0) 
+            // Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            // float rotationAngle= Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
+
+            if (Input.GetMouseButton(0) && currentAmmo > 0)
             {
+                Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+                float angle = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
+                float actualAngle = angle + Random.Range(-bulletSpread, bulletSpread + 1);
+                Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * difference.normalized;
+                
+                Debug.Log(direction);
+                
                 var bullet = Instantiate(ammo, shootDirection.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-                bullet.rotation = rotationAngle;
-                bullet.AddForce(difference.normalized*speed);
+                bullet.rotation = actualAngle;
+                bullet.AddForce(direction * speed);
                 timeshot = startTime;
                 currentAmmo -= 1;
                 UIController.TakeAmmo();
@@ -48,5 +56,9 @@ public class GunLogic : MonoBehaviour
             timeshot -= Time.deltaTime;
         }
     }
-   
+
+    void OnMouseDown()
+    {
+        
+    }
 }

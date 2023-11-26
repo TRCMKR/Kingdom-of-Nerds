@@ -116032,10 +116032,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1097680508, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: hp
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -116085,7 +116081,7 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: currentAmmo
+      propertyPath: maxAmmo
       value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []

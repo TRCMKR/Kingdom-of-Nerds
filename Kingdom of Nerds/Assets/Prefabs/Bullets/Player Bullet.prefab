@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0.4
-  damage: 10
+  damage: 2
   outline: {fileID: 2100000, guid: 2656f7cda3c0e4bc18a3be575136f78b, type: 2}
 --- !u!50 &-8193309607033113681
 Rigidbody2D:

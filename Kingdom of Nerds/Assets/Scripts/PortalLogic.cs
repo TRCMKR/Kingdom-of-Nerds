@@ -5,20 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PortalLogic : MonoBehaviour
 {
-    private string sceneName;
-    private double timeSpent;
+    private string _sceneName;
+    private string _nextSceneName;
+    private double _timeSpent;
     public double timeToTeleport;
     // private bool playerInPortal;
     void Awake()
     {
-        sceneName = SceneManager.GetActiveScene().name;
+        _sceneName = SceneManager.GetActiveScene().name;
     }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             // playerInPortal = false;
-            timeSpent = 0;
+            _timeSpent = 0;
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -26,52 +27,21 @@ public class PortalLogic : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // playerInPortal = true;
-            timeSpent += Time.deltaTime;
-            if (timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
+            _timeSpent += Time.deltaTime;
+            if (_timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
             {
-                timeSpent = 0;
-                int rand1 = Random.Range(0, 2);
-                int rand2 = Random.Range(0, 2);
-                int rand3 = Random.Range(0, 2);
-                switch (sceneName)
-                {
-                    case "Hub":
-                        if (rand1 == 0)
-                        {
-                            SceneManager.LoadScene("Level 1.1");
-                            break;
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene("Level 1.2");
-                            break;
-                        }
-                    case "Level 1":
-                        if (rand2 == 0)
-                        {
-                            SceneManager.LoadScene("Level 2.1");
-                            break;
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene("Level 2.2");
-                            break;
-                        }
-                    case "Level 2":
-                        if (rand3 == 0)
-                        {
-                            SceneManager.LoadScene("Level 3.1");
-                            break;
-                        }
-                        else
-                        {
-                            SceneManager.LoadScene("Level 3.2");
-                            break;
-                        }
-                    case "Level 3":
-                        EndGame();
-                        break;
-                }
+                _timeSpent = 0;
+                int randomNum = Random.Range(1, 3);
+                if (_sceneName.Contains("Hub"))
+                    _nextSceneName = "Level 1.";
+                else if (_sceneName.Contains("Level 1"))
+                    _nextSceneName = "Level 2.";
+                else if (_sceneName.Contains("Level 2"))
+                    _nextSceneName = "Level 3.";
+                else
+                    EndGame();
+
+                SceneManager.LoadScene(_nextSceneName + randomNum);
             }
         }
     }
