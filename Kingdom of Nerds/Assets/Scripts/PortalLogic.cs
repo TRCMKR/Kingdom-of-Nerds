@@ -30,17 +30,44 @@ public class PortalLogic : MonoBehaviour
             if (timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
             {
                 timeSpent = 0;
+                int rand1 = Random.Range(0, 2);
+                int rand2 = Random.Range(0, 2);
+                int rand3 = Random.Range(0, 2);
                 switch (sceneName)
                 {
                     case "Hub":
-                        SceneManager.LoadScene("Level 1");
-                        break;
+                        if (rand1 == 0)
+                        {
+                            SceneManager.LoadScene("Level 1.1");
+                            break;
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("Level 1.2");
+                            break;
+                        }
                     case "Level 1":
-                        SceneManager.LoadScene("Level 2");
-                        break;
+                        if (rand2 == 0)
+                        {
+                            SceneManager.LoadScene("Level 2.1");
+                            break;
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("Level 2.2");
+                            break;
+                        }
                     case "Level 2":
-                        SceneManager.LoadScene("Level 3");
-                        break;
+                        if (rand3 == 0)
+                        {
+                            SceneManager.LoadScene("Level 3.1");
+                            break;
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("Level 3.2");
+                            break;
+                        }
                     case "Level 3":
                         EndGame();
                         break;
