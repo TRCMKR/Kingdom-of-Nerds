@@ -31,9 +31,6 @@ public class GunLogic : MonoBehaviour
     {
         if (timeshot < 0)
         {
-            // Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            // float rotationAngle= Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
-
             if (Input.GetMouseButton(0) && currentAmmo > 0)
             {
                 Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
@@ -41,10 +38,10 @@ public class GunLogic : MonoBehaviour
                 float actualAngle = angle + Random.Range(-bulletSpread, bulletSpread + 1);
                 Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * difference.normalized;
                 
-                Debug.Log(direction);
-                
-                var bullet = Instantiate(ammo, shootDirection.position, Quaternion.identity).GetComponent<Rigidbody2D>();
-                bullet.rotation = actualAngle;
+                float vectorAngle = -Vector2.SignedAngle(direction, Vector2.right);
+
+                var bullet = Instantiate(ammo, shootDirection.position, Quaternion.AngleAxis(vectorAngle, Vector3.forward)).GetComponent<Rigidbody2D>();
+
                 bullet.AddForce(direction * speed);
                 timeshot = startTime;
                 currentAmmo -= 1;
@@ -55,10 +52,5 @@ public class GunLogic : MonoBehaviour
         {
             timeshot -= Time.deltaTime;
         }
-    }
-
-    void OnMouseDown()
-    {
-        
     }
 }

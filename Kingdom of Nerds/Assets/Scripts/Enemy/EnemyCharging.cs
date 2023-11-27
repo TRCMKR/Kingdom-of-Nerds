@@ -50,6 +50,7 @@ public class EnemyCharging : MonoBehaviour
     void ChargeOn()
     {
         Vector2 direction = _player.transform.position - transform.position;
+        
         if (!_spriteRenderer.flipX && direction.x < 0)
             _spriteRenderer.flipX = true;
         else if (_spriteRenderer.flipX && direction.x > 0)
