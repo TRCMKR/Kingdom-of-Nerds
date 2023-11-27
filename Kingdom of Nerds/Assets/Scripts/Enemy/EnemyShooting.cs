@@ -7,6 +7,7 @@ public class EnemyShooting : MonoBehaviour
     // public Rigidbody2D body;
     private GameObject _player;
     public float force;
+    public float range;
 
     public List<Sprite> sprites;
 
@@ -42,7 +43,7 @@ public class EnemyShooting : MonoBehaviour
         float actualAngle = angle + Random.Range(-bulletSpread, bulletSpread + 1);
         Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * difference.normalized;
 
-        int sprite = 2 - (int)(Mathf.Abs(actualAngle) / 60);
+        int sprite = 2 - (int)(Mathf.Abs(angle) / 60);
 
         if (sprite != _previousSprite)
             GetComponent<SpriteRenderer>().sprite = sprites[sprite];
@@ -55,5 +56,6 @@ public class EnemyShooting : MonoBehaviour
         bulletBody.AddForce(direction * force);
 
         _previousSprite = sprite;
+        Destroy(bulletBody.gameObject, range / force);
     }
 }

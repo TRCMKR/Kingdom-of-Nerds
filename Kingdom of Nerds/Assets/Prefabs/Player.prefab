@@ -323,8 +323,8 @@ MonoBehaviour:
   startTime: 0.3
   speed: 300
   bulletSpread: 7
-  maxAmmo: 6
-  currentAmmo: 6
+  maxAmmo: 10
+  currentAmmo: 10
 --- !u!1 &7931997008423799196
 GameObject:
   m_ObjectHideFlags: 0

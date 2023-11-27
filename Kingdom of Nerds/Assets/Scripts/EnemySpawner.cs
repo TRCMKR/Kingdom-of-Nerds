@@ -5,13 +5,13 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> spawnEnemy;
-    [SerializeField]
-    private List<Transform> spawnPoint;
+    private List<Transform> _spawnPoint = new List<Transform>();
 
     public float startTimeBtwSpawns;
     private float _timeBtwSpawns;
 
     public int maxEnemies;
+    public int incEnemies;
     public static int EnemiesNow;
     private int _enemiesSpawned;
 
@@ -28,18 +28,23 @@ public class EnemySpawner : MonoBehaviour
     {
         EnemiesNow = GameObject.FindGameObjectsWithTag("Enemy").Length;
         _timeBtwSpawns = startTimeBtwSpawns;
+        
+        foreach (Transform child in gameObject.transform)
+        {
+            _spawnPoint.Add(child);
+        }
     }
     void Update()
     {
-        int randEnemy = Random.Range(0, spawnEnemy.Count);
-
-        
         if (enemiesWaves && enemiesWavesPassed < maxWaves)
         {
             if (spawn && _enemiesSpawned < maxEnemies)
             {
                 if (_timeBtwSpawns < 0)
                 {
+                    int randEnemy = Random.Range(0, spawnEnemy.Count);
+                    int randPoint = Random.Range(0, _spawnPoint.Count);
+                    
                     int randomDifficulty = Random.Range(1, 101);
                     _enemy = spawnEnemy[randEnemy];
                     
@@ -47,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
                     {
                         Debug.Log(1);
                     }
-                    else if (randomDifficulty > 70 && randomDifficulty <  91)
+                    else if (randomDifficulty <  91)
                     {
                         Debug.Log(2);
                     }
@@ -55,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
                     {
                         Debug.Log(3);
                     }
-                    _enemy.transform.position = spawnPoint[randEnemy].position; // пока так
+                    _enemy.transform.position = _spawnPoint[randPoint].position; // пока так
                     Instantiate(_enemy);
                     _enemiesSpawned++;
                     EnemiesNow++;
@@ -81,7 +86,7 @@ public class EnemySpawner : MonoBehaviour
             enemiesWavesPassed++;
             spawn = true;
             _enemiesSpawned = 0;
-            maxEnemies++; //с каждой волной становится на одного врага больше
+            maxEnemies += incEnemies; //с каждой волной становится на одного врага больше
         }
     }
 }

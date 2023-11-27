@@ -32,7 +32,7 @@ public class EnemyCharging : MonoBehaviour
         {
             if (_timer > chargeDuration)
             {
-                _timer = 0;
+                _timer = Random.value;
                 status = "calm";
                 ChargeOff();
             }
