@@ -10,6 +10,8 @@ public class EnemiesData : ScriptableObject
     [Serializable]
     public class Enemy1Data
     {
+        // public string Name;
+        // public int Level;
         public int MaxHealth;
         public float ChargeForce;
         public float ChargePeriod;
@@ -18,6 +20,8 @@ public class EnemiesData : ScriptableObject
     [Serializable]
     public class Enemy2Data
     {
+        // public string Name;
+        // public int Level;
         public int MaxHealth;
         public float BulletForce;
         public float BulletPeriod;
