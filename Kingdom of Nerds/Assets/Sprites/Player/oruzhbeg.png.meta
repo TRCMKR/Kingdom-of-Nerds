@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 76ed7b0ef6bf2d84bb4fc7e9a12b078f
+guid: 3d84472807f3147119019d75c4ef7c7f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tilemap-Player-Walking_0
+      name: oruzhbeg_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df3d43acce57e428d87f8e0d8e725702
-      internalID: 1200456164
+      spriteID: 2627dc8c84e834836993c64b35b5b907
+      internalID: -570786625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap-Player-Walking_1
+      name: oruzhbeg_1
       rect:
         serializedVersion: 2
         x: 256
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 216c1d17342b141a3812cefb6e6be22d
-      internalID: 1720380024
+      spriteID: 9006ead211c744a7cbdb765ac6726bc3
+      internalID: 78135908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap-Player-Walking_2
+      name: oruzhbeg_2
       rect:
         serializedVersion: 2
         x: 512
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f352ab60b54b4a4eb8dee689e22ef84
-      internalID: 283684392
+      spriteID: 1bc581f4281c5479e9fc5acadc09250c
+      internalID: -1882817468
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap-Player-Walking_3
+      name: oruzhbeg_3
       rect:
         serializedVersion: 2
         x: 768
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4073addf444934651a05219568f86e8a
-      internalID: 1176571867
+      spriteID: 33de0156b338c4fdea807652a271d06f
+      internalID: 616613440
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tilemap-Player-Walking_4
+      name: oruzhbeg_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -215,8 +215,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c816303bb8f1649a5969fa8b127d1355
-      internalID: -1630266233
+      spriteID: 3e425317aba38457d9e5b155db183285
+      internalID: -1967289335
       vertices: []
       indices: 
       edges: []
@@ -232,11 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Tilemap-Player-Walking_0: 1200456164
-      Tilemap-Player-Walking_1: 1720380024
-      Tilemap-Player-Walking_2: 283684392
-      Tilemap-Player-Walking_3: 1176571867
-      Tilemap-Player-Walking_4: -1630266233
+      oruzhbeg_0: -570786625
+      oruzhbeg_1: 78135908
+      oruzhbeg_3: 616613440
+      oruzhbeg_2: -1882817468
+      oruzhbeg_4: -1967289335
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

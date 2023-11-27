@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D body;
     public float walkSpeed;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
     private Vector2 _direction;
 
     private CustomInput input = null;
@@ -98,5 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = body.velocity.normalized * _maxWalkSpeed;
         }
+        
+        animator.SetFloat("Speed", body.velocity.magnitude);
     }
 }

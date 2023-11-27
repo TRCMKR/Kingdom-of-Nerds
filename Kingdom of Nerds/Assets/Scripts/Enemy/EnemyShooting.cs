@@ -8,12 +8,15 @@ public class EnemyShooting : MonoBehaviour
     private GameObject _player;
     public float force;
 
+    public List<Sprite> sprites;
+
     public float period;
     public float bulletSpread = 10;
     private float _timer;
 
     public GameObject bullet;
     private SpriteRenderer _spriteRenderer;
+    private int _previousSprite = -1;
 
     void Start()
     {
@@ -38,6 +41,11 @@ public class EnemyShooting : MonoBehaviour
         float angle = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
         float actualAngle = angle + Random.Range(-bulletSpread, bulletSpread + 1);
         Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * difference.normalized;
+
+        int sprite = 2 - (int)(Mathf.Abs(actualAngle) / 60);
+
+        if (sprite != _previousSprite)
+            GetComponent<SpriteRenderer>().sprite = sprites[sprite];
         
         if (!_spriteRenderer.flipX && direction.x < 0)
             _spriteRenderer.flipX = true;
@@ -45,5 +53,7 @@ public class EnemyShooting : MonoBehaviour
             _spriteRenderer.flipX = false;
         
         bulletBody.AddForce(direction * force);
+
+        _previousSprite = sprite;
     }
 }

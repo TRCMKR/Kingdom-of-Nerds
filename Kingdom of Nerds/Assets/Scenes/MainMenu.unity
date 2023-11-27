@@ -809,7 +809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeInTime: 4
-  fadeOutTime: 3
+  fadeOutTime: 0.5
 --- !u!1 &163184812
 GameObject:
   m_ObjectHideFlags: 0
