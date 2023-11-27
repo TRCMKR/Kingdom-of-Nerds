@@ -820,6 +820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 163184813}
   - component: {fileID: 163184814}
+  - component: {fileID: 163184815}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -895,16 +896,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1909822500}
   m_HandleRect: {fileID: 1106986894}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.00001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264494957}
-        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
-        m_MethodName: SetGameVolume
+      - m_Target: {fileID: 163184815}
+        m_TargetAssemblyTypeName: VolumeChange, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -914,6 +915,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &163184815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163184812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7a7e3e36991406f9e273876232f0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 70c0234da679e4293893ef56015411f3, type: 2}
+  parameter: SoundsVol
 --- !u!1 &167909577
 GameObject:
   m_ObjectHideFlags: 0
@@ -5692,6 +5707,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2029466845}
   - component: {fileID: 2029466846}
+  - component: {fileID: 2029466847}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -5767,16 +5783,16 @@ MonoBehaviour:
   m_FillRect: {fileID: 1928422425}
   m_HandleRect: {fileID: 1405526866}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.00001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 264494957}
-        m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
-        m_MethodName: SetMusicVolume
+      - m_Target: {fileID: 2029466847}
+        m_TargetAssemblyTypeName: VolumeChange, Assembly-CSharp
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5786,6 +5802,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2029466847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029466844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7a7e3e36991406f9e273876232f0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 64fc13d3d0c604d7ca42f4fcef1d4f34, type: 2}
+  parameter: MusicVol
 --- !u!1 &2034834467
 GameObject:
   m_ObjectHideFlags: 0

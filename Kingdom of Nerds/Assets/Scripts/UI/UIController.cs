@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -23,16 +24,19 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");   
-        playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
+        player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<HP>();
-
         healthBar.maxValue = playerHP.maxHealth;
-        healthBar.value = playerHP.health;  
-        
-        for (int i = 0; i < playerGun.maxAmmo; i++)
+        healthBar.value = playerHP.health;
+
+
+        if (SceneManager.GetActiveScene().name != "Hub")
         {
-            Instantiate(ammoSprite, ammoDisplay);
+            playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
+            for (int i = 0; i < playerGun.maxAmmo; i++)
+            {
+                Instantiate(ammoSprite, ammoDisplay);
+            }
         }
 
         hideAction = Hide;

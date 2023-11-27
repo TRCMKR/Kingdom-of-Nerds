@@ -119867,11 +119867,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: maxWaves
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: maxEnemies
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: waveNumber
@@ -119883,7 +119883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: startTimeBtwSpawns
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231303, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: m_Name
