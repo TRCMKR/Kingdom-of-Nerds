@@ -32,7 +32,7 @@ public class EnemyCharging : MonoBehaviour
         {
             if (_timer > ChargeDuration)
             {
-                _timer = 0;
+                _timer = Random.value;
                 status = "calm";
                 ChargeOff();
             }
@@ -50,6 +50,7 @@ public class EnemyCharging : MonoBehaviour
     void ChargeOn()
     {
         Vector2 direction = _player.transform.position - transform.position;
+        
         if (!_spriteRenderer.flipX && direction.x < 0)
             _spriteRenderer.flipX = true;
         else if (_spriteRenderer.flipX && direction.x > 0)

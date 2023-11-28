@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 138607218}
   - component: {fileID: 138607219}
   - component: {fileID: 1097680508}
+  - component: {fileID: 2949609116620642486}
+  - component: {fileID: 919353862}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -58,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -850650287
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1200456164, guid: 76ed7b0ef6bf2d84bb4fc7e9a12b078f, type: 3}
+  m_Sprite: {fileID: -570786625, guid: 3d84472807f3147119019d75c4ef7c7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,6 +128,7 @@ MonoBehaviour:
   body: {fileID: 3782609058534330020}
   walkSpeed: 700
   spriteRenderer: {fileID: 4924946643477058237}
+  animator: {fileID: 919353862}
   _acceleration: 130
   _minSpeed: 0.7
   _maxWalkSpeed: 25
@@ -242,6 +245,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 10
+--- !u!81 &2949609116620642486
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+--- !u!95 &919353862
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c55ba38ecd8ad41edbb8a96c4147fb2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5358070357528135777
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,10 +320,11 @@ MonoBehaviour:
   shootDirection: {fileID: 62483684699346316}
   ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
   timeshot: 0
-  startTime: 0.5
+  startTime: 0.3
   speed: 300
-  maxAmmo: 6
-  currentAmmo: 100
+  bulletSpread: 7
+  maxAmmo: 10
+  currentAmmo: 10
 --- !u!1 &7931997008423799196
 GameObject:
   m_ObjectHideFlags: 0

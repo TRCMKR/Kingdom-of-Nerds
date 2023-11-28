@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public Slider healthBar;
+
     private GameObject player;
     private HP playerHP;
     private GunLogic playerGun;
-    public Slider healthBar;
 
     public Transform ammoDisplay;
     public GameObject ammoSprite;
@@ -24,12 +26,17 @@ public class UIController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerHP = player.GetComponent<HP>();
-        playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
-        healthBar.maxValue = playerHP.health;
-        
-        for (int i = 0; i < playerGun.maxAmmo; i++)//need maxAmmo
+        healthBar.maxValue = playerHP.maxHealth;
+        healthBar.value = playerHP.health;
+
+
+        if (SceneManager.GetActiveScene().name != "Hub")
         {
-            Instantiate(ammoSprite, ammoDisplay);
+            playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
+            for (int i = 0; i < playerGun.maxAmmo; i++)
+            {
+                Instantiate(ammoSprite, ammoDisplay);
+            }
         }
 
         hideAction = Hide;
@@ -95,7 +102,6 @@ public class UIController : MonoBehaviour
     {
         if (playerGun.currentAmmo <= playerGun.maxAmmo)
         {
-            //playerGun.currentAmmo++;
             Instantiate(ammoSprite, ammoDisplay);
         }
     }

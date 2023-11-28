@@ -46,6 +46,7 @@ SpriteAtlas:
     packables:
     - {fileID: 2800000, guid: 566721bf8c52a4cad8f65b8523a8f666, type: 3}
     - {fileID: 2800000, guid: db095e003f3baf64395f0a65db19a6d5, type: 3}
+    - {fileID: 2800000, guid: 3376300e88063486b98c1081393e9845, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -103,6 +104,18 @@ SpriteAtlas:
   - {fileID: -1007376580, guid: db095e003f3baf64395f0a65db19a6d5, type: 3}
   - {fileID: 1461888772, guid: db095e003f3baf64395f0a65db19a6d5, type: 3}
   - {fileID: -1996355742, guid: db095e003f3baf64395f0a65db19a6d5, type: 3}
+  - {fileID: 1792285706, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: -1678688454, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: -881230159, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 979834034, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: -384923414, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 1175456936, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 953978669, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: -1179821575, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 342445525, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 1360332779, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: 345195211, guid: 3376300e88063486b98c1081393e9845, type: 3}
+  - {fileID: -1158317351, guid: 3376300e88063486b98c1081393e9845, type: 3}
   - {fileID: 850600143, guid: 566721bf8c52a4cad8f65b8523a8f666, type: 3}
   - {fileID: 889842041, guid: 566721bf8c52a4cad8f65b8523a8f666, type: 3}
   - {fileID: 1299727891, guid: 566721bf8c52a4cad8f65b8523a8f666, type: 3}
@@ -168,6 +181,18 @@ SpriteAtlas:
   - Tilemap-Hub 1_16
   - Tilemap-Hub 1_48
   - Tilemap-Hub 1_17
+  - Basic Forms 64x Grey_11
+  - Basic Forms 64x Grey_10
+  - Basic Forms 64x Grey_8
+  - Basic Forms 64x Grey_9
+  - Basic Forms 64x Grey_0
+  - Basic Forms 64x Grey_1
+  - Basic Forms 64x Grey_2
+  - Basic Forms 64x Grey_3
+  - Basic Forms 64x Grey_4
+  - Basic Forms 64x Grey_5
+  - Basic Forms 64x Grey_6
+  - Basic Forms 64x Grey_7
   - Floor_2
   - Floor_0
   - Floor_1

@@ -5,8 +5,7 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> spawnEnemy;
-    [SerializeField]
-    private List<Transform> spawnPoint;
+    private List<Transform> _spawnPoint = new List<Transform>();
 
     // [SerializeField, Range(1, 3)]
     // private int _level;  // хочу, чтобы у спавнера был уровень
@@ -15,6 +14,7 @@ public class EnemySpawner : MonoBehaviour
     private float _timeBtwSpawns;  // период волны
 
     public int maxEnemies;
+    public int incEnemies;
     public static int EnemiesNow;
     private int _enemiesSpawned;
 
@@ -35,25 +35,31 @@ public class EnemySpawner : MonoBehaviour
         EnemiesNow = GameObject.FindGameObjectsWithTag("Enemy").Length;
         _timeBtwSpawns = startTimeBtwSpawns;
         // _enemyFactory = GameObject.FindGameObjectsWithTag("EnemyFactory");
+        
+        
+        foreach (Transform child in gameObject.transform)
+        {
+            _spawnPoint.Add(child);
+        }
     }
     void Update()
     {
-        int randEnemy = Random.Range(0, spawnEnemy.Count);
-
-        
         if (enemiesWaves && enemiesWavesPassed < maxWaves)
         {
             if (spawn && _enemiesSpawned < maxEnemies)
             {
                 if (_timeBtwSpawns < 0)
                 {
+                    int randEnemy = Random.Range(0, spawnEnemy.Count);
+                    int randPoint = Random.Range(0, _spawnPoint.Count);
+                    
                     int randomDifficulty = Random.Range(1, 101);
                     // _enemy = spawnEnemy[randEnemy];
                     if (randomDifficulty < 71)
                     {
                         _enemy = _enemyFactory.CreateEnemy(Random.Range(1, 3), 1, spawnPoint[randEnemy].position);
                     }
-                    else if (randomDifficulty > 70 && randomDifficulty <  91)
+                    else if (randomDifficulty <  91)
                     {
                         _enemy = _enemyFactory.CreateEnemy(Random.Range(1, 3), 2, spawnPoint[randEnemy].position);
                     }
@@ -87,7 +93,7 @@ public class EnemySpawner : MonoBehaviour
             enemiesWavesPassed++;
             spawn = true;
             _enemiesSpawned = 0;
-            maxEnemies++; //с каждой волной становится на одного врага больше
+            maxEnemies += incEnemies; //с каждой волной становится на одного врага больше
         }
     }
 }

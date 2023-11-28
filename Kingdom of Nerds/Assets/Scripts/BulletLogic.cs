@@ -8,33 +8,39 @@ public class BulletLogic : MonoBehaviour
 {
     public float destroyTime;
     public int damage = 2;
-    private bool hasCollided;
+    private bool _hasCollided;
     public Material outline;
+
+    private CircleCollider2D _pickUpArea;
+    private BoxCollider2D _bulletCollider;
     
     // Start is called before the first frame update
     void Start()
     {
+        _pickUpArea = GetComponent<CircleCollider2D>();
+        _bulletCollider = GetComponent<BoxCollider2D>();
+        _pickUpArea.enabled = false;
         Invoke(nameof(ToNerf), destroyTime);
     }
 
     private void ToNerf()
     {
-        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        _bulletCollider.enabled = false;
+        _pickUpArea.enabled = true;
         gameObject.layer = 11;
-        gameObject.GetComponent<SpriteRenderer>().sortingLayerName = "Nerf Bullets";
-        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        gameObject.GetComponent<SpriteRenderer>().material = outline;
+        GetComponent<SpriteRenderer>().sortingLayerName = "Nerf Bullets";
+        GetComponent<SpriteRenderer>().material = outline;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (hasCollided) return;
+        if (_hasCollided) return;
 
         ToNerf();
         if (collision.gameObject.CompareTag("Enemy"))
             collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
-        hasCollided = true;
+        _hasCollided = true;
     }
     public void PickUp()
     {
