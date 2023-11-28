@@ -92,8 +92,6 @@ public class PlayerMovement : MonoBehaviour
             body.velocity = body.velocity.normalized * _maxWalkSpeed;
         }
 
-        Debug.Log(body.velocity - oldVelocity);
-        
         animator.SetFloat("Speed", body.velocity.magnitude);
     }
 }

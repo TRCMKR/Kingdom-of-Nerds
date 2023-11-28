@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602166363885794714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.11528, y: 10.822165, z: -0.019251935}
+  m_LocalPosition: {x: 24.11528, y: 5.9421644, z: -0.019251935}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b588c473fb964a78eaba1ed2f6a59c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChargeForce: 45
+  ChargeForce: 40
   ChargePeriod: 2
   ChargeDuration: 0.2
   status: 
@@ -177,5 +177,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff6a41d2af154f438a0fc73b2a891b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 8
+  maxHealth: 6
   healthNow: 10

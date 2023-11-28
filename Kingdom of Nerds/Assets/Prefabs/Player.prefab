@@ -129,26 +129,26 @@ MonoBehaviour:
   spriteRenderer: {fileID: 4924946643477058237}
   animator: {fileID: 919353862}
   _acceleration: 5
-  _minSpeed: 0.6
-  _maxWalkSpeed: 20
-  _smoothing: 0.3
+  _minSpeed: 0.2
+  _maxWalkSpeed: 18
+  _smoothing: 0.1
   _slowFactor:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: -0.009875456
-      value: 1.1562586
-      inSlope: 0.009118064
-      outSlope: 0.009118064
+      time: -0.018281648
+      value: 1.1600324
+      inSlope: 0.06858667
+      outSlope: 0.06858667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.99887276
-      value: 1.1654564
-      inSlope: 0.009118064
-      outSlope: 0.009118064
+      time: 1.0020614
+      value: 1.2300143
+      inSlope: 0.06858667
+      outSlope: 0.06858667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
