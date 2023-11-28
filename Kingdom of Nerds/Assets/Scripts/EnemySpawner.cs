@@ -7,8 +7,11 @@ public class EnemySpawner : MonoBehaviour
     private List<GameObject> spawnEnemy;
     private List<Transform> _spawnPoint = new List<Transform>();
 
+    // [SerializeField, Range(1, 3)]
+    // private int _level;  // хочу, чтобы у спавнера был уровень
+
     public float startTimeBtwSpawns;
-    private float _timeBtwSpawns;
+    private float _timeBtwSpawns;  // период волны
 
     public int maxEnemies;
     public int incEnemies;
@@ -24,10 +27,15 @@ public class EnemySpawner : MonoBehaviour
 
     public int maxWaves = 3;
 
+    [SerializeField]
+    private EnemyFactory _enemyFactory;
+
     void Start()
     {
         EnemiesNow = GameObject.FindGameObjectsWithTag("Enemy").Length;
         _timeBtwSpawns = startTimeBtwSpawns;
+        // _enemyFactory = GameObject.FindGameObjectsWithTag("EnemyFactory");
+        
         
         foreach (Transform child in gameObject.transform)
         {
@@ -46,21 +54,20 @@ public class EnemySpawner : MonoBehaviour
                     int randPoint = Random.Range(0, _spawnPoint.Count);
                     
                     int randomDifficulty = Random.Range(1, 101);
-                    _enemy = spawnEnemy[randEnemy];
-                    
+                    // _enemy = spawnEnemy[randEnemy];
                     if (randomDifficulty < 71)
                     {
-                        Debug.Log(1);
+                        _enemy = _enemyFactory.CreateEnemy(Random.Range(1, 3), 1, spawnPoint[randEnemy].position);
                     }
                     else if (randomDifficulty <  91)
                     {
-                        Debug.Log(2);
+                        _enemy = _enemyFactory.CreateEnemy(Random.Range(1, 3), 2, spawnPoint[randEnemy].position);
                     }
                     else
                     {
-                        Debug.Log(3);
+                        _enemy = _enemyFactory.CreateEnemy(Random.Range(1, 3), 3, spawnPoint[randEnemy].position);
                     }
-                    _enemy.transform.position = _spawnPoint[randPoint].position; // пока так
+                    // _enemy.transform.position = spawnPoint[randEnemy].position; // пока так
                     Instantiate(_enemy);
                     _enemiesSpawned++;
                     EnemiesNow++;

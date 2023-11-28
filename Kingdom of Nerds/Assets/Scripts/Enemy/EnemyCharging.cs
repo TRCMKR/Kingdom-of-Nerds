@@ -7,9 +7,9 @@ public class EnemyCharging : MonoBehaviour
     private GameObject _player;
     private Rigidbody2D _body;
     
-    public float chargeForce;
-    public float chargePeriod;
-    public float chargeDuration;
+    public float ChargeForce;
+    public float ChargePeriod;
+    public float ChargeDuration;
     private float _timer;
     [Tooltip("<calm>, <charge>")]
     public string status;
@@ -30,7 +30,7 @@ public class EnemyCharging : MonoBehaviour
         _timer += Time.deltaTime;
         if (status == "charge")
         {
-            if (_timer > chargeDuration)
+            if (_timer > ChargeDuration)
             {
                 _timer = Random.value;
                 status = "calm";
@@ -39,7 +39,7 @@ public class EnemyCharging : MonoBehaviour
             return;
         }
 
-        if (_timer > chargePeriod)
+        if (_timer > ChargePeriod)
         {
             _timer = 0;
             status = "charge";
@@ -56,7 +56,7 @@ public class EnemyCharging : MonoBehaviour
         else if (_spriteRenderer.flipX && direction.x > 0)
             _spriteRenderer.flipX = false;
         
-        _body.velocity = direction.normalized * chargeForce;
+        _body.velocity = direction.normalized * ChargeForce;
     }
 
     void ChargeOff()

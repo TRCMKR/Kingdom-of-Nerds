@@ -117,3 +117,7 @@ MonoBehaviour:
   startTimeBtwSpawns: 3
   maxEnemies: 5
   spawn: 1
+  enemiesWaves: 1
+  enemiesWavesPassed: 0
+  maxWaves: 3
+  _enemyFactory: {fileID: 9166749439234287808, guid: 2242541e9582f96aaad0846300f0e713, type: 3}

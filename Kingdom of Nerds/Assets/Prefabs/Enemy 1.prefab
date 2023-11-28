@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b588c473fb964a78eaba1ed2f6a59c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeForce: 50
-  chargePeriod: 2
-  chargeDuration: 0.2
+  ChargeForce: 0
+  ChargePeriod: 0
+  ChargeDuration: 0
   status: 
 --- !u!114 &8044641636530468842
 MonoBehaviour:
