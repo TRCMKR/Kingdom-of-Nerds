@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D body;
     // public float walkSpeed;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
     private Vector2 _direction;
 
     private CustomInput input = null;
@@ -60,6 +61,10 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 oldVelocity = body.velocity;
+        _direction = moveVector;
+
+        // body.velocity = _direction * walkSpeed * Time.deltaTime;
+        
         if (!spriteRenderer.flipX && _direction.x < 0)
             spriteRenderer.flipX = true;
         else if (spriteRenderer.flipX && _direction.x > 0)
@@ -88,5 +93,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         Debug.Log(body.velocity - oldVelocity);
+        
+        animator.SetFloat("Speed", body.velocity.magnitude);
     }
 }

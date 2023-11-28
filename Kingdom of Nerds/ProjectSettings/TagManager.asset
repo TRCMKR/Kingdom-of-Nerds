@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - DumSq
+  - EndMenu
+  - Enemy
+  - UI
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Player Bullets
   - Enemy Bullets
   - Enemy
-  - 
+  - Nerf Bullet
   - 
   - 
   - 
@@ -46,6 +50,12 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 1594665049
+    locked: 0
+  - name: Nerf Bullets
+    uniqueID: 2177208111
+    locked: 0
+  - name: Enemies
+    uniqueID: 2844111741
     locked: 0
   - name: Bullets
     uniqueID: 839734945

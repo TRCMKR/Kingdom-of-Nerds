@@ -13,9 +13,12 @@ GameObject:
   - component: {fileID: 3782609058534330020}
   - component: {fileID: 138607218}
   - component: {fileID: 138607219}
+  - component: {fileID: 1097680508}
+  - component: {fileID: 2949609116620642486}
+  - component: {fileID: 919353862}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 3488709354644382409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 62483684699346316}
@@ -57,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,14 +79,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -850650287
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1461610659, guid: ef86976d46aab4d64907dab1c6e82d97, type: 3}
+  m_Sprite: {fileID: -570786625, guid: 3d84472807f3147119019d75c4ef7c7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.29}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,8 +103,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 1
-  m_Mass: 2.9202387
+  m_UseAutoMass: 0
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -124,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 3782609058534330020}
   spriteRenderer: {fileID: 4924946643477058237}
+  animator: {fileID: 919353862}
   _acceleration: 5
   _minSpeed: 0.6
   _maxWalkSpeed: 20
@@ -165,19 +169,61 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00035181642, y: 0.014424592}
+  m_Offset: {x: -0.011470467, y: -0.06073737}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.29}
-    newSize: {x: 0.18, y: 0.29}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13004172, y: 0.22456169}
+  m_Size: {x: 0.5970258, y: 2.4132948}
   m_EdgeRadius: 0
+--- !u!114 &1097680508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4219965fb6121c54a80b2be2ea40e106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 10
+--- !u!81 &2949609116620642486
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+--- !u!95 &919353862
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c55ba38ecd8ad41edbb8a96c4147fb2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5358070357528135777
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,9 +271,11 @@ MonoBehaviour:
   shootDirection: {fileID: 62483684699346316}
   ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
   timeshot: 0
-  startTime: 1
-  speed: 10
-  currentAmmo: 6
+  startTime: 0.3
+  speed: 300
+  bulletSpread: 4
+  maxAmmo: 10
+  currentAmmo: 10
 --- !u!1 &7931997008423799196
 GameObject:
   m_ObjectHideFlags: 0
