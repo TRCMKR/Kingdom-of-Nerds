@@ -111,13 +111,11 @@ MonoBehaviour:
   spawnEnemy:
   - {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
   - {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
-  spawnPoint:
-  - {fileID: 5151818162414402142}
-  - {fileID: 5151818162711641525}
   startTimeBtwSpawns: 3
   maxEnemies: 5
+  incEnemies: 0
   spawn: 1
   enemiesWaves: 1
   enemiesWavesPassed: 0
   maxWaves: 3
-  _enemyFactory: {fileID: 9166749439234287808, guid: 2242541e9582f96aaad0846300f0e713, type: 3}
+  enemyFactory: {fileID: -6099472349274394599, guid: 2242541e9582f96aaad0846300f0e713, type: 3}

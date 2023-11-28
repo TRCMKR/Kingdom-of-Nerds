@@ -322,7 +322,7 @@ MonoBehaviour:
   timeshot: 0
   startTime: 0.3
   speed: 300
-  bulletSpread: 7
+  bulletSpread: 4
   maxAmmo: 10
   currentAmmo: 10
 --- !u!1 &7931997008423799196

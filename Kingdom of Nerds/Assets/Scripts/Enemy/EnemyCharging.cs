@@ -21,7 +21,7 @@ public class EnemyCharging : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _player = GameObject.FindGameObjectWithTag("Player");
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
+        _timer = Random.value;
         status = "calm";
     }
 

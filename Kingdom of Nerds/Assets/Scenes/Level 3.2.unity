@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8794287016236351654, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: ChargeForce
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2626634941805838144, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -174,6 +178,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: maxHealth
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_Name
       value: Enemy 1 (1)
@@ -187,6 +199,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: force
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: period
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_Name
       value: Enemy 2 (2)
@@ -234,6 +254,14 @@ PrefabInstance:
     - target: {fileID: 4686832918104417777, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: maxHealth
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2572ed03379c446e3b43305289397181, type: 3}
@@ -48238,6 +48266,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8794287016236351654, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: ChargeForce
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2626634941805838144, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -48281,6 +48313,14 @@ PrefabInstance:
     - target: {fileID: 2626634941805838144, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: maxHealth
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_Name
@@ -115737,6 +115777,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8794287016236351654, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: ChargeForce
+      value: 55
+      objectReference: {fileID: 0}
     - target: {fileID: 2626634941805838144, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -115780,6 +115824,14 @@ PrefabInstance:
     - target: {fileID: 2626634941805838144, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555552908293857120, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
+      propertyPath: maxHealth
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
       propertyPath: m_Name
@@ -119668,6 +119720,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: force
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: period
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_Name
       value: Enemy 2
@@ -119715,6 +119775,14 @@ PrefabInstance:
     - target: {fileID: 4686832918104417777, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: maxHealth
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2572ed03379c446e3b43305289397181, type: 3}
@@ -120004,6 +120072,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: force
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 481073427597399927, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: period
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3727414561320306023, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_Name
       value: Enemy 2 (1)
@@ -120051,6 +120127,14 @@ PrefabInstance:
     - target: {fileID: 4686832918104417777, guid: 2572ed03379c446e3b43305289397181, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: healthNow
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8372662604557496757, guid: 2572ed03379c446e3b43305289397181, type: 3}
+      propertyPath: maxHealth
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2572ed03379c446e3b43305289397181, type: 3}

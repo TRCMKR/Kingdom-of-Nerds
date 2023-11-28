@@ -13,31 +13,25 @@ MonoBehaviour:
   m_Name: EnemiesData
   m_EditorClassIdentifier: 
   _listEnemy1:
-  - Level: 1
-    MaxHealth: 10
-    ChargeForce: 50
+  - MaxHealth: 6
+    ChargeForce: 40
     ChargePeriod: 2
     ChargeDuration: 0.2
-  - Level: 2
-    MaxHealth: 20
-    ChargeForce: 50
+  - MaxHealth: 8
+    ChargeForce: 45
     ChargePeriod: 2
     ChargeDuration: 0.2
-  - Level: 3
-    MaxHealth: 30
-    ChargeForce: 50
+  - MaxHealth: 12
+    ChargeForce: 55
     ChargePeriod: 2
     ChargeDuration: 0.2
   _listEnemy2:
-  - Level: 1
-    MaxHealth: 10
+  - MaxHealth: 10
     BulletForce: 300
     BulletPeriod: 0.5
-  - Level: 2
-    MaxHealth: 20
-    BulletForce: 300
+  - MaxHealth: 12
+    BulletForce: 500
     BulletPeriod: 0.5
-  - Level: 3
-    MaxHealth: 30
-    BulletForce: 300
-    BulletPeriod: 0.5
+  - MaxHealth: 16
+    BulletForce: 600
+    BulletPeriod: 0.3

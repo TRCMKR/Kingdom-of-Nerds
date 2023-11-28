@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5721045c6ac61364485523a5e58dbd2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 2
+  bulletDamage: 1
 --- !u!58 &7118363518940494254
 CircleCollider2D:
   m_ObjectHideFlags: 0
