@@ -5,12 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class TrashPlayerMovement : MonoBehaviour
 {
     public Rigidbody2D body;
-    // public float walkSpeed;
+    public float walkSpeed;
     public SpriteRenderer spriteRenderer;
-    public Animator animator;
     private Vector2 _direction;
 
     private CustomInput input = null;
@@ -20,12 +19,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _acceleration;
     [SerializeField] private float _minSpeed;
     [SerializeField] private float _maxWalkSpeed;
-    [SerializeField] private float _smoothing;
+    [SerializeField] private float _Lerp;
 
     [Header("Curves")]
-    // [SerializeField] private AnimationCurve _speedFactor;
-    // [SerializeField] private AnimationCurve _turnFactor;
-    // [SerializeField] private float _maxSpeedTurnFactor;
+    [SerializeField] private AnimationCurve _speedFactor;
+    [SerializeField] private AnimationCurve _turnFactor;
+    [SerializeField] private float _maxSpeedTurnFactor;
     [SerializeField] private AnimationCurve _slowFactor;
 
     private void Awake()
@@ -60,10 +59,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 oldVelocity = body.velocity;
-        _direction = moveVector;
+        // _direction = moveVector;
 
         // body.velocity = _direction * walkSpeed * Time.deltaTime;
+        // moveVector *= (float)1.5;
         
         if (!spriteRenderer.flipX && _direction.x < 0)
             spriteRenderer.flipX = true;
@@ -77,11 +76,23 @@ public class PlayerMovement : MonoBehaviour
         else
             body.velocity = Vector2.zero;
 
-        // body.velocity = moveVector.normalized * walkSpeed;
+        if (moveVector != Vector2.zero)
+        {
+            float speedFactor = _speedFactor.Evaluate(body.velocity.magnitude / _maxWalkSpeed);
+            float velocityDot = Vector2.Dot(body.velocity.normalized, moveVector);
+            float turnFactor = _turnFactor.Evaluate(velocityDot);
 
-        body.velocity += moveVector.normalized * _acceleration;
-
-        body.velocity = Vector2.Lerp(body.velocity, oldVelocity, _smoothing);
+            if (body.velocity.magnitude <= _maxWalkSpeed)
+            {
+                // Debug.Log(((turnFactor + speedFactor) * _acceleration * moveVector).magnitude);
+                body.AddRelativeForce((turnFactor + speedFactor) * _acceleration * moveVector, ForceMode2D.Force);
+            }
+            // else
+            // {
+            //     body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _Lerp);
+            // }
+            body.velocity = body.velocity + Vector2.Lerp(body.velocity, body.velocity.magnitude * moveVector, _Lerp);
+        }
 
         if (body.velocity.magnitude < _minSpeed)
         {
@@ -91,7 +102,5 @@ public class PlayerMovement : MonoBehaviour
         {
             body.velocity = body.velocity.normalized * _maxWalkSpeed;
         }
-
-        animator.SetFloat("Speed", body.velocity.magnitude);
     }
 }

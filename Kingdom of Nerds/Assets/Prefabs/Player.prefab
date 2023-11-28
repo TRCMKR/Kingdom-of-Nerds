@@ -126,78 +126,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 3782609058534330020}
-  walkSpeed: 700
   spriteRenderer: {fileID: 4924946643477058237}
   animator: {fileID: 919353862}
-  _acceleration: 130
-  _minSpeed: 0.7
-  _maxWalkSpeed: 25
-  _speedFactor:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _turnFactor:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _maxSpeedTurnFactor: 0.05
+  _acceleration: 5
+  _minSpeed: 0.2
+  _maxWalkSpeed: 18
+  _smoothing: 0.1
   _slowFactor:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.008525848
-      value: 1.0124817
-      inSlope: 0.017635554
-      outSlope: 0.017635554
+      time: -0.018281648
+      value: 1.1600324
+      inSlope: 0.06858667
+      outSlope: 0.06858667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.0208435
-      value: 1.0303345
-      inSlope: 0.017635554
-      outSlope: 0.017635554
+      time: 1.0020614
+      value: 1.2300143
+      inSlope: 0.06858667
+      outSlope: 0.06858667
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

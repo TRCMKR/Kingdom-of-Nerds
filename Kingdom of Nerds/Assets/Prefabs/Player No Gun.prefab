@@ -124,78 +124,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 6911820011244565656}
-  walkSpeed: 700
   spriteRenderer: {fileID: 3444653017415411841}
   animator: {fileID: 7752156535898898490}
-  _acceleration: 130
-  _minSpeed: 0.7
-  _maxWalkSpeed: 25
-  _speedFactor:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _turnFactor:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _maxSpeedTurnFactor: 0.05
+  _acceleration: 5
+  _minSpeed: 0.2
+  _maxWalkSpeed: 18
+  _smoothing: 0.1
   _slowFactor:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.008525848
-      value: 1.0124817
-      inSlope: 0.017635554
-      outSlope: 0.017635554
+      time: 0.008934021
+      value: 1.16
+      inSlope: 0.0691762
+      outSlope: 0.0691762
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1.0208435
-      value: 1.0303345
-      inSlope: 0.017635554
-      outSlope: 0.017635554
+      value: 1.23
+      inSlope: 0.0691762
+      outSlope: 0.0691762
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
