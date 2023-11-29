@@ -17,18 +17,17 @@ public class EnemySpawner : MonoBehaviour
     public int incEnemies;
     public static int EnemiesNow;
     private int _enemiesSpawned;
-
     private GameObject _enemy;
 
     public bool spawn = true; // показывает, могут ли спавниться враги
     public bool enemiesWaves = true;  // показывает, могут ли продолжаться волны врагов
-
     public int enemiesWavesPassed = 0;
-
     public int maxWaves = 3;
 
     [SerializeField]
     private EnemyFactory enemyFactory;
+
+    private int _prevInd = -1;
 
     void Start()
     {
@@ -55,6 +54,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 int randEnemy = Random.Range(1, spawnEnemy.Count + 1);
                 int randPoint = Random.Range(0, _spawnPoint.Count);
+                if (randPoint == _prevInd)
+                    return;
                 
                 int randomDifficulty = Random.Range(1, 101);
                 // _enemy = spawnEnemy[randEnemy];
@@ -76,6 +77,8 @@ public class EnemySpawner : MonoBehaviour
                 EnemiesNow++;
 
                 _timeBtwSpawns = startTimeBtwSpawns;
+
+                _prevInd = randPoint;
             }
             _timeBtwSpawns -= Time.deltaTime;
 

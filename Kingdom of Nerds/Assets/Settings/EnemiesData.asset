@@ -19,11 +19,11 @@ MonoBehaviour:
     ChargeDuration: 0.2
   - MaxHealth: 8
     ChargeForce: 45
-    ChargePeriod: 2
+    ChargePeriod: 1.9
     ChargeDuration: 0.2
   - MaxHealth: 12
     ChargeForce: 55
-    ChargePeriod: 2
+    ChargePeriod: 1.7
     ChargeDuration: 0.2
   _listEnemy2:
   - MaxHealth: 10
@@ -34,4 +34,4 @@ MonoBehaviour:
     BulletPeriod: 0.5
   - MaxHealth: 16
     BulletForce: 600
-    BulletPeriod: 0.3
+    BulletPeriod: 0.4

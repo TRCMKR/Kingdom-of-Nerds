@@ -39,7 +39,10 @@ public class PortalLogic : MonoBehaviour
                 else if (_sceneName.Contains("Level 2"))
                     _nextSceneName = "Level 3.";
                 else
+                {
                     EndGame();
+                    return;
+                }
 
                 SceneManager.LoadScene(_nextSceneName + randomNum);
             }
