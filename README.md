@@ -1,6 +1,6 @@
 **<h1 align=center>** Kingdom of Nerds **</h1>**
 
-![8fb8937d5d1049ad9e2be6eb6947b7dd_00000](https://github.com/TRCMKR/Kingdom-of-Nerds/assets/59124556/9a727baa-934b-453a-8071-bdf16f798383)
+![alt text](https://github.com/TRCMKR/Kingdom-of-Nerds/assets/59124556/9a727baa-934b-453a-8071-bdf16f798383)
 
 ## О проекте
 2D top-down игра на движке Unity, которая сочетает в себе элементы буллет-хэлла, roque-lite’а и тактики. 
