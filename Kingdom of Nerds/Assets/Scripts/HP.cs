@@ -6,13 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class HP : MonoBehaviour
 {
+
     public int maxHealth;
     public int health;
 
     private void Start()
     {
-        health = maxHealth;
+        //health = maxHealth;
+        health = GlobalControl.Instance.health;
+        maxHealth = GlobalControl.Instance.maxHealth;
     }
+
+
 
     public void TakeDamage(int damage)
     {
@@ -22,12 +27,21 @@ public class HP : MonoBehaviour
         {
             DeathScreen.Show();
         }
+
+        GlobalControl.Instance.health = health;
+        //GlobalControl.Instance.maxHealth = maxHealth;
         UIController.UpdateHealth();
     }
-    void Awake()
-    {
-        maxHealth = health;
-    }
+
+
+
+    //void Awake()
+    //{
+    //    health = maxHealth;
+
+    //}
     
+
+
 }
 
