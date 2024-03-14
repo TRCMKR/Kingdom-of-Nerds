@@ -10,17 +10,19 @@ public class BulletLogic : MonoBehaviour
     public int damage = 2;
     private bool _hasCollided;
     public Material outline;
+    
 
     private CircleCollider2D _pickUpArea;
     private BoxCollider2D _bulletCollider;
     
-    // Start is called before the first frame update
+  
     void Start()
     {
         _pickUpArea = GetComponent<CircleCollider2D>();
         _bulletCollider = GetComponent<BoxCollider2D>();
         _pickUpArea.enabled = false;
         Invoke(nameof(ToNerf), destroyTime);
+       
     }
 
     private void ToNerf()
@@ -41,6 +43,9 @@ public class BulletLogic : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
             collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
         _hasCollided = true;
+      
+      
+
     }
     public void PickUp()
     {
@@ -57,4 +62,11 @@ public class BulletLogic : MonoBehaviour
             UIController.AddAmmo();
         }
     }
+
+
+
+
+    
+
 }
+
