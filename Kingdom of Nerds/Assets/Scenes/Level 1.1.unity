@@ -45520,7 +45520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334884129743231538, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8334884129743231538, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -115374,7 +115374,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -119738,6 +119738,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 6939109544153880199, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
+      propertyPath: progressCircle
+      value: 
+      objectReference: {fileID: 1326551855}
     - target: {fileID: 8741149208027307821, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -119784,6 +119788,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
+--- !u!114 &1326551855 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3519267576292643823, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
+  m_PrefabInstance: {fileID: 1276129292}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1426672568
 GameObject:
   m_ObjectHideFlags: 0
@@ -119831,7 +119846,7 @@ Transform:
   - {fileID: 1258784886}
   - {fileID: 1154748085}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1541882854
 PrefabInstance:

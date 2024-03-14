@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
     public GameObject settingsPanel;
     public GameObject controlsPanel;
+
+    private void Awake()
+    {
+        int langID = PlayerPrefs.GetInt("lang", 1);
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[langID];
+    }
+
     public void PlayGame()
     {
         LevelLoader.LoadLevel("Hub");
@@ -14,6 +22,7 @@ public class MenuController : MonoBehaviour
 
     public void ExitGame()
     {
+        PlayerPrefs.Save();
         Application.Quit();
     }
 

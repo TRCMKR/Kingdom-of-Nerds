@@ -123263,6 +123263,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3284824993761563600, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5266618443670565055, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_Name
       value: Portal
@@ -125838,6 +125842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8334884129074455964, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: pointsDisplay
+      value: 
+      objectReference: {fileID: 1725577541}
     - target: {fileID: 8334884129743231538, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -125936,6 +125944,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e469f1828bc014118910686d014daf9e, type: 3}
+--- !u!1 &1725577541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2118014814170078445, guid: e469f1828bc014118910686d014daf9e, type: 3}
+  m_PrefabInstance: {fileID: 1725577540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890645391
 GameObject:
   m_ObjectHideFlags: 0

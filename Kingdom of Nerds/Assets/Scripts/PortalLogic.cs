@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PortalLogic : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PortalLogic : MonoBehaviour
     private double _timeSpent;
     public double timeToTeleport;
     // private bool playerInPortal;
+
+    public Image progressCircle;
     void Awake()
     {
         _sceneName = SceneManager.GetActiveScene().name;
@@ -20,6 +23,7 @@ public class PortalLogic : MonoBehaviour
         {
             // playerInPortal = false;
             _timeSpent = 0;
+            UpdateTeleportProgress();
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -28,6 +32,11 @@ public class PortalLogic : MonoBehaviour
         {
             // playerInPortal = true;
             _timeSpent += Time.deltaTime;
+            if (EnemySpawner.EnemiesNow == 0 || SceneManager.GetActiveScene().name == "Hub")
+                UpdateTeleportProgress();
+            else
+                UpdateTeleportProgress(true);
+
             if (_timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
             {
                 _timeSpent = 0;
@@ -47,6 +56,12 @@ public class PortalLogic : MonoBehaviour
                 SceneManager.LoadScene(_nextSceneName + randomNum);
             }
         }
+    }
+
+    void UpdateTeleportProgress(bool reset = false)
+    {
+        if (reset) progressCircle.fillAmount = 0;
+        else progressCircle.fillAmount = (float)(_timeSpent / timeToTeleport);
     }
 
     void EndGame()

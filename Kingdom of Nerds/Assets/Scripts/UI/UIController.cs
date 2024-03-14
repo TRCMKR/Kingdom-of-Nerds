@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,10 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public Slider healthBar;
+    public GameObject pointsDisplay;
+    public TextMeshProUGUI pointsText;
+
+    public static int pointsAmount;
 
     private GameObject player;
     private HP playerHP;
@@ -21,6 +26,7 @@ public class UIController : MonoBehaviour
     private static Action updateHealth;
     private static Action takeAmmo;
     private static Action addAmmo;
+    private static Action addPoint;
 
     void Start()
     {
@@ -29,6 +35,8 @@ public class UIController : MonoBehaviour
         healthBar.maxValue = playerHP.maxHealth;
         healthBar.value = playerHP.health;
 
+        pointsAmount = PlayerPrefs.GetInt("points", 0);
+        pointsText.text = pointsAmount.ToString();
 
         if (SceneManager.GetActiveScene().name != "Hub")
         {
@@ -37,6 +45,7 @@ public class UIController : MonoBehaviour
             {
                 Instantiate(ammoSprite, ammoDisplay);
             }
+            pointsDisplay.SetActive(false);
         }
 
         hideAction = Hide;
@@ -44,6 +53,13 @@ public class UIController : MonoBehaviour
         updateHealth = RefreshHealth;
         takeAmmo = RemoveBullet;
         addAmmo = AddBullet;
+        addPoint = AddPoints;
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("points", pointsAmount);
+        PlayerPrefs.Save();
     }
 
     #region Static Actions
@@ -72,7 +88,10 @@ public class UIController : MonoBehaviour
         addAmmo.Invoke();
     }
 
-
+    public static void AddPoint()
+    {
+        addPoint.Invoke();
+    }
     #endregion
 
     #region Implementations
@@ -106,6 +125,10 @@ public class UIController : MonoBehaviour
         }
     }
 
-
+    private void AddPoints()
+    {
+        pointsAmount++;
+        pointsText.text = pointsAmount.ToString();
+    }
     #endregion
 }

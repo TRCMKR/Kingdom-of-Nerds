@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: ad4653d79aa3bf64a8a9c1b265bacac8
+  m_Entries:
+  - m_Id: 118441918464
+    m_Key: menu_begin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 328555577344
+    m_Key: menu_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 407353966592
+    m_Key: menu_controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 465394745344
+    m_Key: menu_exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4804372873216
+    m_Key: settings_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4887927603200
+    m_Key: settings_resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4956626108416
+    m_Key: settings_volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5026113142784
+    m_Key: settings_sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5117473472512
+    m_Key: settings_music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5207927832576
+    m_Key: back_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9304433246208
+    m_Key: controls_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9371105902592
+    m_Key: controls_wasd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9780310589440
+    m_Key: controls_lmc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10676935344128
+    m_Key: controls_shoot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12835986882560
+    m_Key: loading_text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13542731300864
+    m_Key: ending_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13949973053440
+    m_Key: ending_to_menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14064985063424
+    m_Key: ending_to_hub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14761021423616
+    m_Key: pause_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14824384774144
+    m_Key: pause_continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14903317381120
+    m_Key: pause_controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14997445951488
+    m_Key: pause_exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15506483462144
+    m_Key: pause_setings
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3178014447110717464
+  references:
+    version: 2
+    RefIds:
+    - rid: 3178014447110717464
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1710430905236
