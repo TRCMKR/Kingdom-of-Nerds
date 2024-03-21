@@ -33,6 +33,19 @@ public class HP : MonoBehaviour
         UIController.UpdateHealth();
     }
 
+    public int Heal(int antidamage) 
+    {
+        // returns overheal
+        health += antidamage;
+        if (health > maxHealth)
+        {
+            int diff = health - maxHealth;
+            health = maxHealth;
+            return diff;
+        }
+        return 0;
+    }
+
 
 
     //void Awake()
