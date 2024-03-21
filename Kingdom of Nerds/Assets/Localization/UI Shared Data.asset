@@ -107,6 +107,10 @@ MonoBehaviour:
     m_Key: pause_setings
     m_Metadata:
       m_Items: []
+  - m_Id: 2234765435486208
+    m_Key: store_title
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

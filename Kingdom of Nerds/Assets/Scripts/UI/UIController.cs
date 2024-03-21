@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     private GameObject player;
     private HP playerHP;
     private GunLogic playerGun;
+    private PlayerCombat playerBat;
 
     public Transform ammoDisplay;
     public GameObject ammoSprite;
@@ -27,6 +28,7 @@ public class UIController : MonoBehaviour
     private static Action takeAmmo;
     private static Action addAmmo;
     private static Action addPoint;
+    private static Action<int> takePoint;
 
     void Start()
     {
@@ -40,7 +42,9 @@ public class UIController : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name != "Hub")
         {
-            playerGun = player.transform.Find("Gun").GetComponent<GunLogic>();
+            playerGun = player.transform.Find("WeaponHolder").Find("Gun").GetComponent<GunLogic>();
+            playerBat = player.transform.Find("WeaponHolder").Find("Bat").GetComponent<PlayerCombat>();
+            BonusCheck();
             for (int i = 0; i < playerGun.maxAmmo; i++)
             {
                 Instantiate(ammoSprite, ammoDisplay);
@@ -54,6 +58,32 @@ public class UIController : MonoBehaviour
         takeAmmo = RemoveBullet;
         addAmmo = AddBullet;
         addPoint = AddPoints;
+        takePoint = Take_Points;
+    }
+
+    private void BonusCheck()
+    {
+        if (PlayerPrefs.GetInt("AmmoBonus", 0) == 1)
+        {
+            playerGun.maxAmmo += 4;
+            playerGun.currentAmmo = playerGun.maxAmmo;
+        }
+        if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
+        {
+            playerGun.bulletSpread -= 3;
+        }
+        if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
+        {
+            playerBat.AttackRange += 1;
+        }
+        if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
+        {
+            playerBat.AttackDamage += 1;
+        }
+        if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
+        {
+            //TODO
+        }
     }
 
     private void OnApplicationQuit()
@@ -92,6 +122,11 @@ public class UIController : MonoBehaviour
     {
         addPoint.Invoke();
     }
+
+    public static void TakePoints(int amount)
+    {
+        takePoint.Invoke(amount);
+    }
     #endregion
 
     #region Implementations
@@ -129,6 +164,16 @@ public class UIController : MonoBehaviour
     {
         pointsAmount++;
         pointsText.text = pointsAmount.ToString();
+        PlayerPrefs.SetInt("points", pointsAmount);
+        PlayerPrefs.Save();
+    }
+
+    private void Take_Points(int amount)
+    {
+        pointsAmount -= amount;
+        pointsText.text = pointsAmount.ToString();
+        PlayerPrefs.SetInt("points", pointsAmount);
+        PlayerPrefs.Save();
     }
     #endregion
 }
