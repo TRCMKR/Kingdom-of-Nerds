@@ -47,7 +47,7 @@ public class EnemyCharging : MonoBehaviour
         }   
     }
 
-    void ChargeOn()
+    public void ChargeOn()
     {
         Vector2 direction = _player.transform.position - transform.position;
         
@@ -63,4 +63,6 @@ public class EnemyCharging : MonoBehaviour
     {
         _body.velocity = Vector2.zero;
     }
+
+
 }
