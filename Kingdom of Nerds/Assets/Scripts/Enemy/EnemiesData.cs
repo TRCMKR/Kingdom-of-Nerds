@@ -26,6 +26,13 @@ public class EnemiesData : ScriptableObject
         public float BulletForce;
         public float BulletPeriod;
     }
+    [Serializable]
+    public class Enemy3Data
+    {
+        public int MaxHealth;
+        public float speed;
+    }
+
     [SerializeField] private List<Enemy1Data> _listEnemy1;
     [SerializeField] private List<Enemy2Data> _listEnemy2;
 
