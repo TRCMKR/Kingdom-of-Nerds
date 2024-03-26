@@ -8,6 +8,7 @@ TagManager:
   - EndMenu
   - Enemy
   - UI
+  - Bullet
   layers:
   - Default
   - TransparentFX

@@ -16,14 +16,14 @@ public class EnemyFactory : MonoBehaviour
         {
             case 1:
                 enemy = Enemy1;
-                enemy.GetComponent<EnemyHP>().maxHealth = _enemiesData.ListEnemy1[level].MaxHealth;
+                enemy.GetComponent<IDamageable>().MaxHP = _enemiesData.ListEnemy1[level].MaxHealth;
                 enemy.GetComponent<EnemyCharging>().ChargeForce = _enemiesData.ListEnemy1[level].ChargeForce;
                 enemy.GetComponent<EnemyCharging>().ChargePeriod = _enemiesData.ListEnemy1[level].ChargePeriod;
                 enemy.GetComponent<EnemyCharging>().ChargeDuration = _enemiesData.ListEnemy1[level].ChargeDuration;
                 break;
             default:  // case 2:
                 enemy = Enemy2;
-                enemy.GetComponent<EnemyHP>().maxHealth = _enemiesData.ListEnemy2[level].MaxHealth;
+                enemy.GetComponent<IDamageable>().MaxHP = _enemiesData.ListEnemy2[level].MaxHealth;
                 enemy.GetComponent<EnemyShooting>().period = _enemiesData.ListEnemy2[level].BulletPeriod;
                 enemy.GetComponent<EnemyShooting>().force = _enemiesData.ListEnemy2[level].BulletForce;
                 break;

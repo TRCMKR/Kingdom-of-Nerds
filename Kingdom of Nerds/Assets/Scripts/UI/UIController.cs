@@ -15,7 +15,7 @@ public class UIController : MonoBehaviour
     public static int pointsAmount;
 
     private GameObject player;
-    private HP playerHP;
+    private IDamageable playerHP;
     private GunLogic playerGun;
     private PlayerCombat playerBat;
 
@@ -33,9 +33,9 @@ public class UIController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerHP = player.GetComponent<HP>();
-        healthBar.maxValue = playerHP.maxHealth;
-        healthBar.value = playerHP.health;
+        playerHP = player.GetComponent<IDamageable>();
+        healthBar.maxValue = playerHP.MaxHP;
+        healthBar.value = playerHP.HP;
 
         pointsAmount = PlayerPrefs.GetInt("points", 0);
         pointsText.text = pointsAmount.ToString();
@@ -74,11 +74,11 @@ public class UIController : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
         {
-            playerBat.AttackRange += 1;
+            playerBat.attackRange += 1;
         }
         if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
         {
-            playerBat.AttackDamage += 1;
+            playerBat.Damage += 1;
         }
         if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
         {
@@ -142,7 +142,7 @@ public class UIController : MonoBehaviour
 
     private void RefreshHealth()
     {
-        healthBar.value = playerHP.health;
+        healthBar.value = playerHP.HP;
     }
 
     private void RemoveBullet()

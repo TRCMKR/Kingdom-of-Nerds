@@ -15,6 +15,6 @@ public class HealingBonus : MonoBehaviour
 
     void OnDisable()
     {
-        _player.GetComponent<HP>().Heal(HealValue);
+        _player.GetComponent<PlayerDamageable>().Heal(HealValue);
     }
 }
