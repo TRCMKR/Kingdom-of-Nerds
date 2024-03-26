@@ -13,14 +13,7 @@ public class EnemyDamageLogic : MonoBehaviour
         GameObject collisionGameObject = collision.gameObject;
         if (collisionGameObject.name == "Player")
         {
-            collisionGameObject.GetComponent<HP>().TakeDamage(enemyCollisionDamage);
-
-
+            collisionGameObject.GetComponent<IDamageable>().TakeDamage(enemyCollisionDamage);
         }
-
-
-
     }
-
-   
 }

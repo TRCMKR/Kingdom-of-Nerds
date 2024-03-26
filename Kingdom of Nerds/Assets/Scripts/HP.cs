@@ -13,8 +13,8 @@ public class HP : MonoBehaviour
     private void Start()
     {
         //health = maxHealth;
-        health = GlobalControl.Instance.health;
-        maxHealth = GlobalControl.Instance.maxHealth;
+        health = PlayerManager.Instance.HP;
+        maxHealth = PlayerManager.Instance.MaxHP;
     }
 
 
@@ -28,7 +28,7 @@ public class HP : MonoBehaviour
             DeathScreen.Show();
         }
 
-        GlobalControl.Instance.health = health;
+        PlayerManager.Instance.HP = health;
         //GlobalControl.Instance.maxHealth = maxHealth;
         UIController.UpdateHealth();
     }

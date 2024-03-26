@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3782609058534330020}
   - component: {fileID: 138607218}
   - component: {fileID: 138607219}
-  - component: {fileID: 1097680508}
   - component: {fileID: 2949609116620642486}
   - component: {fileID: 919353862}
+  - component: {fileID: -2927521273317450930}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -183,20 +183,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5970258, y: 2.4132948}
   m_EdgeRadius: 0
---- !u!114 &1097680508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3488709354644382409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4219965fb6121c54a80b2be2ea40e106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
 --- !u!81 &2949609116620642486
 AudioListener:
   m_ObjectHideFlags: 0
@@ -225,6 +211,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2927521273317450930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b252f680b944146e08e8c11ce4940373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 10
+  _maxHp: 10
 --- !u!1 &4590571862385779532
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,13 +269,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abcdc0549a2a914f862f552d84bc00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackPoint: {fileID: 2238630842398149998}
-  AttackRange: 2.04
+  attackPoint: {fileID: 2238630842398149998}
+  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
-  AttackDamage: 2
-  AttackRate: 2
+  attackRate: 4
+  damage: 2
+  preview: 0
+  maxCharge: 3
+  minCharge: 0.5
+  knockbackForce: 40
 --- !u!1 &5358070357528135777
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,14 +324,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2451ecaa5929884e91f1801ffd6b08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootDirection: {fileID: 62483684699346316}
+  shootDirection: {fileID: 2238630842398149998}
   ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
+  range: 0
   timeshot: 0
   startTime: 0.3
   speed: 300
   bulletSpread: 4
   maxAmmo: 10
   currentAmmo: 10
+  bounces: 0
+  damage: 2
 --- !u!1 &7075849475856267847
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,7 +360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7075849475856267847}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.29, y: 0, z: 0}
   m_LocalScale: {x: 0.6666667, y: 0.6666667, z: 0.6666667}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -374,7 +381,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932f3f6b1e078ef439a75d10685b2dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponSwitch: 0
+  weaponSwitch: 1
+  _weapons:
+  - {fileID: 4590571862385779532}
+  - {fileID: 5358070357528135777}
+  _currentWeapon: {fileID: 0}
 --- !u!1 &7479623437582056008
 GameObject:
   m_ObjectHideFlags: 0

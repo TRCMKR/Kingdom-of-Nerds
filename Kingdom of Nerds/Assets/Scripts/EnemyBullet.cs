@@ -11,7 +11,8 @@ public class EnemyBullet : MonoBehaviour
         GameObject collisionGameObject = collision.gameObject;
         if (collisionGameObject.name == "Player")
         {
-            collisionGameObject.GetComponent<HP>().TakeDamage(bulletDamage);
+            // collisionGameObject.GetComponent<HP>().TakeDamage(bulletDamage);
+            collisionGameObject.GetComponent<IDamageable>().TakeDamage(bulletDamage);
         }
     }
 

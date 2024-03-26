@@ -64,11 +64,6 @@ public class PlayerMovement : MonoBehaviour
         _direction = moveVector;
 
         // body.velocity = _direction * walkSpeed * Time.deltaTime;
-        
-        if (!spriteRenderer.flipX && _direction.x < 0)
-            spriteRenderer.flipX = true;
-        else if (spriteRenderer.flipX && _direction.x > 0)
-            spriteRenderer.flipX = false;
 
         float slowFactor = _slowFactor.Evaluate(body.velocity.magnitude / _maxWalkSpeed);
 
@@ -90,6 +85,21 @@ public class PlayerMovement : MonoBehaviour
         else if (body.velocity.magnitude > _maxWalkSpeed)
         {
             body.velocity = body.velocity.normalized * _maxWalkSpeed;
+        }
+        
+        if (!spriteRenderer.flipX && _direction.x < 0)
+        {
+            spriteRenderer.flipX = true;
+            Transform attackPoint = GameObject.Find("AttackPoint").transform;
+            Vector3 attackPointPos = attackPoint.position;
+            attackPoint.position = new Vector3(attackPointPos.x - 1.89f, attackPointPos.y, 0);
+        }
+        else if (spriteRenderer.flipX && _direction.x > 0)
+        {
+            spriteRenderer.flipX = false;
+            Transform attackPoint = GameObject.Find("AttackPoint").transform;
+            Vector3 attackPointPos = attackPoint.position;
+            attackPoint.position = new Vector3(attackPointPos.x + 1.89f, attackPointPos.y, 0);
         }
 
         animator.SetFloat("Speed", body.velocity.magnitude);
