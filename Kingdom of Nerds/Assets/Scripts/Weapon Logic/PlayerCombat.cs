@@ -8,7 +8,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     public float attackRange = 1f;
     public LayerMask enemyLayers;
     public float attackRate = 4f;
-    float nextAttackTime = 0f;
+    public float currentTime = 0f;
     
     [SerializeField] private int damage = 2;
     
@@ -29,6 +29,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     public float knockbackForce = 80f;
 
     private bool _charging = false;
+    public bool _reloading = false;
 
 
     // Update is called once per frame
@@ -39,7 +40,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
 
     public virtual void Use()
     {
-        if (!_charging) return;
+        if (_charging) return;
         StartCoroutine(Charge());
     }
 
@@ -48,24 +49,39 @@ public class PlayerCombat : MonoBehaviour, IWeapon
         _charging = true;
         while (true)
         {
-            if (Time.time >= nextAttackTime)
+            if (currentTime > 0) break;
+            
+            if (Input.GetKey(_chargeAndShootKey))
             {
-                if (Input.GetKey(_chargeAndShootKey))
-                {
-                    _totalCharge += Time.deltaTime;
-                    preview = _totalCharge; // Mathf.Clamp(_totalCharge, minCharge, maxCharge) / maxCharge;
-                    yield return null;
-                }
-                else if (Input.GetKeyUp(_chargeAndShootKey))
-                { ;
-                    Attack();
-                    nextAttackTime = Time.time + 1f / attackRate;
-                    break;
-                }
+                _totalCharge += Time.deltaTime;
+                preview = _totalCharge; // Mathf.Clamp(_totalCharge, minCharge, maxCharge) / maxCharge;
             }
+            else
+            {
+                Attack();
+                StartCoroutine(Reload());
+                break;
+            }
+            
+            yield return new WaitForEndOfFrame();
         }
         
         _charging = false;
+    }
+
+    IEnumerator Reload()
+    {
+        _reloading = true;
+        currentTime = attackRate;
+        
+        while (currentTime > 0)
+        {
+            currentTime -= Time.deltaTime;
+            yield return null;
+        }
+        // yield return new WaitForSeconds(attackRate);
+
+        _reloading = false;
     }
 
     void Attack()
