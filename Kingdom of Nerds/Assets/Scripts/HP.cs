@@ -21,7 +21,7 @@ public class HP : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-
+        // Debug.Log("takedamage test");
         health -= damage;
         if (health <= 0)
         {
