@@ -9,7 +9,7 @@ public class WeaponSwitch : MonoBehaviour
     public int weaponSwitch = 0;
 
     [SerializeField] private List<GameObject> _weapons;
-    [SerializeField] private GameObject _currentWeapon;
+    [SerializeField] public GameObject _currentWeapon;
 
     void Start()
     {
