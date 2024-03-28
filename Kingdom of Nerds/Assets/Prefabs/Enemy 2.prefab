@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 10
-  _maxHp: 10
+  _maxHp: 12
 --- !u!114 &8533396041081963694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,12 +175,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fdfc99e88cc1e6c8f9d196955ee95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 0
+  force: 500
   range: 0
   sprites:
   - {fileID: -139687642, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   - {fileID: 973862833, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   - {fileID: 945645167, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
-  period: 0
+  period: 0.5
   bulletSpread: 10
   bullet: {fileID: 8898723722757511942, guid: 2cce9172a452b4bac8067febf3149aff, type: 3}

@@ -22,17 +22,27 @@ public class UIController : MonoBehaviour
     public Transform ammoDisplay;
     public GameObject ammoSprite;
 
+    private BatChargeController batChargeController;
+    private WeaponSwitch weaponSwitch;
+    public Image weaponDisplay;
+    public Sprite batSprite;
+    public Sprite gunSprite;
+
+    private EnemyDamageable boss;
+    private bool bossLevel = false;
+    public Slider bossHealthSlider;
+
     private static Action hideAction;
     private static Action showAction;
     private static Action updateHealth;
     private static Action takeAmmo;
     private static Action addAmmo;
-    private static Action addPoint;
+    private static Action<int> addPoint;
     private static Action<int> takePoint;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");      
         playerHP = player.GetComponent<IDamageable>();
         healthBar.maxValue = playerHP.MaxHP;
         healthBar.value = playerHP.HP;
@@ -44,12 +54,24 @@ public class UIController : MonoBehaviour
         {
             playerGun = player.transform.Find("WeaponHolder").Find("Gun").GetComponent<GunLogic>();
             playerBat = player.transform.Find("WeaponHolder").Find("Bat").GetComponent<PlayerCombat>();
+            weaponSwitch = player.transform.Find("WeaponHolder").GetComponent<WeaponSwitch>();
+            batChargeController = player.transform.Find("Canvas").Find("Charging").GetComponent<BatChargeController>();
+
             BonusCheck();
+
             for (int i = 0; i < playerGun.maxAmmo; i++)
             {
                 Instantiate(ammoSprite, ammoDisplay);
             }
             pointsDisplay.SetActive(false);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Boss Level")
+        {
+            boss = GameObject.Find("Tyrant").GetComponent<EnemyDamageable>();           
+            bossHealthSlider.maxValue = boss.MaxHP;
+            bossHealthSlider.gameObject.SetActive(true);
+            bossLevel = true;
         }
 
         hideAction = Hide;
@@ -61,11 +83,53 @@ public class UIController : MonoBehaviour
         takePoint = Take_Points;
     }
 
+    private void Update()
+    {
+        DisplayWeapon();
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            PlayerPrefs.DeleteAll();
+            PlayerPrefs.Save();
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            AddPoints(5);
+        }
+
+        if (bossLevel) UpdateBossHealth();
+    }
+
+    private void DisplayWeapon()
+    {
+        if (SceneManager.GetActiveScene().name == "Hub")
+        {
+            weaponDisplay.gameObject.SetActive(false);
+            return;
+        }
+
+        if (weaponSwitch._currentWeapon == playerGun.gameObject)
+        {
+            weaponDisplay.sprite = gunSprite;
+            batChargeController.HideReloadBar();
+        }
+        else if (weaponSwitch._currentWeapon == playerBat.gameObject)
+        {
+            weaponDisplay.sprite = batSprite;
+            batChargeController.ShowReloadBar();
+        }
+    }
+
+    private void UpdateBossHealth()
+    {
+        bossHealthSlider.value = boss.HP;
+    }
+
     private void BonusCheck()
     {
         if (PlayerPrefs.GetInt("AmmoBonus", 0) == 1)
         {
-            playerGun.maxAmmo += 4;
+            playerGun.maxAmmo += 5;
             playerGun.currentAmmo = playerGun.maxAmmo;
         }
         if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
@@ -74,15 +138,19 @@ public class UIController : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
         {
-            playerBat.attackRange += 1;
+            playerBat.attackRange += 2;
         }
         if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
         {
             playerBat.Damage += 1;
         }
+        if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
+        {
+            playerBat.attackRate -= 1;
+        }
         if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
         {
-            //TODO
+            playerGun.bounces += 2;
         }
     }
 
@@ -118,9 +186,9 @@ public class UIController : MonoBehaviour
         addAmmo.Invoke();
     }
 
-    public static void AddPoint()
+    public static void AddPoint(int amount)
     {
-        addPoint.Invoke();
+        addPoint.Invoke(amount);
     }
 
     public static void TakePoints(int amount)
@@ -160,9 +228,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void AddPoints()
+    private void AddPoints(int amount)
     {
-        pointsAmount++;
+        pointsAmount += amount;
         pointsText.text = pointsAmount.ToString();
         PlayerPrefs.SetInt("points", pointsAmount);
         PlayerPrefs.Save();
