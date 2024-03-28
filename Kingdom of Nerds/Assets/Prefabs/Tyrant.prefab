@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8055038352488710615}
   - component: {fileID: -7073987348852491104}
   - component: {fileID: -8352887513455393270}
+  - component: {fileID: 8744077277843541506}
   m_Layer: 10
   m_Name: Tyrant
   m_TagString: Enemy
@@ -167,3 +168,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 100
   _maxHp: 100
+--- !u!114 &8744077277843541506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369616075260689880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1909dd9d5e66f5443a4ad8d2f4e4c017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolSpeed: 2
+  chaseSpeed: 4
+  chaseRange: 15
