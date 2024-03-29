@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8695451267687750814}
   - component: {fileID: 8055038352488710615}
   - component: {fileID: -7073987348852491104}
-  - component: {fileID: -8352887513455393270}
+  - component: {fileID: -6184184386629653366}
   m_Layer: 10
   m_Name: Tyrant
   m_TagString: Enemy
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCollisionDamage: 3
---- !u!114 &-8352887513455393270
+--- !u!114 &-6184184386629653366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1369616075260689880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63c5c57b8846451e82fe4514fb2e314, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d5d9a709394a4edd86fcdeefc012bdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 100

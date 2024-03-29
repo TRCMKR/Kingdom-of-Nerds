@@ -92,14 +92,14 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true;
             Transform attackPoint = GameObject.Find("AttackPoint").transform;
             Vector3 attackPointPos = attackPoint.position;
-            attackPoint.position = new Vector3(attackPointPos.x - 1.89f, attackPointPos.y, 0);
+            attackPoint.position = new Vector3(attackPointPos.x - 1.2f, attackPointPos.y, 0);
         }
         else if (spriteRenderer.flipX && _direction.x > 0)
         {
             spriteRenderer.flipX = false;
             Transform attackPoint = GameObject.Find("AttackPoint").transform;
             Vector3 attackPointPos = attackPoint.position;
-            attackPoint.position = new Vector3(attackPointPos.x + 1.89f, attackPointPos.y, 0);
+            attackPoint.position = new Vector3(attackPointPos.x + 1.2f, attackPointPos.y, 0);
         }
 
         animator.SetFloat("Speed", body.velocity.magnitude);

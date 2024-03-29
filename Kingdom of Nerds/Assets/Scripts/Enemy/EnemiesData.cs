@@ -25,6 +25,8 @@ public class EnemiesData : ScriptableObject
         public int MaxHealth;
         public float BulletForce;
         public float BulletPeriod;
+        public float Range;
+        public List<Sprite> Sprites;
     }
     [Serializable]
     public class Enemy3Data

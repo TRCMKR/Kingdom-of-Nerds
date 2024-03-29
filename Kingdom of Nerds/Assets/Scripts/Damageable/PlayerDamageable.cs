@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDamageable: DamageableCharacter
 {
@@ -22,6 +20,7 @@ public class PlayerDamageable: DamageableCharacter
     public int Heal(int healing)
     {
         HP += healing;
+        PlayerManager.Instance.UpdateHP();
         UIController.UpdateHealth();
         if (HP > MaxHP)
         {
@@ -35,6 +34,7 @@ public class PlayerDamageable: DamageableCharacter
 
     protected override void Die()
     {
+        Destroy(PlayerManager.Instance.gameObject);
         DeathScreen.Show();
     }
 }

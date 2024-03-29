@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6911820011244565656}
   - component: {fileID: 7752156535202299982}
   - component: {fileID: 7752156535202299983}
-  - component: {fileID: 7752156533975907392}
   - component: {fileID: 4862247774312948362}
   - component: {fileID: 7752156535898898490}
+  - component: {fileID: -4426610945435140437}
   m_Layer: 6
   m_Name: Player No Gun
   m_TagString: Player
@@ -180,20 +180,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5970258, y: 2.4132948}
   m_EdgeRadius: 0
---- !u!114 &7752156533975907392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6629109429518145781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4219965fb6121c54a80b2be2ea40e106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  health: 10
 --- !u!81 &4862247774312948362
 AudioListener:
   m_ObjectHideFlags: 0
@@ -222,3 +208,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4426610945435140437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629109429518145781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b252f680b944146e08e8c11ce4940373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 10
+  _maxHp: 10
