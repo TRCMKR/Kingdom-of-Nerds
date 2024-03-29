@@ -23,6 +23,7 @@ public class EnemySpawner : MonoBehaviour
     public bool enemiesWaves = true;  // показывает, могут ли продолжаться волны врагов
     public int enemiesWavesPassed = 0;
     public int maxWaves = 3;
+    public int randomPos = 10;
 
     [SerializeField]
     private EnemyFactory enemyFactory;
@@ -54,6 +55,8 @@ public class EnemySpawner : MonoBehaviour
             {
                 int randEnemy = Random.Range(1, spawnEnemy.Count + 1);
                 int randPoint = Random.Range(0, _spawnPoint.Count);
+                float randPosX = Random.Range(-randomPos, randomPos) * Random.value;
+                float randPosY = Random.Range(-randomPos, randomPos) * Random.value;
                 if (randPoint == _prevInd)
                     return;
                 
@@ -61,18 +64,18 @@ public class EnemySpawner : MonoBehaviour
                 // _enemy = spawnEnemy[randEnemy];
                 if (randomDifficulty < 71)
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 0, _spawnPoint[randPoint].position);
+                    _enemy = enemyFactory.CreateEnemy(randEnemy, 0, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
                 else if (randomDifficulty <  91)
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 1, _spawnPoint[randPoint].position);
+                    _enemy = enemyFactory.CreateEnemy(randEnemy, 1, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
                 else
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 2, _spawnPoint[randPoint].position);
+                    _enemy = enemyFactory.CreateEnemy(randEnemy, 2, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
                 // _enemy.transform.position = spawnPoint[randEnemy].position; // пока так
-                Instantiate(_enemy);
+                // Instantiate(_enemy);
                 _enemiesSpawned++;
                 EnemiesNow++;
 

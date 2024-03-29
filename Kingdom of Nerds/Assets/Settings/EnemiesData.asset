@@ -19,19 +19,34 @@ MonoBehaviour:
     ChargeDuration: 0.2
   - MaxHealth: 8
     ChargeForce: 45
-    ChargePeriod: 1.9
+    ChargePeriod: 1.8
     ChargeDuration: 0.2
   - MaxHealth: 12
-    ChargeForce: 55
-    ChargePeriod: 1.7
+    ChargeForce: 60
+    ChargePeriod: 1.6
     ChargeDuration: 0.2
   _listEnemy2:
   - MaxHealth: 10
     BulletForce: 300
     BulletPeriod: 0.5
+    Range: 1200
+    Sprites:
+    - {fileID: -139687642, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: 973862833, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: 945645167, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   - MaxHealth: 12
     BulletForce: 500
-    BulletPeriod: 0.5
+    BulletPeriod: 0.45
+    Range: 1500
+    Sprites:
+    - {fileID: 779023268, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: 2118350490, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: 1879728925, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   - MaxHealth: 16
     BulletForce: 600
-    BulletPeriod: 0.4
+    BulletPeriod: 0.35
+    Range: 1800
+    Sprites:
+    - {fileID: 873580125, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: 246722576, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
+    - {fileID: -2145501681, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}

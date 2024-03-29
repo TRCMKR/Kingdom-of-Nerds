@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8695451267687750814}
   - component: {fileID: 8055038352488710615}
   - component: {fileID: -7073987348852491104}
-  - component: {fileID: -8352887513455393270}
   - component: {fileID: 8744077277843541506}
+  - component: {fileID: -6184184386629653366}
   m_Layer: 10
   m_Name: Tyrant
   m_TagString: Enemy
@@ -106,8 +106,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 6
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -154,20 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCollisionDamage: 3
---- !u!114 &-8352887513455393270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1369616075260689880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f63c5c57b8846451e82fe4514fb2e314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 100
-  _maxHp: 100
 --- !u!114 &8744077277843541506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,3 +169,17 @@ MonoBehaviour:
   patrolSpeed: 2
   chaseSpeed: 4
   chaseRange: 15
+--- !u!114 &-6184184386629653366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369616075260689880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5d9a709394a4edd86fcdeefc012bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hp: 100
+  _maxHp: 100

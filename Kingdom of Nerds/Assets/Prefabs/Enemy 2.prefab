@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3727414561320306023}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21.45472, y: -15.457835, z: -0.019251935}
+  m_LocalPosition: {x: -16.975277, y: 10.17271, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: -1450855555
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -402494753, guid: 00d3bed581e514213a3be2380d98a1c3, type: 3}
+  m_Sprite: {fileID: 973862833, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 6
-  m_LinearDrag: 1
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 500
-  range: 0
+  range: 1500
   sprites:
   - {fileID: -139687642, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
   - {fileID: 973862833, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}

@@ -30,7 +30,7 @@ public class BulletLogic : MonoBehaviour
 
     private void ToNerf()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         _bulletCollider.enabled = false;
         _pickUpArea.enabled = true;
         gameObject.layer = 11;

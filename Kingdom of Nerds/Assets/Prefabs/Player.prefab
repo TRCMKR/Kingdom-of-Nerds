@@ -424,7 +424,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.011470467, y: -0.06073737}
+  m_Offset: {x: 0.096456885, y: -0.06073737}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -435,7 +435,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5970258, y: 2.4132948}
+  m_Size: {x: 1.0660822, y: 2.4132948}
   m_EdgeRadius: 0
 --- !u!81 &2949609116620642486
 AudioListener:
@@ -615,17 +615,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 2238630842398149998}
-  attackRange: 1
+  attackRange: 4.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
-  attackRate: 4
+  attackRate: 3
   currentTime: 0
   damage: 2
   preview: 0
   maxCharge: 3
   minCharge: 0.5
-  knockbackForce: 40
+  knockbackForce: 130
   _charging: 0
   _reloading: 0
 --- !u!1 &5118475102104657711
@@ -826,14 +826,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootDirection: {fileID: 2238630842398149998}
   ammo: {fileID: 8898723722757511942, guid: a92b643fff4684ddc910d4262994248d, type: 3}
-  range: 0
+  range: 120
   timeshot: 0
   startTime: 0.3
-  speed: 300
+  speed: 360
   bulletSpread: 4
   maxAmmo: 10
   currentAmmo: 10
-  bounces: 0
+  bounces: 2
   damage: 2
 --- !u!1 &5748387076197846217
 GameObject:
@@ -1193,7 +1193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238630842398149998}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
