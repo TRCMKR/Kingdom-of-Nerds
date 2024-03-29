@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: -6031846463864691307}
   - component: {fileID: 8207855611347528797}
   - component: {fileID: 3557837324998429675}
+  - component: {fileID: 344319698566115271}
   m_Layer: 11
-  m_Name: Test
+  m_Name: BubbleGainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898723722757511942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.286423, y: -11.191648, z: -0.019251935}
+  m_LocalPosition: {x: -23.555313, y: -10.183135, z: -0.019251935}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -112,5 +113,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac4b9c001558339209b1437dc8785214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &344319698566115271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898723722757511942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99e304b4d9d978c486679758fda18d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - UI
   - Bullet
+  - Bubble
+  - BonusManager
   layers:
   - Default
   - TransparentFX
@@ -63,4 +65,7 @@ TagManager:
     locked: 0
   - name: Actors
     uniqueID: 3444317009
+    locked: 0
+  - name: OnActors
+    uniqueID: 1867328817
     locked: 0

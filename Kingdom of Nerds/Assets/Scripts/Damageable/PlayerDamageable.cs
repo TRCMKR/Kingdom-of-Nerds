@@ -14,6 +14,11 @@ public class PlayerDamageable: DamageableCharacter
     
     public override void TakeDamage(int damage, GameObject sender = null)
     {
+        if (GetComponentInChildren<Bubble>() != null)
+        {
+            // Debug.Log("I'm invisible!");
+            return;
+        }
         base.TakeDamage(damage);
         UIController.UpdateHealth();
         PlayerManager.Instance.UpdateHP();

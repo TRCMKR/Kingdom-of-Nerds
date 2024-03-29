@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DisableAfterSomeTime : MonoBehaviour
+public class Bubble : MonoBehaviour
 {
     public float Duration;
-    private float _timer = 0;
+    private float _timer;
     void OnEnable()
     {
+        _timer = 0;
         StartCoroutine(TimeCounter());
     }
 
@@ -18,6 +19,6 @@ public class DisableAfterSomeTime : MonoBehaviour
             _timer += Time.deltaTime;
             yield return null;
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

@@ -9,6 +9,9 @@ public class BonusManager : MonoBehaviour
     private List<GameObject> _bonuses;
     [SerializeField]
     public int DropPercent;
+    [SerializeField]
+    public GameObject Player;
+
 
     private void OnEnable()
     {
