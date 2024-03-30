@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,13 @@ public class BatChargeController : MonoBehaviour
     public PlayerCombat playerBat;
     public GameObject chargePanel;
     public Slider chargeSlider;
-    public Slider reloadSlider;
-
-    private bool reloadIsFinished = false;
+    private Slider reloadSlider;
+    private Image reloadFillImage;
 
     private void Awake()
     {
+        reloadSlider = Resources.FindObjectsOfTypeAll<Slider>().Where(x => x.gameObject.name == "Reload Bar").First();
+        reloadFillImage = reloadSlider.transform.Find("Fill").GetComponent<Image>();
         chargeSlider.maxValue = playerBat.maxCharge;
         reloadSlider.maxValue = playerBat.attackRate;
     }
@@ -25,23 +27,20 @@ public class BatChargeController : MonoBehaviour
 
         if (playerBat.currentTime > 0)
         {
-            reloadIsFinished = false;
-            reloadSlider.value = playerBat.attackRate - playerBat.currentTime;
+            float time = playerBat.attackRate - playerBat.currentTime;
+            reloadSlider.value = time;
+            reloadFillImage.color = Color.yellow;
         }
         else
         {
-            reloadIsFinished = true;
-            HideReloadBar();
+            reloadFillImage.color = Color.green;
         }
     }
 
     public void ShowReloadBar()
     {
-        if (!reloadIsFinished)
-        {
-            reloadSlider.maxValue = playerBat.attackRate;
-            reloadSlider.gameObject.SetActive(true);
-        }
+        reloadSlider.maxValue = playerBat.attackRate;
+        reloadSlider.gameObject.SetActive(true);
     }
 
     public void HideReloadBar()
