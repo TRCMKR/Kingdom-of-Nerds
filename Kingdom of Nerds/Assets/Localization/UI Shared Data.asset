@@ -111,6 +111,18 @@ MonoBehaviour:
     m_Key: store_title
     m_Metadata:
       m_Items: []
+  - m_Id: 5739479376609280
+    m_Key: controls_swap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5739689679011840
+    m_Key: controls_mousewheel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5741849682657280
+    m_Key: controls_or
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

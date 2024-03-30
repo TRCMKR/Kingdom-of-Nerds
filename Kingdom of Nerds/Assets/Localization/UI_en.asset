@@ -114,6 +114,18 @@ MonoBehaviour:
     m_Localized: Store
     m_Metadata:
       m_Items: []
+  - m_Id: 5739479376609280
+    m_Localized: '- swap weapon'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5739689679011840
+    m_Localized: '- mouse wheel'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5741849682657280
+    m_Localized: or
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
