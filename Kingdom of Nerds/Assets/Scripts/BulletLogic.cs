@@ -26,6 +26,7 @@ public class BulletLogic : MonoBehaviour
         _bulletCollider = GetComponent<BoxCollider2D>();
         _pickUpArea.enabled = false;
         Invoke(nameof(ToNerf), time);
+        // Debug.Log("check");
     }
 
     private void ToNerf()
