@@ -123,6 +123,26 @@ MonoBehaviour:
     m_Key: controls_or
     m_Metadata:
       m_Items: []
+  - m_Id: 6478282143842304
+    m_Key: settings_add_points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6484123114815488
+    m_Key: controls_bonus_types
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6487645055107072
+    m_Key: controls_bonus_heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6487726508490752
+    m_Key: controls_bonus_invincibility
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6493796006117376
+    m_Key: death_title
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

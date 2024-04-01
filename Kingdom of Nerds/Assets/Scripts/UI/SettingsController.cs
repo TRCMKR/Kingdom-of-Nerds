@@ -29,4 +29,9 @@ public class SettingsController : MonoBehaviour
             case 3: Screen.SetResolution(1280, 720, Screen.fullScreen); break;
         }
     }
+
+    public void Add10Points()
+    {
+        UIController.AddPoint(10);
+    }
 }

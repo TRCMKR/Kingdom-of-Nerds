@@ -23760,11 +23760,11 @@ PrefabInstance:
     - target: {fileID: 6413853542769272623, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: _weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 772763419}
+      objectReference: {fileID: 0}
     - target: {fileID: 6413853542769272623, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: _weapons.Array.data[1]
       value: 
-      objectReference: {fileID: 772763418}
+      objectReference: {fileID: 0}
     - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: range
       value: 100
@@ -30260,7 +30260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3284824993761563600, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7.45
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 5266618443670565055, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_Name
