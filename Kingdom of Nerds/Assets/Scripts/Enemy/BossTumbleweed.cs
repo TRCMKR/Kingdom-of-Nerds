@@ -23,9 +23,9 @@ public class BossTumbleweed : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (gameObject.GetComponent<Bosslog>().Status != "tumbleweed")
+        // if (gameObject.GetComponent<Bosslog>().Status != "tumbleweed")
         {
-            // Debug.Log("Sorry, tumbleweed only");
+            // Debug.Log("Sorry, tumbleweed only"); nice
             return;
         }
         if (_hasCollided)
@@ -48,23 +48,23 @@ public class BossTumbleweed : MonoBehaviour
         // direction.Normalize();
         // Debug.Log(Direction);
         Vector2 inNormal = collision.GetContact(0).normal;
-        Vector2 newVelocity = Vector2.Reflect(Direction, inNormal);
+        Vector2 newVelocity = Vector2.Reflect(rb.velocity, inNormal);
         rb.velocity = Vector2.zero;
         _bounces++;
         if (_bounces > maxBounces)  { _hasCollided = true; }
         if (_hasCollided) { FinishAttack(); return; }
         
         // rb.AddForce(newVelocity);
-        rb.AddForce(newVelocity * 6); // a holy net
+        rb.AddForce(newVelocity); // a holy net // holy shit 
         
         // rb.rotation = -Vector2.SignedAngle(newVelocity, Vector2.right);
-        Direction = newVelocity;
+        Direction = rb.velocity;
     }
 
     void FinishAttack()
     {
         // Debug.Log("Is that all you can do?");
-        gameObject.GetComponent<Bosslog>().Status = "default";
-        StartCoroutine(gameObject.GetComponent<Bosslog>().ReloadTumbleweed());
+        // gameObject.GetComponent<Bosslog>().Status = "default";
+        // StartCoroutine(gameObject.GetComponent<Bosslog>().ReloadTumbleweed());
     }
 }

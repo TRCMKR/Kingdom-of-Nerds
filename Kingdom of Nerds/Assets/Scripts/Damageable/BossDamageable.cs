@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class BossDamageable : EnemyDamageable
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool isInvincible = false;
+    
+    public override void TakeDamage(int damage, GameObject sender = null)
     {
-        
+        if (!isInvincible) base.TakeDamage(damage);
     }
-
+    
     protected override void Die()
     {
         base.Die();

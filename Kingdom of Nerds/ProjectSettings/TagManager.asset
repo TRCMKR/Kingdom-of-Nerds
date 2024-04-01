@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - UI
   - Bullet
+  - Boss
+  - Spawner
   layers:
   - Default
   - TransparentFX

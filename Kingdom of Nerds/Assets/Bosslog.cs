@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class Bosslog : MonoBehaviour
@@ -7,93 +9,288 @@ public class Bosslog : MonoBehaviour
     public float patrolSpeed = 2f;
     public float chaseSpeed = 4f;
     public float chaseRange = 5f;
-    public string Status = "default";
 
-    private Transform player;
-    private Vector2 startingPosition;
-    private bool isChasing = false;
+    private GameObject _player;
+    private Vector2 _startingPosition;
+    private Vector2 _initPosition;
+    private bool _checked = false;
+    
+    [SerializeField] private bool isChasing = false;
+    [SerializeField] private bool isReloading = true;
+    [SerializeField] private bool isAttacking = false;
+    [SerializeField] private bool isSpawning = false;
+    [SerializeField] private bool isSpawnReloading = false;
+    [SerializeField] private float reloadTimeTumbleweed;
+    [SerializeField] private float reloadTimeSpawn;
+    public int speed;
+    
+    [SerializeField] private int bounces = 0;
+    public int maxBounces;
+    private bool _hasCollided = false;
+    private Vector3 _direction;
+    private BoxCollider2D _bossCollider;
+    private float _mass;
+    private float _actualSpeed;
 
-    [SerializeField] public float ReloadTimeTumbleweed;
-    [SerializeField] public int speed;
-    private float _timer = 0;
-    // Start is called before the first frame update
+    private EnemySpawner _spawner;
+    private BossDamageable _bossDamageable;
+
+    private EnemyDamageLogic _hitLogic;
+    private int _hitDamage;
+
+    enum FightStage
+    {
+        Zero = 0, One = 1, Two = 2, Three = 3
+    }
+
+    private FightStage _currentFightStage = 0;
+    [SerializeField] private bool stageCompleted = false;
+
     void Start()
     {
         // Debug.Log("Start");
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        startingPosition = transform.position;
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _startingPosition = transform.position;
+        _initPosition = transform.position;
+        _bossCollider = GetComponent<BoxCollider2D>();
+        _mass = GetComponent<Rigidbody2D>().mass;
         StartCoroutine(ReloadTumbleweed());
-    }
+        _actualSpeed = speed * _mass * 10;
+        _spawner = GameObject.FindWithTag("Spawner").GetComponent<EnemySpawner>();
+        _bossDamageable = GetComponent<BossDamageable>();
 
-    // Update is called once per frame
+        _hitLogic = GetComponent<EnemyDamageLogic>();
+        _hitDamage = _hitLogic.enemyCollisionDamage;
+    }
+    
     void Update()
     {
         // Debug.Log(Status);
-        if (Status == "tumbleweed")
+        // if (Status == "tumbleweed")
+        // {
+        //     var rb = gameObject.GetComponent<Rigidbody2D>();
+        //     gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
+        //     // Debug.Log("tururu");
+        //     return;
+        // }
+
+        if (!stageCompleted) StartCoroutine(ChangeStage());
+
+        if (isAttacking || isSpawning) return;
+        
+        // if (!isSpawning && !isSpawnReloading && newStage)
+        // {
+        //     newStage = false;
+        //     StartCoroutine(Spawn());
+        //     return;
+        // }
+        
+        if (!isReloading)
         {
-            var rb = gameObject.GetComponent<Rigidbody2D>();
-            gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
-            // Debug.Log("tururu");
+            _direction = (_player.transform.position - transform.position).normalized;
+            StartCoroutine(TumbleweedAttack());
             return;
         }
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        if (distanceToPlayer <= chaseRange)
-        {
-            isChasing = true;
-        }
-        else
-        {
-            isChasing = false;
-        }
+        if (!isChasing) StartCoroutine(Chase());
 
-        if (isChasing)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, chaseSpeed * Time.deltaTime);
-        }
-        else
-        {
-            Patrol();
-        }
+        // float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        //
+        // if (!isChasing && distanceToPlayer <= chaseRange) StartCoroutine(Chase());
+        // else Patrol();
     }
 
     void Patrol()
     {
-        transform.position = Vector2.MoveTowards(transform.position, startingPosition, patrolSpeed * Time.deltaTime);
-
-        if (Vector2.Distance(transform.position, startingPosition) < 0.1f)
-        {
-            Vector2 newPatrolPosition = startingPosition + new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
-            startingPosition = newPatrolPosition;
-        }
-
-    }
-
-    void TumbleweedAttack()
-    {
-        // Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
-        Status = "tumbleweed";
-        Vector2 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;
-        float actualAngle = angle;
-        Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * difference.normalized;
+        Debug.Log("Patroling");
         
-        float vectorAngle = -Vector2.SignedAngle(direction, Vector2.right);
-        // Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
-        var rb = gameObject.GetComponent<Rigidbody2D>();
-        rb.AddForce(direction * speed);
-        // gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
-        // Debug.Log(rb.velocity);
+        transform.position = Vector2.MoveTowards(transform.position, _startingPosition, patrolSpeed * Time.deltaTime);
+        if (Vector2.Distance(_startingPosition, _initPosition) > 8f)
+            _startingPosition = _initPosition;
+        if (Vector2.Distance(transform.position, _startingPosition) < 0.1f)
+        {
+            Vector2 newPatrolPosition = _startingPosition + new Vector2(Random.Range(-4f, 4f), Random.Range(-4f, 4f));
+            _startingPosition = newPatrolPosition;
+        }
+        
     }
 
-    public IEnumerator ReloadTumbleweed()
+    IEnumerator ChangeStage()
     {
-        while(_timer < ReloadTimeTumbleweed)
+        while (true)
         {
-            _timer += Time.deltaTime;
+            if (!isSpawnReloading &&
+                (_bossDamageable.HP < 0.8 * _bossDamageable.MaxHP && _currentFightStage == 0 ||
+                _bossDamageable.HP < 0.5 * _bossDamageable.MaxHP && _currentFightStage == (FightStage)1 ||
+                _bossDamageable.HP < 0.3 * _bossDamageable.MaxHP && _currentFightStage == (FightStage)2))
+            {
+                stageCompleted = true;
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                StartCoroutine(Spawn());
+                _currentFightStage++;
+                break;
+            }
+            
+            if (!stageCompleted && _currentFightStage == FightStage.Three)
+            {
+                stageCompleted = true;
+                reloadTimeTumbleweed /= 3;
+                speed += 40;
+                chaseSpeed += 5;
+                break;
+            }
+
             yield return null;
         }
-        _timer = 0;
-        TumbleweedAttack();
+
+        // stageCompleted = true;
+    }
+
+    IEnumerator Spawn()
+    {
+        Debug.Log("Spawning");
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        isSpawning = true;
+        _spawner.enemiesWaves = true;
+        _bossDamageable.isInvincible = true;
+        _startingPosition = _initPosition;
+        while (isAttacking) yield return null;
+        _hitLogic.enemyCollisionDamage = 0;
+        yield return new WaitForSeconds(0.6f);
+        while (true)
+        {
+            if (EnemySpawner.EnemiesNow == 0) break;
+            
+            // if (!_checked)
+            // {
+            //     if (Vector2.Distance(transform.position, _initPosition) < 0.1f)
+            //     {
+            //         transform.position =
+            //             Vector2.MoveTowards(transform.position, _initPosition, patrolSpeed * Time.deltaTime);
+            //     }
+            //     else
+            //         _checked = true;
+            // }
+            // else
+            Patrol();
+            
+            yield return null;
+        }
+
+        StartCoroutine(ReloadSpawn());
+        _bossDamageable.isInvincible = false;
+        _spawner.enemiesWaves = false;
+        isSpawning = false;
+        stageCompleted = false;
+        // _checked = false;
+        _hitLogic.enemyCollisionDamage = _hitDamage;
+    }
+    
+    IEnumerator ReloadSpawn()
+    {
+        isSpawnReloading = true;
+
+        yield return new WaitForSeconds(reloadTimeSpawn);
+
+        isSpawnReloading = false;
+    }
+
+    IEnumerator Chase()
+    {
+        isChasing = true;
+        Debug.Log("Chasing");
+        while (true)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, chaseSpeed * Time.deltaTime);
+            // float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            if (isAttacking) break; 
+            yield return null;
+        }
+        
+        isChasing = false;
+    }
+    
+    IEnumerator TumbleweedAttack()
+    {
+        Debug.Log("Attacking");
+        isAttacking = true;
+        var rb = gameObject.GetComponent<Rigidbody2D>();
+        while (true)
+        {
+            if (_hasCollided) break;
+
+            // float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
+            // float actualAngle = angle;
+            // Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * _direction.normalized;
+        
+            // float vectorAngle = -Vector2.SignedAngle(direction, Vector2.right);
+            // Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
+            // gameObject.GetComponent<BossTumbleweed>().Direction = direction * speed;
+            
+            rb.velocity = Vector2.zero;
+            rb.AddForce(_direction * _actualSpeed);
+            
+            // gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
+            // Debug.Log(rb.velocity);
+
+            yield return null;
+        }
+
+        StartCoroutine(ReloadTumbleweed());
+        FinishAttack();
+        isAttacking = false;
+    }
+
+    IEnumerator ReloadTumbleweed()
+    {
+        isReloading = true;
+
+        yield return new WaitForSeconds(reloadTimeTumbleweed);
+
+        isReloading = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (_hasCollided || isReloading || collision.gameObject.CompareTag("Bullet")) return;
+        if (isSpawning && !isAttacking)
+        {
+            _startingPosition = _initPosition;
+            return;
+        }
+
+        var obj = collision.gameObject;
+        // if (obj.CompareTag("Player"))
+        // {
+        //     // obj.GetComponent<IDamageable>().TakeDamage(damage);
+        //     _hasCollided = true;
+        //     // FinishAttack();
+        //     return;
+        // }
+
+        var rb = GetComponent<Rigidbody2D>();
+        // Vector2 direction = rb.velocity;
+        // direction.Normalize();
+        // Debug.Log(Direction);
+        Vector2 inNormal = collision.GetContact(0).normal;
+        Vector2 newDirection = Vector2.Reflect(_direction, inNormal);
+        
+        bounces++;
+        if (bounces >= maxBounces) _hasCollided = true;
+        if (_hasCollided)
+        {
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            return;
+        }
+
+        rb.AddForce(newDirection * _actualSpeed);
+        
+        _direction = newDirection;
+    }
+
+    void FinishAttack()
+    {
+        bounces = 0;
+        _hasCollided = false;
     }
 }
