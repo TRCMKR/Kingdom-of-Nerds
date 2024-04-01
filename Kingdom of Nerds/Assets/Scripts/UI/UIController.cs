@@ -87,16 +87,6 @@ public class UIController : MonoBehaviour
     {
         DisplayWeapon();
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            PlayerPrefs.DeleteAll();
-            PlayerPrefs.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            AddPoints(5);
-        }
-
         if (bossLevel) UpdateBossHealth();
     }
 
