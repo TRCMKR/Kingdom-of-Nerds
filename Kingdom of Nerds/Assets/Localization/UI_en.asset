@@ -119,11 +119,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5739689679011840
-    m_Localized: '- mouse wheel'
+    m_Localized: Mouse wheel
     m_Metadata:
       m_Items: []
   - m_Id: 5741849682657280
     m_Localized: or
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6478282143842304
+    m_Localized: Add Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6484123114815488
+    m_Localized: Bonuses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6487645055107072
+    m_Localized: '- heal'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6487726508490752
+    m_Localized: '- invincibility'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6493796006117376
+    m_Localized: You have died!
     m_Metadata:
       m_Items: []
   references:

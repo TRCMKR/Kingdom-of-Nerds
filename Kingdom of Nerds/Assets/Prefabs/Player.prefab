@@ -757,7 +757,7 @@ MonoBehaviour:
   bulletSpread: 4
   maxAmmo: 10
   currentAmmo: 10
-  bounces: 2
+  bounces: 0
   damage: 2
 --- !u!1 &6156860445011811686
 GameObject:
