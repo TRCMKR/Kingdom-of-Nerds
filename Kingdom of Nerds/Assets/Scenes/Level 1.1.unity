@@ -20727,6 +20727,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e469f1828bc014118910686d014daf9e, type: 3}
+--- !u!1 &439314161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4590571862385779532, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+  m_PrefabInstance: {fileID: 772763417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &606636507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5358070357528135777, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
+  m_PrefabInstance: {fileID: 772763417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -23760,11 +23770,11 @@ PrefabInstance:
     - target: {fileID: 6413853542769272623, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: _weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 439314161}
     - target: {fileID: 6413853542769272623, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: _weapons.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 606636507}
     - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: range
       value: 100

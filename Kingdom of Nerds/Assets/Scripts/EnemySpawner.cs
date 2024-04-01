@@ -33,7 +33,9 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         EnemiesNow = GameObject.FindGameObjectsWithTag("Enemy").Length;
+        if (GameObject.Find("Tyrant")) EnemiesNow--;
         _timeBtwSpawns = startTimeBtwSpawns;
+        
         // _enemyFactory = GameObject.FindGameObjectsWithTag("EnemyFactory");
         
         
@@ -90,6 +92,7 @@ public class EnemySpawner : MonoBehaviour
                 spawn = false;
             }
         }
+        
         if (_enemiesSpawned == maxEnemies && EnemiesNow == 0)
         {
             enemiesWavesPassed++;
