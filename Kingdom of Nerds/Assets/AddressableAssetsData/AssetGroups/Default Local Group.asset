@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 4f35346f58a161749857213ae2cfe7cd
-  m_SerializeEntries:
-  - m_GUID: 1820d523fee077547a40e81c8828ac97
-    m_Address: Assets/Sprites/UI/pritsel.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 18772b3e1bb2d204aa8afd4efef50935, type: 2}
   m_SchemaSet:
