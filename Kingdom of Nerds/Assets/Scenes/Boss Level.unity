@@ -42814,6 +42814,14 @@ PrefabInstance:
       propertyPath: startTimeBtwSpawns
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
+      propertyPath: spawnEnemy.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
+      propertyPath: spawnEnemy.Array.data[2]
+      value: 
+      objectReference: {fileID: 1369616075260689880, guid: 0e168fb258d0847a09b9bab39b6edfca, type: 3}
     - target: {fileID: 5151818163424231303, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: m_Name
       value: Spawner Manager
