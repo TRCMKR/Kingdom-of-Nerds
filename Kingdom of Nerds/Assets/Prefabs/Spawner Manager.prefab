@@ -118,4 +118,5 @@ MonoBehaviour:
   enemiesWaves: 1
   enemiesWavesPassed: 0
   maxWaves: 3
+  randomPos: 8
   enemyFactory: {fileID: -6099472349274394599, guid: 2242541e9582f96aaad0846300f0e713, type: 3}
