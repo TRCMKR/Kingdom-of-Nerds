@@ -28,7 +28,7 @@ public class EnemyDamageLogic : MonoBehaviour
     {
         _isRunning = true;
         GameObject collisionGameObject = collision.gameObject;
-        collisionGameObject.GetComponent<IDamageable>().TakeDamage(enemyCollisionDamage / 3);
+        collisionGameObject.GetComponent<IDamageable>().TakeDamage(1);
             
         yield return new WaitForSeconds(1f);
 

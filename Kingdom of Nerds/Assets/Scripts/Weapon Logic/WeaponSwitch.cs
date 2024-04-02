@@ -10,6 +10,7 @@ public class WeaponSwitch : MonoBehaviour
 
     [SerializeField] private List<GameObject> _weapons;
     [SerializeField] public GameObject _currentWeapon;
+    public Animator animator;
 
     void Start()
     {
@@ -80,5 +81,7 @@ public class WeaponSwitch : MonoBehaviour
         //     i++;
         // }
         _currentWeapon = _weapons[weaponSwitch];
+        if (_currentWeapon.name.Contains("Bat")) animator.SetBool("Bat", true);
+        else animator.SetBool("Bat", false);
     }
 }

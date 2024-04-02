@@ -7,11 +7,7 @@ public class BonusManager : MonoBehaviour
 {
     [SerializeField]
     private List<GameObject> _bonuses;
-    [SerializeField]
     public int DropPercent;
-    [SerializeField]
-    public GameObject Player;
-
 
     private void OnEnable()
     {
@@ -31,8 +27,8 @@ public class BonusManager : MonoBehaviour
         {
             return;
         }
-        UnityEngine.Random.InitState(seed: DateTime.UtcNow.GetHashCode());
-        GameObject bonus = _bonuses[UnityEngine.Random.Range(0, _bonuses.Count - 1)];  // nice logic bro 😎
+        // UnityEngine.Random.InitState(seed: DateTime.UtcNow.GetHashCode());
+        GameObject bonus = _bonuses[UnityEngine.Random.Range(0, _bonuses.Count)];  // nice logic bro 😎
 
         bonus.transform.position = corpse.transform.position;
         Instantiate(bonus);

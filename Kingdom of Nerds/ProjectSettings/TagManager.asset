@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - Boss
   - Spawner
+  - Bubble
+  - BonusManager
   layers:
   - Default
   - TransparentFX
