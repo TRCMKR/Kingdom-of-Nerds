@@ -31755,8 +31755,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
-      propertyPath: maxEnemies
+      propertyPath: randomPos
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
+      propertyPath: maxEnemies
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: waveNumber

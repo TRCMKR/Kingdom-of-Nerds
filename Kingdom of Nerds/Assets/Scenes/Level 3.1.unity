@@ -35701,6 +35701,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
+      propertyPath: randomPos
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: incEnemies
       value: 3
       objectReference: {fileID: 0}
@@ -35710,7 +35714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: startTimeBtwSpawns
-      value: 0.5
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: spawnEnemy.Array.size

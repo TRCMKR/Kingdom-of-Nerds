@@ -30594,14 +30594,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEnemy:
   - {fileID: 7602166363885794714, guid: e9c12047e8fab48738b5d7029c6b3896, type: 3}
-  startTimeBtwSpawns: 0.5
+  startTimeBtwSpawns: 1.5
   maxEnemies: 4
   incEnemies: 2
   spawn: 1
   enemiesWaves: 1
   enemiesWavesPassed: 0
   maxWaves: 2
-  randomPos: 10
+  randomPos: 8
   enemyFactory: {fileID: -6099472349274394599, guid: 2242541e9582f96aaad0846300f0e713, type: 3}
 --- !u!1 &5151818161485517567
 GameObject:
