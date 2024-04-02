@@ -12,6 +12,9 @@ public class RobotLogic : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public Sprite vulnerableSprite;
     private Sprite _initSprite;
+    public Animator animator;
+
+    private Vector2 _direction;
     
     void Start()
     {
@@ -26,12 +29,24 @@ public class RobotLogic : MonoBehaviour
     {
         if (!_armored.isVulnerable)
         {
-            _spriteRenderer.sprite = _initSprite;
+            // _spriteRenderer.sprite = _initSprite;
+            _direction = transform.position - _player.transform.position;
             transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);
+            animator.SetFloat("Speed", 2);
+
+            if (_spriteRenderer.flipX && _direction.x < 0)
+            {
+                _spriteRenderer.flipX = false;
+            }
+            else if (!_spriteRenderer.flipX && _direction.x > 0)
+            {
+                _spriteRenderer.flipX = true;
+            }
         }
         else
         {
-            _spriteRenderer.sprite = vulnerableSprite;
+            // _spriteRenderer.sprite = vulnerableSprite;
+            animator.SetFloat("Speed", 0);
         }
     }
 }

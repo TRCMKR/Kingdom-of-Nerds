@@ -64,7 +64,12 @@ public class EnemySpawner : MonoBehaviour
                 
                 int randomDifficulty = Random.Range(1, 101);
                 // _enemy = spawnEnemy[randEnemy];
-                if (randomDifficulty < 71)
+                if (randEnemy == 3)
+                {
+                    _enemy = spawnEnemy[2];
+                    Instantiate(_enemy, _spawnPoint[randPoint]);
+                }
+                else if (randomDifficulty < 71)
                 {
                     _enemy = enemyFactory.CreateEnemy(randEnemy, 0, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }

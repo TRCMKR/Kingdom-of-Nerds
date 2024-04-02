@@ -96,10 +96,12 @@ public class GunLogic : MonoBehaviour, IWeapon
                 
                 float vectorAngle = -Vector2.SignedAngle(direction, Vector2.right);
 
+                
                 var bullet = Instantiate(ammo, shootDirection.position, Quaternion.AngleAxis(vectorAngle, Vector3.forward)).GetComponent<Rigidbody2D>();
 
                 var bulletLogic = bullet.gameObject.GetComponent<BulletLogic>();
                 bulletLogic.time = range / speed;
+                bulletLogic.damage = Damage;
                 // bulletLogic.speed = speed;
                 bulletLogic.maxBounces = bounces;
                 bullet.AddForce(direction * speed);

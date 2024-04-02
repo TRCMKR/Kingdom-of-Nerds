@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  damage: 5
+  damage: 1
   outline: {fileID: 2100000, guid: 2656f7cda3c0e4bc18a3be575136f78b, type: 2}
   direction: {x: 0, y: 0}
   maxBounces: 3

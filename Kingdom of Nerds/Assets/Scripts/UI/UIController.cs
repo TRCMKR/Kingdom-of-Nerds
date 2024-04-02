@@ -124,7 +124,7 @@ public class UIController : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
         {
-            playerGun.bulletSpread -= 3;
+            playerGun.bulletSpread -= 4;
         }
         if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
         {
@@ -132,15 +132,15 @@ public class UIController : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
         {
-            playerBat.Damage += 1;
+            playerBat.Damage += 3;
         }
         if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
         {
-            playerBat.attackRate -= 1;
+            playerBat.attackRate -= 1.5f;
         }
         if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
         {
-            playerGun.bounces += 2;
+            playerGun.bounces += 3;
         }
     }
 
