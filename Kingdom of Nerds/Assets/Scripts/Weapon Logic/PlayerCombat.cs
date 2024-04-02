@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     public bool _charging = false;
     public bool _reloading = false;
 
+    public Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -54,6 +56,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
             if (Input.GetKey(_chargeAndShootKey))
             {
                 _totalCharge += Time.deltaTime;
+                animator.SetFloat("Charge", _totalCharge / minCharge);
                 preview = _totalCharge; // Mathf.Clamp(_totalCharge, minCharge, maxCharge) / maxCharge;
             }
             else
@@ -94,6 +97,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
         //Damage
         if (_totalCharge >= minCharge)
         {
+            animator.SetBool("Hit", true);
             foreach (Collider2D enemy in hitEnemies)
             {
                 enemy.GetComponent<IDamageable>().TakeDamage(Damage, gameObject);
@@ -104,9 +108,16 @@ public class PlayerCombat : MonoBehaviour, IWeapon
             }
         }
         _totalCharge = 0f;
+        Invoke("f", 0.3f);
     }
 
-    void OnDrawGizmosSelected()
+    void f()
+    {
+        animator.SetFloat("Charge", 0f);
+        animator.SetBool("Hit", false);
+    }
+
+void OnDrawGizmosSelected()
     {
         if (attackPoint == null)
             return;

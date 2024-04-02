@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -10,13 +11,24 @@ public class StoreManager : MonoBehaviour
     public GameObject[] bonuses;
     private static int pointsCount;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public Sprite hubOn;
+    private Sprite _hubOff;
+
+    private void Start()
     {
-        OpenStore();
+        _hubOff = GetComponentInChildren<SpriteRenderer>().sprite;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = hubOn;
+        if (Input.GetKeyDown(KeyCode.F))
+            OpenStore();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        GetComponentInChildren<SpriteRenderer>().sprite = _hubOff;
         CloseStore();
     }
 

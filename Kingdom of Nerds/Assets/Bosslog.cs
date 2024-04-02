@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
@@ -46,6 +47,11 @@ public class Bosslog : MonoBehaviour
     private FightStage _currentFightStage = 0;
     [SerializeField] private bool stageCompleted = false;
 
+    private SpriteRenderer _spriteRenderer;
+    public List<Sprite> sprites;
+    private List<PolygonCollider2D> _colliders = new List<PolygonCollider2D>(3);
+    private PolygonCollider2D _currentCollider;
+
     void Start()
     {
         // Debug.Log("Start");
@@ -61,9 +67,13 @@ public class Bosslog : MonoBehaviour
 
         _hitLogic = GetComponent<EnemyDamageLogic>();
         _hitDamage = _hitLogic.enemyCollisionDamage;
+
+        _colliders = GetComponents<PolygonCollider2D>().ToList();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _currentCollider = _colliders[0];
     }
     
-    void Update()
+    void FixedUpdate()
     {
         // Debug.Log(Status);
         // if (Status == "tumbleweed")
@@ -103,7 +113,7 @@ public class Bosslog : MonoBehaviour
     void Patrol()
     {
         Debug.Log("Patroling");
-        
+
         transform.position = Vector2.MoveTowards(transform.position, _startingPosition, patrolSpeed * Time.deltaTime);
         if (Vector2.Distance(_startingPosition, _initPosition) > 8f)
             _startingPosition = _initPosition;
@@ -135,8 +145,8 @@ public class Bosslog : MonoBehaviour
             {
                 stageCompleted = true;
                 reloadTimeTumbleweed /= 3;
-                speed += 40;
-                chaseSpeed += 5;
+                speed += 50;
+                chaseSpeed += 6;
                 break;
             }
 
@@ -149,6 +159,12 @@ public class Bosslog : MonoBehaviour
     IEnumerator Spawn()
     {
         Debug.Log("Spawning");
+        
+        _spriteRenderer.sprite = sprites[2];
+        _currentCollider.enabled = false;
+        _colliders[2].enabled = true;
+        _currentCollider = _colliders[2];
+        
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         isSpawning = true;
         _spawner.enemiesWaves = true;
@@ -197,8 +213,14 @@ public class Bosslog : MonoBehaviour
 
     IEnumerator Chase()
     {
-        isChasing = true;
         Debug.Log("Chasing");
+        
+        _spriteRenderer.sprite = sprites[0];
+        _currentCollider.enabled = false;
+        _colliders[0].enabled = true;
+        _currentCollider = _colliders[0];
+        
+        isChasing = true;
         while (true)
         {
             transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, chaseSpeed * Time.deltaTime);
@@ -213,6 +235,12 @@ public class Bosslog : MonoBehaviour
     IEnumerator TumbleweedAttack()
     {
         Debug.Log("Attacking");
+        
+        _spriteRenderer.sprite = sprites[1];
+        _currentCollider.enabled = false;
+        _colliders[1].enabled = true;
+        _currentCollider = _colliders[1];
+        
         isAttacking = true;
         var rb = gameObject.GetComponent<Rigidbody2D>();
         while (true)

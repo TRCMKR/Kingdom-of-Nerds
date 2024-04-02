@@ -17,14 +17,17 @@ MonoBehaviour:
     ChargeForce: 40
     ChargePeriod: 2
     ChargeDuration: 0.2
+    Sprite: {fileID: -1864453573, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
   - MaxHealth: 8
     ChargeForce: 45
     ChargePeriod: 1.8
     ChargeDuration: 0.2
+    Sprite: {fileID: -561275537, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
   - MaxHealth: 12
     ChargeForce: 60
     ChargePeriod: 1.6
     ChargeDuration: 0.2
+    Sprite: {fileID: -90388816, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
   _listEnemy2:
   - MaxHealth: 10
     BulletForce: 300

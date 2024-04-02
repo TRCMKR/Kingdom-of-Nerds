@@ -25565,6 +25565,79 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1001 &494607957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140795621415161984, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356301694104468407, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356301694104468407, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: DropPercent
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356301694104468407, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: _bonuses.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356301694104468407, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: _bonuses.Array.data[1]
+      value: 
+      objectReference: {fileID: 5747594230988183037, guid: c647239121b86c795b3f50c5388b06c2, type: 3}
+    - target: {fileID: 6996034145935452756, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
+      propertyPath: m_Name
+      value: BonusManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 76834d94793be8f87b19adb070f280ea, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -33347,14 +33420,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1097680508, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 612497523695471571, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: knockbackForce
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 1347524999273019380, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_RootOrder
       value: 2

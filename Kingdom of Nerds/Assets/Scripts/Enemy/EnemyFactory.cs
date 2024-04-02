@@ -21,6 +21,7 @@ public class EnemyFactory : MonoBehaviour
                 enemy.GetComponent<EnemyCharging>().ChargeForce = factoryEnemy1.ChargeForce;
                 enemy.GetComponent<EnemyCharging>().ChargePeriod = factoryEnemy1.ChargePeriod;
                 enemy.GetComponent<EnemyCharging>().ChargeDuration = factoryEnemy1.ChargeDuration;
+                enemy.GetComponent<SpriteRenderer>().sprite = factoryEnemy1.Sprite;
                 break;
             default:  // case 2:
                 var factoryEnemy2 = _enemiesData.ListEnemy2[level];
@@ -30,8 +31,8 @@ public class EnemyFactory : MonoBehaviour
                     enemy.GetComponent<EnemyShooting>().sprites[i] = factoryEnemy2.Sprites[i];
                 enemy.GetComponent<IDamageable>().MaxHP = factoryEnemy2.MaxHealth;
                 enemy.GetComponent<EnemyShooting>().period = factoryEnemy2.BulletPeriod;
-                enemy.GetComponent<EnemyShooting>().force =factoryEnemy2.BulletForce;
-                enemy.GetComponent<EnemyShooting>().range =factoryEnemy2.Range;
+                enemy.GetComponent<EnemyShooting>().force = factoryEnemy2.BulletForce;
+                enemy.GetComponent<EnemyShooting>().range = factoryEnemy2.Range;
                 break;
         }
         enemy.transform.position = position;

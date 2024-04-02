@@ -11,6 +11,8 @@ public class BulletLogic : MonoBehaviour
     public int damage = 2;
     private bool _hasCollided = false;
     public Material outline;
+
+    private int _outputDamage;
     
 
     private CircleCollider2D _pickUpArea;
@@ -25,14 +27,21 @@ public class BulletLogic : MonoBehaviour
         _pickUpArea = GetComponent<CircleCollider2D>();
         _bulletCollider = GetComponent<BoxCollider2D>();
         _pickUpArea.enabled = false;
-        Invoke(nameof(ToNerf), time);
+        Invoke(nameof(f), time);
         // Debug.Log("check");
+        _outputDamage = damage;
     }
 
-    private void ToNerf()
+    void f()
+    {
+        StartCoroutine(ToNerf());
+    }
+
+    private IEnumerator ToNerf()
     {
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         _bulletCollider.enabled = false;
+        yield return new WaitForSecondsRealtime(0.2f);
         _pickUpArea.enabled = true;
         gameObject.layer = 11;
         GetComponent<SpriteRenderer>().sortingLayerName = "Nerf Bullets";
@@ -58,7 +67,7 @@ public class BulletLogic : MonoBehaviour
             obj.GetComponent<IDamageable>().TakeDamage(damage);
             _hasCollided = true;
             //Debug.Log(1);
-            ToNerf();
+            StartCoroutine(ToNerf());
             return;
         }
 
@@ -70,8 +79,9 @@ public class BulletLogic : MonoBehaviour
         Vector2 newVelocity = Vector2.Reflect(direction, inNormal);
         //var angle = -Vector2.SignedAngle(newVelocity, Vector2.right);
         _bounces++;
+        _outputDamage++;
         if (_bounces > maxBounces)  { _hasCollided = true; }
-        if (_hasCollided) { ToNerf(); return; }
+        if (_hasCollided) { StartCoroutine(ToNerf()); return; }
         
         rb.AddForce(newVelocity);
         

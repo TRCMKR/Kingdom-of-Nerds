@@ -11,6 +11,8 @@ TagManager:
   - Bullet
   - Boss
   - Spawner
+  - Bubble
+  - BonusManager
   layers:
   - Default
   - TransparentFX
@@ -24,8 +26,8 @@ TagManager:
   - Enemy Bullets
   - Enemy
   - Nerf Bullet
-  - 
-  - 
+  - Throne
+  - Death Box
   - 
   - 
   - 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2356301694104468407}
   m_Layer: 0
   m_Name: BonusManager
-  m_TagString: Untagged
+  m_TagString: BonusManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,3 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bonuses:
   - {fileID: 8898723722757511942, guid: 7497394d93b72e871bd46df3ddf8411c, type: 3}
+  DropPercent: 0
+  Player: {fileID: 0}

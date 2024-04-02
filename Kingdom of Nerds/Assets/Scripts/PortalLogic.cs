@@ -42,13 +42,13 @@ public class PortalLogic : MonoBehaviour
                 _timeSpent = 0;
                 int randomNum = Random.Range(1, 3);
                 if (_sceneName.Contains("Hub"))
-                {
-                    _nextSceneName = "Preview Level";
-                    SceneManager.LoadScene(_nextSceneName);
-                    return;
-                }
-                
-                if (_sceneName.Contains("Preview"))
+                // {
+                //     _nextSceneName = "Preview Level";
+                //     SceneManager.LoadScene(_nextSceneName);
+                //     return;
+                // }
+                //
+                // if (_sceneName.Contains("Preview"))
                     _nextSceneName = "Level 1.";
                 else if (_sceneName.Contains("Level 1"))
                     _nextSceneName = "Level 2.";
