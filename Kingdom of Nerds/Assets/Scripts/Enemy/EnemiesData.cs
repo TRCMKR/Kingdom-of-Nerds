@@ -16,6 +16,7 @@ public class EnemiesData : ScriptableObject
         public float ChargeForce;
         public float ChargePeriod;
         public float ChargeDuration;
+        public Sprite Sprite;
     }
     [Serializable]
     public class Enemy2Data

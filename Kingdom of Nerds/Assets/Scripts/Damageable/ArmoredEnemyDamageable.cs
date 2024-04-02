@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmoredEnemyDamageable : EnemyDamageable
-{
-    [SerializeField] private bool isVulnerable;
+{ 
+    public bool isVulnerable;
     [SerializeField] private float _vulnerableTime;
     public override void TakeDamage(int damage, GameObject sender = null)
     {
