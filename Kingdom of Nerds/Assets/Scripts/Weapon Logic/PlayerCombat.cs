@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     private float _totalCharge = 0f;
     [SerializeField] public float preview = 0f;
     [SerializeField] public float maxCharge = 3f;
-    [SerializeField] private float minCharge = 1f;
+    [SerializeField] public float minCharge = 1f;
     private KeyCode _chargeAndShootKey = KeyCode.Mouse0;
     public float knockbackForce = 80f;
 

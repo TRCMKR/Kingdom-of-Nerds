@@ -8,15 +8,27 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     private bool isInSettings = false;
+    private bool isInControls = false;
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
+
+    private void Awake()
+    {
+        SetGodMode(PlayerPrefs.GetInt("GodMode", 0) == 1);
+    }
+
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame && !isInSettings)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (!isPaused) Pause();
-            else Resume();
+            if (isInSettings) CloseSettings();
+            else if (isInControls) CloseControls();
+            else
+            {
+                if (!isPaused) Pause();
+                else Resume();
+            }      
         }
     }
 
@@ -39,26 +51,30 @@ public class PauseMenu : MonoBehaviour
         UIController.HideUI();
         isInSettings = true;
         settingsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     public void CloseSettings()
     {
         UIController.ShowUI();
         isInSettings = false;
+        pausePanel.SetActive(true);
         settingsPanel.SetActive(false);
     }
 
     public void OpenControls()
     {
         UIController.HideUI();
-        isInSettings = true;
+        isInControls = true;
         controlsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     public void CloseControls()
     {
         UIController.ShowUI();
-        isInSettings = false;
+        isInControls = false;
+        pausePanel.SetActive(true);
         controlsPanel.SetActive(false);
     }
 
@@ -66,5 +82,18 @@ public class PauseMenu : MonoBehaviour
     {      
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SetGodMode(bool state)
+    {
+        var player = GameObject.Find("Player").GetComponent<PlayerDamageable>();
+        if (state)
+        {
+            player._isInvincible = true;
+        }
+        else
+        {
+            player._isInvincible = false;
+        }
     }
 }
