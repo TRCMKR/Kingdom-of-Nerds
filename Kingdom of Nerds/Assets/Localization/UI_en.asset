@@ -139,11 +139,67 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6487726508490752
-    m_Localized: '- invincibility'
+    m_Localized: '- invincibility (5 sec.)'
     m_Metadata:
       m_Items: []
   - m_Id: 6493796006117376
     m_Localized: You have died!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11989472747995136
+    m_Localized: More ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11989641749086208
+    m_Localized: Lower spread
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11989756379414528
+    m_Localized: Bat range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11991954291179520
+    m_Localized: Bat damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11992028438085632
+    m_Localized: Bat reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11992118036807680
+    m_Localized: Ricochet+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11996782568423424
+    m_Localized: Bullet range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11996922142277632
+    m_Localized: Shooting rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12000535547756544
+    m_Localized: More HP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12001230002864128
+    m_Localized: More ammo+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12362705225662464
+    m_Localized: Bat force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12363534548615168
+    m_Localized: Bullet damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12370458459521024
+    m_Localized: God mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12605975251927040
+    m_Localized: '- pause'
     m_Metadata:
       m_Items: []
   references:

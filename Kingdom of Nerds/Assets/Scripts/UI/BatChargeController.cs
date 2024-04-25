@@ -9,8 +9,12 @@ public class BatChargeController : MonoBehaviour
     public PlayerCombat playerBat;
     public GameObject chargePanel;
     public Slider chargeSlider;
+    public RectTransform attackArea;
+
     private Slider reloadSlider;
     private Image reloadFillImage;
+
+    private Color chargeColor = new Color(1f, 0.5734746f, 0f, 1f);
 
     private void Awake()
     {
@@ -22,8 +26,16 @@ public class BatChargeController : MonoBehaviour
 
     void Update()
     {
-        if (playerBat._charging) StartChargeProgress();
-        else StopChargeProgress();
+        if (playerBat._charging)
+        {
+            StartChargeProgress();
+            ShowAttackArea();
+        }
+        else
+        {
+            StopChargeProgress();
+            HideAttackArea();
+        }
 
         if (playerBat.currentTime > 0)
         {
@@ -43,15 +55,36 @@ public class BatChargeController : MonoBehaviour
         reloadSlider.gameObject.SetActive(true);
     }
 
+    public void ShowAttackArea()
+    {
+        float areaSize = playerBat.attackRange * 2.25f;
+        attackArea.localScale = new Vector2(areaSize, areaSize);
+        attackArea.gameObject.SetActive(true);
+    }
+
     public void HideReloadBar()
     {
         reloadSlider.gameObject.SetActive(false);
     }
 
+    public void HideAttackArea()
+    {
+        attackArea.gameObject.SetActive(false);
+    }
+
     void StartChargeProgress()
     {
         chargePanel.SetActive(true);
-        chargeSlider.value = playerBat.preview;
+        float time = playerBat.preview;
+        chargeSlider.value = time;
+        if (time <= playerBat.minCharge)
+        {
+            chargeSlider.fillRect.GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            chargeSlider.fillRect.GetComponent<Image>().color = chargeColor;
+        }
     }
 
     void StopChargeProgress()
