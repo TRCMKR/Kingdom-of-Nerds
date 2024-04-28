@@ -44,8 +44,8 @@ public class PlayerDamageable: DamageableCharacter
 
     public void SetInvincible(float time)
     {
-        if (_isInvincible) StopCoroutine(Invincible(time));
-        else StartCoroutine(Invincible(time));
+        if (_isInvincible) StopAllCoroutines();
+        StartCoroutine(Invincible(time));
     }
 
     private IEnumerator Invincible(float time)

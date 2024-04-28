@@ -279,6 +279,7 @@ public class UIController : MonoBehaviour
 
     private void ShowInvBar()
     {
+        if (invincibilityBar.gameObject.activeSelf) invincibilityBar.gameObject.SetActive(false);
         invincibilityBar.gameObject.SetActive(true);   
     }
 

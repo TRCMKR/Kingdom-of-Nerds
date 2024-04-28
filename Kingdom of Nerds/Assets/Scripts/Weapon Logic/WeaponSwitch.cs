@@ -65,7 +65,10 @@ public class WeaponSwitch : MonoBehaviour
             SelectWeapon();
         }
         
-        if (Input.GetMouseButton(0)) _currentWeapon.GetComponent<IWeapon>().Use();
+        if (Input.GetMouseButton(0))
+        {
+            _currentWeapon.GetComponent<IWeapon>().Use(_currentWeapon.name);
+        }
 
     }
 

@@ -5,6 +5,7 @@ using System.Collections.Specialized;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using Object = System.Object;
 using Random = UnityEngine.Random;
 
 public class GunLogic : MonoBehaviour, IWeapon
@@ -20,6 +21,8 @@ public class GunLogic : MonoBehaviour, IWeapon
     public int maxAmmo = 6;
     public int currentAmmo = 6;
     public int bounces;
+
+    private bool _gun;
 
     private bool _shooting;
     
@@ -72,9 +75,15 @@ public class GunLogic : MonoBehaviour, IWeapon
     //     }
     // }
     
-    public virtual void Use()
+    public virtual void Use(string name)
     {
-        if (_shooting)  return;
+        if (name != "Gun")
+        { 
+            StopAllCoroutines();
+            _shooting = false; 
+            return;
+        }
+        if (_shooting) return;
         StartCoroutine(Shoot());
     }
 
@@ -110,8 +119,8 @@ public class GunLogic : MonoBehaviour, IWeapon
                 currentAmmo -= 1;
                 UIController.TakeAmmo();
             }
-
-            if (!Input.GetMouseButton(0)) break;
+            
+            if (!_gun || !Input.GetMouseButton(0)) break;
             
             yield return new WaitForEndOfFrame();
         }

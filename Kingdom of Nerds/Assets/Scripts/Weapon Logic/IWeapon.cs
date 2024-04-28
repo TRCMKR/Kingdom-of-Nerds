@@ -6,5 +6,5 @@ public interface IWeapon
 {
     abstract int Damage { get; set; }
 
-    public void Use();
+    public void Use(string name = "");
 }

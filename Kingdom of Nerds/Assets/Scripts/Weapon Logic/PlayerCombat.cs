@@ -40,7 +40,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
         
     }
 
-    public virtual void Use()
+    public virtual void Use(string name)
     {
         if (_charging) return;
         StartCoroutine(Charge());
