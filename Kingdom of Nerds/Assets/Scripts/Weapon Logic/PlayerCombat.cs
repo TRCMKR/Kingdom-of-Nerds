@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     
     [SerializeField] private int damage = 2;
     
+    
     public virtual int Damage
     {
         get { return damage; }
@@ -38,6 +39,14 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     void Update()
     {
         
+    }
+    
+    public virtual void unsetActive()
+    {
+        StopAllCoroutines();
+        _charging = false;
+        Attack();
+        StartCoroutine(Reload());
     }
 
     public virtual void Use(string name)

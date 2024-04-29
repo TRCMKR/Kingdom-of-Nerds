@@ -25,7 +25,7 @@ public class GunLogic : MonoBehaviour, IWeapon
     private bool _gun;
 
     private bool _shooting;
-    
+
     [SerializeField] private int damage = 2;
 
     public virtual int Damage
@@ -74,15 +74,15 @@ public class GunLogic : MonoBehaviour, IWeapon
     //         UIController.TakeAmmo();
     //     }
     // }
+
+    public virtual void unsetActive()
+    {
+        StopAllCoroutines();
+        _shooting = false;
+    }
     
     public virtual void Use(string name)
     {
-        if (name != "Gun")
-        { 
-            StopAllCoroutines();
-            _shooting = false; 
-            return;
-        }
         if (_shooting) return;
         StartCoroutine(Shoot());
     }

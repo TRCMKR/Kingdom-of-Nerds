@@ -7,6 +7,8 @@ public class PlayerDamageable: DamageableCharacter
 {
     [SerializeField]
     public bool _isInvincible;
+
+    public bool godmod;
     
     private void Start()
     {
@@ -44,7 +46,7 @@ public class PlayerDamageable: DamageableCharacter
 
     public void SetInvincible(float time)
     {
-        if (_isInvincible) StopAllCoroutines();
+        if (_isInvincible) StopCoroutine(Invincible(time));
         StartCoroutine(Invincible(time));
     }
 
@@ -55,7 +57,7 @@ public class PlayerDamageable: DamageableCharacter
 
         yield return new WaitForSeconds(time);
         
-        _isInvincible = false;
+        _isInvincible = godmod;
         UIController.HideInvincibilityBar();
     }
 
