@@ -1,15 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreManager : MonoBehaviour
+public class ShootingGalleryStoreManager : MonoBehaviour
 {
     public GameObject storePanel;
-    public GameObject[] bonuses;
+    public GameObject shot;
     private static int pointsCount;
+    public int shotPrice = 50;
+    public int shotCount = 0;
 
     public Sprite hubOn;
     private Sprite _hubOff;
@@ -35,12 +35,9 @@ public class StoreManager : MonoBehaviour
     private void OpenStore()
     {
         storePanel.SetActive(true);
-        pointsCount = PlayerPrefs.GetInt("points", 0);
-        foreach (GameObject b in bonuses)
-        {
-            string name = b.GetComponent<Bonus>().name;
-            b.GetComponent<Button>().interactable = (PlayerPrefs.GetInt(name, 0) == 0) ? true : false;
-        }
+        pointsCount = PlayerPrefs.GetInt("sg_points", 0);
+        shotCount = PlayerPrefs.GetInt("sg_shots", 0);
+        shot.GetComponent<Button>().interactable = (shotCount >= 3) ? false : true;
         Time.timeScale = 0f;
     }
 
@@ -50,16 +47,17 @@ public class StoreManager : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public static void BuyBonus(Bonus bonus)
+    public void BuyShot()
     {
-        if (pointsCount >= bonus.bonusCost)
+        if (pointsCount >= shotPrice)
         {
-            pointsCount -= bonus.bonusCost;
-            UIController.TakePoints(bonus.bonusCost);
-            bonus.GetComponent<Button>().interactable = false;
+            pointsCount -= shotPrice;
+            shotCount++;
+            if (shotCount >= 3)
+                shot.GetComponent<Button>().interactable = false;
+            PlayerPrefs.SetInt("sg_shots", shotCount);
+            UIController.TakeShootGalleryPoints(shotPrice);
+            PlayerPrefs.Save();
         }
-        
-        PlayerPrefs.SetInt(bonus.name, 1);
-        PlayerPrefs.Save();
     }
 }

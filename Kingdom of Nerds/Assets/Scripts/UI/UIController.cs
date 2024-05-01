@@ -10,9 +10,12 @@ public class UIController : MonoBehaviour
 {
     public Slider healthBar;
     public GameObject pointsDisplay;
+    public GameObject sgPointsDisplay;
     public TextMeshProUGUI pointsText;
+    public TextMeshProUGUI sgPointsText;
 
     public static int pointsAmount;
+    public static int sgPointsAmount;
 
     private GameObject player;
     private IDamageable playerHP;
@@ -39,6 +42,8 @@ public class UIController : MonoBehaviour
     private static Action addAmmo;
     private static Action<int> addPoint;
     private static Action<int> takePoint;
+    private static Action<int> addSGPoint;
+    private static Action<int> takeSGPoint;
 
     void Start()
     {
@@ -49,6 +54,8 @@ public class UIController : MonoBehaviour
 
         pointsAmount = PlayerPrefs.GetInt("points", 0);
         pointsText.text = pointsAmount.ToString();
+
+        sgPointsDisplay.SetActive(false);
 
         if (SceneManager.GetActiveScene().name != "Hub")
         {
@@ -64,6 +71,11 @@ public class UIController : MonoBehaviour
                 Instantiate(ammoSprite, ammoDisplay);
             }
             pointsDisplay.SetActive(false);
+
+            if (SceneManager.GetActiveScene().name == "ShootingGallery")
+            {
+                sgPointsDisplay.SetActive(true);
+            }
         }
 
         if (SceneManager.GetActiveScene().name == "Boss Level")
@@ -81,6 +93,8 @@ public class UIController : MonoBehaviour
         addAmmo = AddBullet;
         addPoint = AddPoints;
         takePoint = Take_Points;
+        addSGPoint = AddSGPoints;
+        takeSGPoint = TakeSGPoints;
     }
 
     private void Update()
@@ -185,6 +199,16 @@ public class UIController : MonoBehaviour
     {
         takePoint.Invoke(amount);
     }
+
+    public static void AddShootGalleryPoints(int amount)
+    {
+        addSGPoint.Invoke(amount);
+    }
+
+    public static void TakeShootGalleryPoints(int amount)
+    {
+        takeSGPoint.Invoke(amount);
+    }
     #endregion
 
     #region Implementations
@@ -231,6 +255,25 @@ public class UIController : MonoBehaviour
         pointsAmount -= amount;
         pointsText.text = pointsAmount.ToString();
         PlayerPrefs.SetInt("points", pointsAmount);
+        PlayerPrefs.Save();
+    }
+
+    private void AddSGPoints(int amount)
+    {
+        sgPointsAmount = PlayerPrefs.GetInt("sg_points", 0);
+        sgPointsAmount += amount;
+        sgPointsText.text = sgPointsAmount.ToString();
+        PlayerPrefs.SetInt("sg_points", sgPointsAmount);
+        PlayerPrefs.Save();
+    }
+
+    private void TakeSGPoints(int amount)
+    {
+        sgPointsAmount = PlayerPrefs.GetInt("sg_points", amount);
+        if (sgPointsAmount < amount) amount = sgPointsAmount;
+        sgPointsAmount -= amount;
+        sgPointsText.text = sgPointsAmount.ToString();
+        PlayerPrefs.SetInt("sg_points", sgPointsAmount);
         PlayerPrefs.Save();
     }
     #endregion
