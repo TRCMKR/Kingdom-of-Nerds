@@ -15,7 +15,6 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI sgPointsText;
 
     public static int pointsAmount;
-    public static int sgPointsAmount;
 
     private GameObject player;
     private IDamageable playerHP;
@@ -42,8 +41,7 @@ public class UIController : MonoBehaviour
     private static Action addAmmo;
     private static Action<int> addPoint;
     private static Action<int> takePoint;
-    private static Action<int> addSGPoint;
-    private static Action<int> takeSGPoint;
+    private static Action<int> setSGPoint;
 
     void Start()
     {
@@ -93,8 +91,7 @@ public class UIController : MonoBehaviour
         addAmmo = AddBullet;
         addPoint = AddPoints;
         takePoint = Take_Points;
-        addSGPoint = AddSGPoints;
-        takeSGPoint = TakeSGPoints;
+        setSGPoint = SetSGPoints;
     }
 
     private void Update()
@@ -200,14 +197,9 @@ public class UIController : MonoBehaviour
         takePoint.Invoke(amount);
     }
 
-    public static void AddShootGalleryPoints(int amount)
+    public static void SetShootGalleryPoints(int amount)
     {
-        addSGPoint.Invoke(amount);
-    }
-
-    public static void TakeShootGalleryPoints(int amount)
-    {
-        takeSGPoint.Invoke(amount);
+        setSGPoint.Invoke(amount);
     }
     #endregion
 
@@ -258,23 +250,9 @@ public class UIController : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    private void AddSGPoints(int amount)
+    private void SetSGPoints(int amount)
     {
-        sgPointsAmount = PlayerPrefs.GetInt("sg_points", 0);
-        sgPointsAmount += amount;
-        sgPointsText.text = sgPointsAmount.ToString();
-        PlayerPrefs.SetInt("sg_points", sgPointsAmount);
-        PlayerPrefs.Save();
-    }
-
-    private void TakeSGPoints(int amount)
-    {
-        sgPointsAmount = PlayerPrefs.GetInt("sg_points", amount);
-        if (sgPointsAmount < amount) amount = sgPointsAmount;
-        sgPointsAmount -= amount;
-        sgPointsText.text = sgPointsAmount.ToString();
-        PlayerPrefs.SetInt("sg_points", sgPointsAmount);
-        PlayerPrefs.Save();
+        sgPointsText.text = amount.ToString();
     }
     #endregion
 }

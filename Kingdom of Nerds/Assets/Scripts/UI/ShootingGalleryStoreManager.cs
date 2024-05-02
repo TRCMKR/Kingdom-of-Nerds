@@ -7,16 +7,35 @@ public class ShootingGalleryStoreManager : MonoBehaviour
 {
     public GameObject storePanel;
     public GameObject shot;
-    private static int pointsCount;
-    public int shotPrice = 50;
-    public int shotCount = 0;
 
     public Sprite hubOn;
     private Sprite _hubOff;
 
+    public int shotPrice = 50;
+
+    public static int PointsCount 
+    {
+        get => PlayerPrefs.GetInt("sg_points", 0);
+        set
+        {
+            PlayerPrefs.SetInt("sg_points", value);
+            PlayerPrefs.Save();
+        }
+    }
+    public static int ShotsCount
+    {
+        get => PlayerPrefs.GetInt("sg_shots", 0);
+        set
+        {
+            PlayerPrefs.SetInt("sg_shots", value);
+            PlayerPrefs.Save();
+        }
+    }
+
     private void Start()
     {
         _hubOff = GetComponentInChildren<SpriteRenderer>().sprite;
+        UIController.SetShootGalleryPoints(PointsCount);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -35,9 +54,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     private void OpenStore()
     {
         storePanel.SetActive(true);
-        pointsCount = PlayerPrefs.GetInt("sg_points", 0);
-        shotCount = PlayerPrefs.GetInt("sg_shots", 0);
-        shot.GetComponent<Button>().interactable = (shotCount >= 3) ? false : true;
+        shot.GetComponent<Button>().interactable = ShotsCount < 3;
         Time.timeScale = 0f;
     }
 
@@ -49,15 +66,32 @@ public class ShootingGalleryStoreManager : MonoBehaviour
 
     public void BuyShot()
     {
-        if (pointsCount >= shotPrice)
+        if (PointsCount >= shotPrice)
         {
-            pointsCount -= shotPrice;
-            shotCount++;
-            if (shotCount >= 3)
-                shot.GetComponent<Button>().interactable = false;
-            PlayerPrefs.SetInt("sg_shots", shotCount);
-            UIController.TakeShootGalleryPoints(shotPrice);
-            PlayerPrefs.Save();
+            TakePoints(shotPrice);
+            ShotsCount++;
+            
+            shot.GetComponent<Button>().interactable = ShotsCount < 3;
         }
+    }
+
+    public static void AddPoints(int amount)
+    {
+        PointsCount += amount;
+        UIController.SetShootGalleryPoints(PointsCount);
+    }
+
+    public static void TakePoints(int amount)
+    {
+        PointsCount -= amount;
+        if (PointsCount < 0) PointsCount = 0;
+        UIController.SetShootGalleryPoints(PointsCount);        
+    }
+
+    public static void TakeShot(int amount = 1)
+    {
+        ShotsCount -= amount;
+        if (ShotsCount < 0) ShotsCount = 0;
+        //UIController
     }
 }

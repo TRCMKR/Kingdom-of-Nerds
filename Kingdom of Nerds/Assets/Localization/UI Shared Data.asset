@@ -143,6 +143,14 @@ MonoBehaviour:
     m_Key: death_title
     m_Metadata:
       m_Items: []
+  - m_Id: 17663162487685120
+    m_Key: sg_shot_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17663239348305920
+    m_Key: sg_description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

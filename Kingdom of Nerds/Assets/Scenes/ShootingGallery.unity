@@ -996,9 +996,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storePanel: {fileID: 942902393}
   shot: {fileID: 2059136560}
-  shotPrice: 50
-  shotCount: 0
   hubOn: {fileID: 21300000, guid: f6f3d444da47791419ce1ba95452b848, type: 3}
+  shotPrice: 50
 --- !u!58 &424226777
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3894,9 +3893,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 748938446}
+  - {fileID: 1548470960}
   - {fileID: 1109850342}
   - {fileID: 2059136561}
-  - {fileID: 1548470960}
   m_Father: {fileID: 1342172106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4103,7 +4102,7 @@ RectTransform:
   m_Children:
   - {fileID: 1367689296}
   m_Father: {fileID: 942902396}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4451,6 +4450,7 @@ GameObject:
   - component: {fileID: 1407333110}
   - component: {fileID: 1407333112}
   - component: {fileID: 1407333111}
+  - component: {fileID: 1407333113}
   m_Layer: 5
   m_Name: ShotText
   m_TagString: Untagged
@@ -4525,8 +4525,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4575,6 +4575,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407333109}
   m_CullTransparentMesh: 1
+--- !u!114 &1407333113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407333109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:ad4653d79aa3bf64a8a9c1b265bacac8
+    m_TableEntryReference:
+      m_KeyId: 17663162487685120
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &1440180115
 GameObject:
   m_ObjectHideFlags: 0
@@ -15699,7 +15727,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 942902396}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -15713,7 +15741,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548470959}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
   m_Name: 
@@ -15722,7 +15750,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:ad4653d79aa3bf64a8a9c1b265bacac8
     m_TableEntryReference:
-      m_KeyId: 2234765435486208
+      m_KeyId: 17663239348305920
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -18733,7 +18761,7 @@ RectTransform:
   - {fileID: 400595457}
   - {fileID: 1407333110}
   m_Father: {fileID: 942902396}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
