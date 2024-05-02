@@ -65,7 +65,10 @@ public class WeaponSwitch : MonoBehaviour
             SelectWeapon();
         }
         
-        if (Input.GetMouseButton(0)) _currentWeapon.GetComponent<IWeapon>().Use();
+        if (Input.GetMouseButton(0))
+        {
+            _currentWeapon.GetComponent<IWeapon>().Use(_currentWeapon.name);
+        }
 
     }
 
@@ -80,6 +83,7 @@ public class WeaponSwitch : MonoBehaviour
         //         weapon.gameObject.SetActive(false);
         //     i++;
         // }
+        if (!_currentWeapon.IsUnityNull()) _currentWeapon.GetComponent<IWeapon>().unsetActive();
         _currentWeapon = _weapons[weaponSwitch];
         if (_currentWeapon.name.Contains("Bat")) animator.SetBool("Bat", true);
         else animator.SetBool("Bat", false);

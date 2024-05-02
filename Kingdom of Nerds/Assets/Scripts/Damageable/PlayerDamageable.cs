@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDamageable: DamageableCharacter
 {
-    private bool _isInvincible;
+    [SerializeField]
+    public bool _isInvincible;
+
+    public bool godmod;
     
     private void Start()
     {
@@ -50,10 +53,12 @@ public class PlayerDamageable: DamageableCharacter
     private IEnumerator Invincible(float time)
     {
         _isInvincible = true;
-        
+        UIController.ShowInvincibilityBar();
+
         yield return new WaitForSeconds(time);
         
-        _isInvincible = false;
+        _isInvincible = godmod;
+        UIController.HideInvincibilityBar();
     }
 
     protected override void Die()

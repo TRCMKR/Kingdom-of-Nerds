@@ -149,6 +149,60 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 17663239348305920
     m_Key: sg_description
+  - m_Id: 11989472747995136
+    m_Key: store_ammo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11989641749086208
+    m_Key: store_spread
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11989756379414528
+    m_Key: store_bat_range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11991954291179520
+    m_Key: store_bat_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11992028438085632
+    m_Key: store_bat_reload
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11992118036807680
+    m_Key: store_ricochet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11996782568423424
+    m_Key: store_ammo_range
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11996922142277632
+    m_Key: store_shoot_rate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12000535547756544
+    m_Key: store_hp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12001230002864128
+    m_Key: store_ammo+
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12362705225662464
+    m_Key: store_bat_force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12363534548615168
+    m_Key: store_ammo_damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12370458459521024
+    m_Key: settings_godmode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12605975251927040
+    m_Key: controls_esc
     m_Metadata:
       m_Items: []
   m_Metadata:

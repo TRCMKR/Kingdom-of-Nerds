@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     
     [SerializeField] private int damage = 2;
     
+    
     public virtual int Damage
     {
         get { return damage; }
@@ -25,7 +26,7 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     private float _totalCharge = 0f;
     [SerializeField] public float preview = 0f;
     [SerializeField] public float maxCharge = 3f;
-    [SerializeField] private float minCharge = 1f;
+    [SerializeField] public float minCharge = 1f;
     private KeyCode _chargeAndShootKey = KeyCode.Mouse0;
     public float knockbackForce = 80f;
 
@@ -39,8 +40,16 @@ public class PlayerCombat : MonoBehaviour, IWeapon
     {
         
     }
+    
+    public virtual void unsetActive()
+    {
+        StopAllCoroutines();
+        _charging = false;
+        Attack();
+        StartCoroutine(Reload());
+    }
 
-    public virtual void Use()
+    public virtual void Use(string name)
     {
         if (_charging) return;
         StartCoroutine(Charge());

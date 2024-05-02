@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class UIController : MonoBehaviour
 {
     public Slider healthBar;
+    public Slider invincibilityBar;
     public GameObject pointsDisplay;
     public GameObject sgPointsDisplay;
     public TextMeshProUGUI pointsText;
@@ -45,11 +46,17 @@ public class UIController : MonoBehaviour
     private static Action<int> addPoint;
     private static Action<int> takePoint;
     private static Action<int> setSGPoint;
+    private static Action showInvAction;
+    private static Action hideInvAction;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");      
         playerHP = player.GetComponent<IDamageable>();
+        
+        pointsAmount = PlayerPrefs.GetInt("points", 0);
+        pointsText.text = pointsAmount.ToString();       
+
         healthBar.maxValue = playerHP.MaxHP;
         healthBar.value = playerHP.HP;
 
@@ -89,6 +96,7 @@ public class UIController : MonoBehaviour
 
         if (ShieldDisplay.isShielded) shieldDisplay.Activate();
 
+        
         hideAction = Hide;
         showAction = Show;
         updateHealth = RefreshHealth;
@@ -97,6 +105,8 @@ public class UIController : MonoBehaviour
         addPoint = AddPoints;
         takePoint = Take_Points;
         setSGPoint = SetSGPoints;
+        showInvAction = ShowInvBar;
+        hideInvAction = HideInvBar;
     }
 
     private void Update()
@@ -160,6 +170,33 @@ public class UIController : MonoBehaviour
         {
             playerGun.bounces += 3;
         }
+        if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
+        {
+            playerGun.range *= 2f;
+        }
+        if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
+        {
+            playerGun.startTime *= 0.75f;
+        }
+        if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
+        {
+            playerHP.MaxHP += 5;
+            if (SceneManager.GetActiveScene().name == "Hub")
+                playerHP.HP = playerHP.MaxHP;
+        }
+        if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
+        {
+            playerGun.maxAmmo += 5;
+            playerGun.currentAmmo = playerGun.maxAmmo;
+        }
+        if (PlayerPrefs.GetInt("BatForceBonus", 0) == 1)
+        {
+            playerBat.knockbackForce *= 2;
+        }
+        if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
+        {
+            playerGun.Damage += 1;
+        }
     }
 
     private void OnApplicationQuit()
@@ -207,6 +244,15 @@ public class UIController : MonoBehaviour
     public static void SetShootGalleryPoints(int amount)
     {
         setSGPoint.Invoke(amount);
+    }
+    public static void ShowInvincibilityBar()
+    {
+        showInvAction.Invoke();
+    }
+
+    public static void HideInvincibilityBar()
+    {
+        hideInvAction.Invoke();
     }
     #endregion
 
@@ -267,6 +313,16 @@ public class UIController : MonoBehaviour
     private void SetSGPoints(int amount)
     {
         sgPointsText.text = amount.ToString();
+    }
+    private void ShowInvBar()
+    {
+        if (invincibilityBar.gameObject.activeSelf) invincibilityBar.gameObject.SetActive(false);
+        invincibilityBar.gameObject.SetActive(true);   
+    }
+
+    private void HideInvBar()
+    {
+        invincibilityBar.gameObject.SetActive(false);
     }
     #endregion
 }

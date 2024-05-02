@@ -12,6 +12,12 @@ public class PauseMenu : MonoBehaviour
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
+
+    private void Awake()
+    {
+        SetGodMode(PlayerPrefs.GetInt("GodMode", 0) == 1);
+    }
+
     void Update()
     {
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -22,7 +28,7 @@ public class PauseMenu : MonoBehaviour
             {
                 if (!isPaused) Pause();
                 else Resume();
-            }
+            }     
         }
     }
 
@@ -45,25 +51,30 @@ public class PauseMenu : MonoBehaviour
         //UIController.HideUI();
         isInSettings = true;
         settingsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     public void CloseSettings()
     {
         //UIController.ShowUI();
         isInSettings = false;
+        pausePanel.SetActive(true);
         settingsPanel.SetActive(false);
     }
 
     public void OpenControls()
     {
         //UIController.HideUI();
+        UIController.HideUI();
         isInControls = true;
         controlsPanel.SetActive(true);
+        pausePanel.SetActive(false);
     }
 
     public void CloseControls()
     {
         //UIController.ShowUI();
+        UIController.ShowUI();
         isInControls = false;
         pausePanel.SetActive(true);
         controlsPanel.SetActive(false);
@@ -73,5 +84,12 @@ public class PauseMenu : MonoBehaviour
     {      
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SetGodMode(bool state)
+    {
+        var player = GameObject.Find("Player").GetComponent<PlayerDamageable>();
+        player._isInvincible = state;
+        player.godmod = state;
     }
 }

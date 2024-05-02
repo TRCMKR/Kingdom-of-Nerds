@@ -11,12 +11,10 @@ public class Bonus : MonoBehaviour
     public Image bonusImageSpace;
 
     public Sprite bonusImage;
-    public string bonusName;
     public int bonusCost;
 
     void Start()
     {
-        bonusNameText.text = bonusName;
         bonusCostText.text = bonusCost.ToString();
         bonusImageSpace.sprite = bonusImage; 
     }

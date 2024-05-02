@@ -11,7 +11,7 @@ public class EndingController : MonoBehaviour
     {
         Time.timeScale = 0f;
 
-        UIController.AddPoint(1);
+        UIController.AddPoint(2);
         PlayerPrefs.SetInt("points", UIController.pointsAmount);
         PlayerPrefs.Save();
 
