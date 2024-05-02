@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -29,6 +30,8 @@ public class UIController : MonoBehaviour
     public Image weaponDisplay;
     public Sprite batSprite;
     public Sprite gunSprite;
+
+    public ShieldDisplay shieldDisplay;
 
     private EnemyDamageable boss;
     private bool bossLevel = false;
@@ -83,6 +86,8 @@ public class UIController : MonoBehaviour
             bossHealthSlider.gameObject.SetActive(true);
             bossLevel = true;
         }
+
+        if (ShieldDisplay.isShielded) shieldDisplay.Activate();
 
         hideAction = Hide;
         showAction = Show;
@@ -216,7 +221,14 @@ public class UIController : MonoBehaviour
 
     private void RefreshHealth()
     {
-        healthBar.value = playerHP.HP;
+        if (ShieldDisplay.isShielded)
+        {
+            shieldDisplay.DamageShield(1);
+        }
+        else
+        {
+            healthBar.value = playerHP.HP;
+        }   
     }
 
     private void RemoveBullet()
