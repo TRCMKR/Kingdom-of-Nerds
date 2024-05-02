@@ -8,15 +8,21 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused = false;
     private bool isInSettings = false;
+    private bool isInControls = false;
     public GameObject pausePanel;
     public GameObject settingsPanel;
     public GameObject controlsPanel;
     void Update()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame && !isInSettings)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            if (!isPaused) Pause();
-            else Resume();
+            if (isInSettings) CloseSettings();
+            else if (isInControls) CloseControls();
+            else
+            {
+                if (!isPaused) Pause();
+                else Resume();
+            }
         }
     }
 
@@ -36,29 +42,30 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        UIController.HideUI();
+        //UIController.HideUI();
         isInSettings = true;
         settingsPanel.SetActive(true);
     }
 
     public void CloseSettings()
     {
-        UIController.ShowUI();
+        //UIController.ShowUI();
         isInSettings = false;
         settingsPanel.SetActive(false);
     }
 
     public void OpenControls()
     {
-        UIController.HideUI();
-        isInSettings = true;
+        //UIController.HideUI();
+        isInControls = true;
         controlsPanel.SetActive(true);
     }
 
     public void CloseControls()
     {
-        UIController.ShowUI();
-        isInSettings = false;
+        //UIController.ShowUI();
+        isInControls = false;
+        pausePanel.SetActive(true);
         controlsPanel.SetActive(false);
     }
 

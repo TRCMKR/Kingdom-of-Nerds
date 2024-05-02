@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ShootingGalleryStoreManager : MonoBehaviour
@@ -93,5 +94,10 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         ShotsCount -= amount;
         if (ShotsCount < 0) ShotsCount = 0;
         //UIController
+    }
+
+    public void DeclineMiniGame()
+    {
+        SceneManager.LoadScene($"Level 1.{Random.Range(1, 2)}");
     }
 }

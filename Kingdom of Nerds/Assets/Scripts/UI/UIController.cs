@@ -104,6 +104,8 @@ public class UIController : MonoBehaviour
         DisplayWeapon();
 
         if (bossLevel) UpdateBossHealth();
+
+        if (Keyboard.current.rKey.wasPressedThisFrame) shieldDisplay.Activate();
     }
 
     private void DisplayWeapon()
