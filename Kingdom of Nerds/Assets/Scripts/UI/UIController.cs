@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -22,6 +23,7 @@ public class UIController : MonoBehaviour
     private IDamageable playerHP;
     private GunLogic playerGun;
     private PlayerCombat playerBat;
+    private Shield playerShield;
 
     public Transform ammoDisplay;
     public GameObject ammoSprite;
@@ -71,8 +73,9 @@ public class UIController : MonoBehaviour
             playerBat = player.transform.Find("WeaponHolder").Find("Bat").GetComponent<PlayerCombat>();
             weaponSwitch = player.transform.Find("WeaponHolder").GetComponent<WeaponSwitch>();
             batChargeController = player.transform.Find("Canvas").Find("Charging").GetComponent<BatChargeController>();
+            playerShield = player.GetComponent<Shield>();
 
-            BonusCheck();
+            // BonusCheck();
 
             for (int i = 0; i < playerGun.maxAmmo; i++)
             {
@@ -115,7 +118,7 @@ public class UIController : MonoBehaviour
 
         if (bossLevel) UpdateBossHealth();
 
-        if (Keyboard.current.rKey.wasPressedThisFrame) shieldDisplay.Activate();
+        if (Keyboard.current.rKey.wasPressedThisFrame) {playerShield.shieldHP = playerShield.MaxHP; shieldDisplay.Activate();}
     }
 
     private void DisplayWeapon()
@@ -143,61 +146,61 @@ public class UIController : MonoBehaviour
         bossHealthSlider.value = boss.HP;
     }
 
-    private void BonusCheck()
-    {
-        if (PlayerPrefs.GetInt("AmmoBonus", 0) == 1)
-        {
-            playerGun.maxAmmo += 5;
-            playerGun.currentAmmo = playerGun.maxAmmo;
-        }
-        if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
-        {
-            playerGun.bulletSpread -= 4;
-        }
-        if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
-        {
-            playerBat.attackRange += 2;
-        }
-        if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
-        {
-            playerBat.Damage += 3;
-        }
-        if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
-        {
-            playerBat.attackRate -= 1.5f;
-        }
-        if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
-        {
-            playerGun.bounces += 3;
-        }
-        if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
-        {
-            playerGun.range *= 2f;
-        }
-        if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
-        {
-            playerGun.startTime *= 0.75f;
-        }
-        if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
-        {
-            playerHP.MaxHP += 5;
-            if (SceneManager.GetActiveScene().name == "Hub")
-                playerHP.HP = playerHP.MaxHP;
-        }
-        if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
-        {
-            playerGun.maxAmmo += 5;
-            playerGun.currentAmmo = playerGun.maxAmmo;
-        }
-        if (PlayerPrefs.GetInt("BatForceBonus", 0) == 1)
-        {
-            playerBat.knockbackForce *= 2;
-        }
-        if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
-        {
-            playerGun.Damage += 1;
-        }
-    }
+    // private void BonusCheck()
+    // {
+    //     if (PlayerPrefs.GetInt("AmmoBonus", 0) == 1)
+    //     {
+    //         playerGun.maxAmmo += 5;
+    //         playerGun.currentAmmo = playerGun.maxAmmo;
+    //     }
+    //     if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
+    //     {
+    //         playerGun.bulletSpread -= 4;
+    //     }
+    //     if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
+    //     {
+    //         playerBat.attackRange += 2;
+    //     }
+    //     if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
+    //     {
+    //         playerBat.Damage += 3;
+    //     }
+    //     if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
+    //     {
+    //         playerBat.attackRate -= 1.5f;
+    //     }
+    //     if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
+    //     {
+    //         playerGun.bounces += 3;
+    //     }
+    //     if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
+    //     {
+    //         playerGun.range *= 2f;
+    //     }
+    //     if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
+    //     {
+    //         playerGun.startTime *= 0.75f;
+    //     }
+    //     if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
+    //     {
+    //         playerHP.MaxHP += 5;
+    //         if (SceneManager.GetActiveScene().name == "Hub")
+    //             playerHP.HP = playerHP.MaxHP;
+    //     }
+    //     if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
+    //     {
+    //         playerGun.maxAmmo += 5;
+    //         playerGun.currentAmmo = playerGun.maxAmmo;
+    //     }
+    //     if (PlayerPrefs.GetInt("BatForceBonus", 0) == 1)
+    //     {
+    //         playerBat.knockbackForce *= 2;
+    //     }
+    //     if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
+    //     {
+    //         playerGun.Damage += 1;
+    //     }
+    // }
 
     private void OnApplicationQuit()
     {
@@ -269,14 +272,15 @@ public class UIController : MonoBehaviour
 
     private void RefreshHealth()
     {
-        if (ShieldDisplay.isShielded)
-        {
-            shieldDisplay.DamageShield(1);
-        }
-        else
-        {
+        // if (ShieldDisplay.isShielded)
+        // {
+        //     shieldDisplay.DamageShield(1);
+        // }
+        // else
+        // {
             healthBar.value = playerHP.HP;
-        }   
+            shieldDisplay.shieldSlider.value = playerShield.shieldHP;
+        // }   
     }
 
     private void RemoveBullet()

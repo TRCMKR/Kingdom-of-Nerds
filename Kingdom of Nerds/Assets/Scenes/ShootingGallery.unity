@@ -681,7 +681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6996034145935452756, guid: aa97b926b17096f42a0eaf68617e1896, type: 3}
       propertyPath: m_Name
-      value: PermanentPerksManager
+      value: PerksManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa97b926b17096f42a0eaf68617e1896, type: 3}
