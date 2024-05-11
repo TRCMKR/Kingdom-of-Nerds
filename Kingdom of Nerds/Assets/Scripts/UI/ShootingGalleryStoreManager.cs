@@ -44,6 +44,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     {
         _hubOff = GetComponentInChildren<SpriteRenderer>().sprite;
         UIController.SetShootGalleryPoints(PointsCount);
+        gameDeclined = false;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
