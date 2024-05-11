@@ -97,4 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18ec038969ededdc9230cb9553edec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Perks: []
+  Perks:
+  - {fileID: 8898723722757511942, guid: 6b4959e8a18066c36b529cef2cfbcc08, type: 3}
+  - {fileID: 8898723722757511942, guid: 009ccaebedae2a520b5d2f577475fb41, type: 3}
+  - {fileID: 8898723722757511942, guid: b864ccc05882d08128a8604f23350e45, type: 3}
+  - {fileID: 8898723722757511942, guid: 43d27ab469d253954849e28a19eab017, type: 3}

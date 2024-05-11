@@ -8,6 +8,7 @@ public class PlayerPerks : MonoBehaviour
     private IDamageable playerHP;
     private GunLogic playerGun;
     private PlayerCombat playerBat;
+    private Shield playerShield;
     void Start()
     {
         playerHP = gameObject.GetComponent<IDamageable>();
@@ -15,6 +16,7 @@ public class PlayerPerks : MonoBehaviour
         {
             playerGun = gameObject.transform.Find("WeaponHolder").Find("Gun").GetComponent<GunLogic>();
             playerBat = gameObject.transform.Find("WeaponHolder").Find("Bat").GetComponent<PlayerCombat>();
+            playerShield = gameObject.GetComponent<Shield>();
             PerksCheck();
         }
     }
@@ -72,6 +74,22 @@ public class PlayerPerks : MonoBehaviour
         if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
         {
             playerGun.Damage += 1;
+        }
+        if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
+        {
+            playerGun.Damage += 1;
+        }
+        if (PlayerPrefs.GetInt("ShieldBonus", 0) == 1)
+        {
+            playerShield.MaxHP += 5;
+        }
+        if (PlayerPrefs.GetInt("AutoPickUp", 0) == 1)
+        {
+            // ...
+        }
+        if (PlayerPrefs.GetInt("BatDebuff", 0) == 1)
+        {
+            // ...
         }
     }
 }

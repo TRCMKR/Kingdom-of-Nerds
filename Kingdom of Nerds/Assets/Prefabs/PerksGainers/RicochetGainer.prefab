@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6031846463864691307}
   - component: {fileID: 8207855611347528797}
   - component: {fileID: 3557837324998429675}
-  - component: {fileID: -3992102235673084684}
+  - component: {fileID: 7544717569124188265}
   m_Layer: 11
   m_Name: RicochetGainer
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8898723722757511942}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3109498, y: -21.442667, z: -0.019251935}
+  m_LocalPosition: {x: 11.2, y: -13.2552, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 839734945
   m_SortingLayer: 5
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8fffb5d3718649c4f90570719b8e2b91, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3054bd2febfb0554b9d3a975a3d805e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4b9c001558339209b1437dc8785214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-3992102235673084684
+--- !u!114 &7544717569124188265
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8898723722757511942}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cebe95d2eb116fbf9b435307b9be73b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 08ca0cb16d0b28e80ada77e7d3bbb699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealValue: 3
+  Name: RicochetBonus
