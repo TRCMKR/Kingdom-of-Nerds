@@ -1867,7 +1867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -1, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3923824893907284947
@@ -3300,7 +3300,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 525, y: 230}
-  m_SizeDelta: {x: 40, y: 30}
+  m_SizeDelta: {x: 45, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2347461190226243695
 CanvasRenderer:
@@ -3358,11 +3358,11 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSizeBase: 19
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 10
+  m_fontSizeMax: 20
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
@@ -3393,7 +3393,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 5, y: 0, z: 0, w: 0}
+  m_margin: {x: 4, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3645,7 +3645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 487, y: 230}
+  m_AnchoredPosition: {x: 485, y: 230}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1681661303982478786
@@ -6346,6 +6346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8334884129105051784}
+  invincibilityBar: {fileID: 0}
   pointsDisplay: {fileID: 2118014814170078445}
   sgPointsDisplay: {fileID: 3869337512054083793}
   pointsText: {fileID: 9137158510065535557}
@@ -8360,8 +8361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7a7e3e36991406f9e273876232f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 70c0234da679e4293893ef56015411f3, type: 2}
-  parameter: SoundsVol
+  musicMixer: {fileID: 0}
+  soundMixer: {fileID: 0}
+  musicSlider: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!1 &8334884130069370203
 GameObject:
   m_ObjectHideFlags: 0
@@ -9107,8 +9110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7a7e3e36991406f9e273876232f0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 64fc13d3d0c604d7ca42f4fcef1d4f34, type: 2}
-  parameter: MusicVol
+  musicMixer: {fileID: 0}
+  soundMixer: {fileID: 0}
+  musicSlider: {fileID: 0}
+  volumeSlider: {fileID: 0}
 --- !u!1 &8334884130277224276
 GameObject:
   m_ObjectHideFlags: 0
