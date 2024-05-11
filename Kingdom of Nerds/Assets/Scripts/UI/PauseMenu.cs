@@ -88,7 +88,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SetGodMode(bool state)
     {
-        var player = GameObject.Find("Player").GetComponent<PlayerDamageable>();
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamageable>();
         player._isInvincible = state;
         player.godmod = state;
     }
