@@ -292,6 +292,11 @@ public class UIController : MonoBehaviour
 
     private void AddBullet()
     {
+        if (SceneManager.GetActiveScene().name == "ShootingGallery")
+        {
+            playerGun.maxAmmo += 1;
+            playerGun.GetComponent<GunLogic>().currentAmmo += 1;
+        }
         if (playerGun.currentAmmo <= playerGun.maxAmmo)
         {
             Instantiate(ammoSprite, ammoDisplay);
@@ -307,7 +312,7 @@ public class UIController : MonoBehaviour
     }
 
     private void Take_Points(int amount)
-    {
+    {            
         pointsAmount -= amount;
         pointsText.text = pointsAmount.ToString();
         PlayerPrefs.SetInt("points", pointsAmount);
