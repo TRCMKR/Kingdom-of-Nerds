@@ -890,6 +890,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3381680640356024076}
   - component: {fileID: 7002245209848637287}
+  - component: {fileID: 5495493075202809959}
   m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
@@ -931,10 +932,22 @@ MonoBehaviour:
   startTime: 0.3
   speed: 300
   bulletSpread: 0
-  maxAmmo: 10
-  currentAmmo: 10
+  maxAmmo: 0
+  currentAmmo: 0
   bounces: 0
   damage: 2
+--- !u!114 &5495493075202809959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358070357528135777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb94e19a51d659368b44941be851fad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6156860445011811686
 GameObject:
   m_ObjectHideFlags: 0

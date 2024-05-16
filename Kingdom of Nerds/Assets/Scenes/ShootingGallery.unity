@@ -1275,6 +1275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerNoSpread
       objectReference: {fileID: 0}
+    - target: {fileID: 7002245209848637287, guid: 9573f63386966dcffbd1a99c5f1ef285, type: 3}
+      propertyPath: maxAmmo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9573f63386966dcffbd1a99c5f1ef285, type: 3}
 --- !u!1 &573203426
