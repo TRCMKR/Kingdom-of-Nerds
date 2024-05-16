@@ -67,11 +67,11 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         CloseStore();
     }
 
-    private void CheckShotButtons()
+    private void DisableShotButtons()
     {
-        shots1.GetComponent<Button>().interactable = ShotsCount < maxShots;
-        shots2.GetComponent<Button>().interactable = ShotsCount < 2;
-        shots3.GetComponent<Button>().interactable = ShotsCount < 1;
+        shots1.GetComponent<Button>().interactable = false;
+        shots2.GetComponent<Button>().interactable = false;
+        shots3.GetComponent<Button>().interactable = false;
     }
 
     private void OpenStore()
@@ -79,7 +79,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         if (!gameDeclined)
         {
             storePanel.SetActive(true);
-            CheckShotButtons();
+            //CheckShotButtons();
             Time.timeScale = 0f;
             PauseMenu.isPaused = true;
         }
@@ -101,7 +101,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
             TakePoints(pointsNeeded);
             ShotsCount += amount;
 
-            CheckShotButtons();
+            DisableShotButtons();
         }
     }
 
