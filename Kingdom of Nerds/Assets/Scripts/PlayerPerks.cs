@@ -92,4 +92,12 @@ public class PlayerPerks : MonoBehaviour
             // ...
         }
     }
+
+    public void LoseLocalPerks()
+    {  // захардкожено
+        PlayerPrefs.SetInt("ShieldBonus", 0);
+        PlayerPrefs.SetInt("AutoPickUp", 0);
+        PlayerPrefs.SetInt("BatDebuff", 0);
+        PlayerPrefs.SetInt("RicochetBonus", 0);
+    }
 }

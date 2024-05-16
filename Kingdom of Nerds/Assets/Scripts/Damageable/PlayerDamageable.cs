@@ -64,6 +64,7 @@ public class PlayerDamageable: DamageableCharacter
 
     protected override void Die()
     {
+        gameObject.GetComponent<PlayerPerks>().LoseLocalPerks();
         Destroy(PlayerManager.Instance.gameObject);
         DeathScreen.Show();
     }
