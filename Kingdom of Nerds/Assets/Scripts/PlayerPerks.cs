@@ -9,9 +9,13 @@ public class PlayerPerks : MonoBehaviour
     private GunLogic playerGun;
     private PlayerCombat playerBat;
     private Shield playerShield;
-    void Start()
+    void Awake()
     {
         playerHP = gameObject.GetComponent<IDamageable>();
+        if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
+        {
+            playerHP.MaxHP = 20;
+        }
         if (SceneManager.GetActiveScene().name != "Hub")
         {
             playerGun = gameObject.transform.Find("WeaponHolder").Find("Gun").GetComponent<GunLogic>();
@@ -58,9 +62,7 @@ public class PlayerPerks : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
         {
-            playerHP.MaxHP += 5;
-            if (SceneManager.GetActiveScene().name == "Hub")
-                playerHP.HP = playerHP.MaxHP;
+            playerHP.MaxHP = 20;    
         }
         if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
         {
