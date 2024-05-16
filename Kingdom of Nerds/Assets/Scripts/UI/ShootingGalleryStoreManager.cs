@@ -101,6 +101,9 @@ public class ShootingGalleryStoreManager : MonoBehaviour
             TakePoints(pointsNeeded);
             ShotsCount += amount;
 
+            for (int i = 0; i < amount; i++)
+                UIController.AddAmmo();
+
             DisableShotButtons();
         }
     }
