@@ -194,6 +194,8 @@ GameObject:
   - component: {fileID: 919353862}
   - component: {fileID: -2927521273317450930}
   - component: {fileID: 2071173579}
+  - component: {fileID: 5923521537315880493}
+  - component: {fileID: 4659161411771480045}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -405,6 +407,7 @@ MonoBehaviour:
   _hp: 13
   _maxHp: 13
   _isInvincible: 0
+  godmod: 0
 --- !u!60 &2071173579
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -501,6 +504,33 @@ PolygonCollider2D:
       - {x: -0.9712499, y: -0.13125}
       - {x: -1.0062499, y: -0.18374997}
       - {x: -0.9887499, y: -0.18374997}
+--- !u!114 &5923521537315880493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0248e86faa90ff1a5d810037530bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4659161411771480045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3488709354644382409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065536ea4214dbf67bb9eb4ffcd6f444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldHP: 0
+  isShielded: 0
+  MaxHP: 5
 --- !u!1 &4493825889530781264
 GameObject:
   m_ObjectHideFlags: 0

@@ -146,6 +146,14 @@ MonoBehaviour:
     m_Localized: You have died!
     m_Metadata:
       m_Items: []
+  - m_Id: 17663162487685120
+    m_Localized: 1 shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17663239348305920
+    m_Localized: Buy shots for shooting gallery
+    m_Metadata:
+      m_Items: []
   - m_Id: 11989472747995136
     m_Localized: More ammo
     m_Metadata:
@@ -200,6 +208,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 12605975251927040
     m_Localized: '- pause'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21004355598565376
+    m_Localized: 2 shots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21004742162399232
+    m_Localized: 3 shots
     m_Metadata:
       m_Items: []
   references:

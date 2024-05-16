@@ -24,6 +24,7 @@ public class PlayerDamageable: DamageableCharacter
             // Debug.Log("I'm invisible!");
             return;
         }
+        damage = gameObject.GetComponent<Shield>().TakeDamage(damage);
         base.TakeDamage(damage);
         UIController.UpdateHealth();
         PlayerManager.Instance.UpdateHP();

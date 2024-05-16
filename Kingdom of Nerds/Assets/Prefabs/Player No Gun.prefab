@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4862247774312948362}
   - component: {fileID: 7752156535898898490}
   - component: {fileID: -4426610945435140437}
+  - component: {fileID: 1557653943861566305}
   m_Layer: 6
   m_Name: Player No Gun
   m_TagString: Player
@@ -222,3 +223,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hp: 13
   _maxHp: 13
+  _isInvincible: 0
+  godmod: 0
+--- !u!114 &1557653943861566305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6629109429518145781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af0248e86faa90ff1a5d810037530bc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

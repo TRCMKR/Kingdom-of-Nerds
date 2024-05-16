@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
             {
                 if (!isPaused) Pause();
                 else Resume();
-            }      
+            }     
         }
     }
 
@@ -48,7 +48,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenSettings()
     {
-        UIController.HideUI();
+        //UIController.HideUI();
         isInSettings = true;
         settingsPanel.SetActive(true);
         pausePanel.SetActive(false);
@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseSettings()
     {
-        UIController.ShowUI();
+        //UIController.ShowUI();
         isInSettings = false;
         pausePanel.SetActive(true);
         settingsPanel.SetActive(false);
@@ -64,6 +64,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenControls()
     {
+        //UIController.HideUI();
         UIController.HideUI();
         isInControls = true;
         controlsPanel.SetActive(true);
@@ -72,6 +73,7 @@ public class PauseMenu : MonoBehaviour
 
     public void CloseControls()
     {
+        //UIController.ShowUI();
         UIController.ShowUI();
         isInControls = false;
         pausePanel.SetActive(true);
@@ -86,7 +88,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SetGodMode(bool state)
     {
-        var player = GameObject.Find("Player").GetComponent<PlayerDamageable>();
+        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDamageable>();
         player._isInvincible = state;
         player.godmod = state;
     }
