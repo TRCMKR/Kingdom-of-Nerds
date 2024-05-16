@@ -53,13 +53,10 @@ public class UIController : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");      
-        playerHP = player.GetComponent<IDamageable>();
-        
         pointsAmount = PlayerPrefs.GetInt("points", 0);
         pointsText.text = pointsAmount.ToString();       
 
-        healthBar.maxValue = playerHP.MaxHP;
+        healthBar.maxValue = PlayerManager.Instance.MaxHP;
         healthBar.value = playerHP.HP;
 
         pointsAmount = PlayerPrefs.GetInt("points", 0);
@@ -100,6 +97,13 @@ public class UIController : MonoBehaviour
         if (ShieldDisplay.isShielded) shieldDisplay.Activate();
 
         
+    }
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHP = player.GetComponent<IDamageable>();
+
         hideAction = Hide;
         showAction = Show;
         updateHealth = RefreshHealth;
@@ -272,15 +276,13 @@ public class UIController : MonoBehaviour
 
     private void RefreshHealth()
     {
-        // if (ShieldDisplay.isShielded)
-        // {
-        //     shieldDisplay.DamageShield(1);
-        // }
-        // else
-        // {
-            healthBar.value = playerHP.HP;
+        healthBar.value = playerHP.HP;
+
+        if (playerShield != null)
+        {
+            if (playerShield.shieldHP <= 0) shieldDisplay.gameObject.SetActive(false);
             shieldDisplay.shieldSlider.value = playerShield.shieldHP;
-        // }   
+        }  
     }
 
     private void RemoveBullet()
