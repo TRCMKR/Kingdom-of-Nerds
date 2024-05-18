@@ -9,5 +9,6 @@ public class GainPerk : MonoBehaviour
     void OnDisable()
     {
         PlayerPrefs.SetInt(Name, 1);
+        PlayerPrefs.Save();
     }
 }

@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,6 +19,8 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     private Sprite _hubOff;
 
     public GameObject buttonHelper;
+
+    public LocalizeStringEvent buyString;
 
     public int shotPrice = 50;
     public static int maxShots = 3;
@@ -88,6 +93,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     public void CloseStore()
     {
         storePanel.SetActive(false);
+        //buyString.gameObject.SetActive(false);
         Time.timeScale = 1f;
         PauseMenu.isPaused = false;
     }
@@ -105,6 +111,11 @@ public class ShootingGalleryStoreManager : MonoBehaviour
                 UIController.AddAmmo();
 
             DisableShotButtons();
+
+            IntVariable cnt = new IntVariable();
+            cnt.Value = amount;
+            buyString.StringReference["shots"] = cnt;
+            buyString.gameObject.SetActive(true);
         }
     }
 

@@ -35,11 +35,11 @@ public class ShieldDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        healthBar.Translate(-50, 0, 0);
+        healthBar.Translate(-85, 0, 0);
     }
 
     private void OnDisable()
     {
-        healthBar.Translate(50, 0, 0);   
+        healthBar.Translate(85, 0, 0);   
     }
 }

@@ -40,6 +40,9 @@ public class UIController : MonoBehaviour
     private bool bossLevel = false;
     public Slider bossHealthSlider;
 
+    public ReceivedPerksDisplay perksDisplay;
+    private bool showedPerks = false;
+
     private static Action hideAction;
     private static Action showAction;
     private static Action updateHealth;
@@ -123,6 +126,8 @@ public class UIController : MonoBehaviour
         if (bossLevel) UpdateBossHealth();
 
         if (Keyboard.current.rKey.wasPressedThisFrame) {playerShield.shieldHP = playerShield.MaxHP; shieldDisplay.Activate();}
+
+        CheckShootingGalleryEnd();
     }
 
     private void DisplayWeapon()
@@ -143,6 +148,23 @@ public class UIController : MonoBehaviour
             weaponDisplay.sprite = batSprite;
             batChargeController.ShowReloadBar();
         }
+    }
+
+    private void CheckShootingGalleryEnd()
+    {
+        if (!showedPerks && SceneManager.GetActiveScene().name == "ShootingGallery")
+        {
+            if (playerGun.maxAmmo != 0 && playerGun.currentAmmo == 0)
+            {
+                Invoke("ShowPerks", 5);
+                showedPerks = true;
+            }
+        }
+    }
+
+    private void ShowPerks()
+    {
+        perksDisplay.ShowPerks();
     }
 
     private void UpdateBossHealth()
