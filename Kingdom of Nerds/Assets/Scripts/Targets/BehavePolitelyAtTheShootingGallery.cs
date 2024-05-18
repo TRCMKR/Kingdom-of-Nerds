@@ -7,5 +7,6 @@ public class BehavePolitelyAtTheShootingGallery : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("sg_shots", 0);
+        PlayerPrefs.Save();
     }
 }

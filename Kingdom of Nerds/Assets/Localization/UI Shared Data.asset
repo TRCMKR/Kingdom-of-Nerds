@@ -215,6 +215,18 @@ MonoBehaviour:
     m_Key: sg_shot_3
     m_Metadata:
       m_Items: []
+  - m_Id: 23164441511084032
+    m_Key: sg_bought_shots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23176552052178944
+    m_Key: sg_received_perks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23179601390878720
+    m_Key: sg_perks_list
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

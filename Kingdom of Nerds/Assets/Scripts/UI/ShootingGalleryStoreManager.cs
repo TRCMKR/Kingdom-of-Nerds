@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -16,6 +19,8 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     private Sprite _hubOff;
 
     public GameObject buttonHelper;
+
+    public LocalizeStringEvent buyString;
 
     public int shotPrice = 50;
     public static int maxShots = 3;
@@ -67,11 +72,11 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         CloseStore();
     }
 
-    private void CheckShotButtons()
+    private void DisableShotButtons()
     {
-        shots1.GetComponent<Button>().interactable = ShotsCount < maxShots;
-        shots2.GetComponent<Button>().interactable = ShotsCount < 2;
-        shots3.GetComponent<Button>().interactable = ShotsCount < 1;
+        shots1.GetComponent<Button>().interactable = false;
+        shots2.GetComponent<Button>().interactable = false;
+        shots3.GetComponent<Button>().interactable = false;
     }
 
     private void OpenStore()
@@ -79,7 +84,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         if (!gameDeclined)
         {
             storePanel.SetActive(true);
-            CheckShotButtons();
+            //CheckShotButtons();
             Time.timeScale = 0f;
             PauseMenu.isPaused = true;
         }
@@ -88,6 +93,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     public void CloseStore()
     {
         storePanel.SetActive(false);
+        //buyString.gameObject.SetActive(false);
         Time.timeScale = 1f;
         PauseMenu.isPaused = false;
     }
@@ -100,10 +106,16 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         {
             TakePoints(pointsNeeded);
             ShotsCount += amount;
+
             for (int i = 0; i < amount; i++)
                 UIController.AddAmmo();
-            
-            CheckShotButtons();
+
+            DisableShotButtons();
+
+            IntVariable cnt = new IntVariable();
+            cnt.Value = amount;
+            buyString.StringReference["shots"] = cnt;
+            buyString.gameObject.SetActive(true);
         }
     }
 

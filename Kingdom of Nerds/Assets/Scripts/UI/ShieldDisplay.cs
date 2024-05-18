@@ -7,7 +7,7 @@ public class ShieldDisplay : MonoBehaviour
 {
     public RectTransform healthBar;
     public Slider shieldSlider;
-    private static int shieldHP = 0;
+    public static int shieldHP = 0;
     public static bool isShielded = true;
     public static int MaxHP = 5;
 
@@ -35,11 +35,11 @@ public class ShieldDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        healthBar.Translate(-50, 0, 0);
+        healthBar.Translate(-85, 0, 0);
     }
 
     private void OnDisable()
     {
-        healthBar.Translate(50, 0, 0);   
+        healthBar.Translate(85, 0, 0);   
     }
 }
