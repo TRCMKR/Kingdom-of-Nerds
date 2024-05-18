@@ -23,6 +23,14 @@ public class PlayerPerks : MonoBehaviour
             playerShield = gameObject.GetComponent<Shield>();
             PerksCheck();
         }
+        else
+        {
+            PlayerPrefs.SetInt("RicochetBonus", 0);
+            PlayerPrefs.SetInt("ShieldBonus", 0);
+            PlayerPrefs.SetInt("AutoPickUp", 0);
+            PlayerPrefs.SetInt("BatDebuff", 0);
+            PlayerPrefs.Save();
+        }
     }
 
     private void PerksCheck()
@@ -47,10 +55,6 @@ public class PlayerPerks : MonoBehaviour
         if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
         {
             playerBat.attackRate -= 1.5f;
-        }
-        if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
-        {
-            playerGun.bounces += 3;
         }
         if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
         {
@@ -80,6 +84,10 @@ public class PlayerPerks : MonoBehaviour
         if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
         {
             playerGun.Damage += 1;
+        }
+        if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
+        {
+            playerGun.bounces += 3;
         }
         if (PlayerPrefs.GetInt("ShieldBonus", 0) == 1)
         {

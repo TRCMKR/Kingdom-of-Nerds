@@ -9,21 +9,18 @@ public class PlayerDamageable: DamageableCharacter
     public bool _isInvincible;
 
     public bool godmod;
-    
+
     private void Start()
     {
         // HP = MaxHP;
         HP = PlayerManager.Instance.HP;
         UIController.UpdateHealth();
+        // if (PlayerPrefs.GetInt("ShieldBonus") == 0) _flag = 
     }
     
     public override void TakeDamage(int damage, GameObject sender = null)
     {
-        if (_isInvincible)
-        {
-            // Debug.Log("I'm invisible!");
-            return;
-        }
+        if (_isInvincible) return;
         damage = gameObject.GetComponent<Shield>().TakeDamage(damage);
         base.TakeDamage(damage);
         UIController.UpdateHealth();

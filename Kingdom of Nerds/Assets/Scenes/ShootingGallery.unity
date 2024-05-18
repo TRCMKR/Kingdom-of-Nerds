@@ -1106,6 +1106,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8001580842582714219, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8334884129743231538, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2917,17 +2921,13 @@ CompositeCollider2D:
     - - X: -563134336
         Y: -179009328
       - X: -563134336
-        Y: 204799900
-      - X: -486399959
-        Y: 204799900
-      - X: -486399900
-        Y: 204799959
-      - X: -486399900
-        Y: 230400057
-      - X: -486399959
-        Y: 230400116
+        Y: 204800000
+      - X: -512000000
+        Y: 204800000
+      - X: -512000000
+        Y: 230400016
       - X: -563134336
-        Y: 230400116
+        Y: 230400016
       - X: -563134336
         Y: 435259392
       - X: -102334360
@@ -2942,6 +2942,14 @@ CompositeCollider2D:
         Y: 435259392
       - X: 511934304
         Y: -179009328
+    - - X: -486400000
+        Y: 230400016
+      - X: -511999968
+        Y: 230400016
+      - X: -511999968
+        Y: 204800000
+      - X: -486400000
+        Y: 204800000
   m_CompositePaths:
     m_Paths:
     - - {x: 53.76653, y: -20.474062}
@@ -2954,10 +2962,10 @@ CompositeCollider2D:
       - {x: -58.886528, y: -20.474062}
     - - {x: 51.19343, y: -17.900904}
       - {x: -56.313435, y: -17.900904}
-      - {x: -56.313404, y: 20.47999}
-      - {x: -48.63999, y: 20.480026}
-      - {x: -48.640026, y: 23.040012}
-      - {x: -56.313435, y: 23.040041}
+      - {x: -56.313404, y: 20.48}
+      - {x: -48.64, y: 20.480028}
+      - {x: -48.64003, y: 23.040003}
+      - {x: -56.313435, y: 23.040031}
       - {x: -56.313404, y: 43.52594}
       - {x: -10.233437, y: 43.525967}
       - {x: -10.233406, y: 74.24593}
@@ -17644,11 +17652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741149208027307821, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.14
+      value: 24.02
       objectReference: {fileID: 0}
     - target: {fileID: 8741149208027307821, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.32
+      value: 41.09
       objectReference: {fileID: 0}
     - target: {fileID: 8741149208027307821, guid: 0131e7c2d178043fc9a782b5681aafcb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17761,7 +17769,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.8, y: -21.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1449506068}
   - {fileID: 1787922841}

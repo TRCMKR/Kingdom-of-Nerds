@@ -46,33 +46,22 @@ public class BulletLogic : MonoBehaviour
         gameObject.layer = 11;
         GetComponent<SpriteRenderer>().sortingLayerName = "Nerf Bullets";
         GetComponent<SpriteRenderer>().material = outline;
+        if (PlayerPrefs.GetInt("AutoPickUp") == 1) Invoke(nameof(AutoPickUp), 1.5f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_hasCollided) return;
-
-        // ToNerf();
-        // if (collision.gameObject.CompareTag("Enemy"))
-        //     collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
-        // _hasCollided = true;
-        //
-        // if (_hasCollided) { ToNerf(); return; }
-
-
+        
         var obj = collision.gameObject;
-        //ToNerf();
         if (obj.CompareTag("Enemy"))
         {
             obj.GetComponent<IDamageable>().TakeDamage(damage);
             _hasCollided = true;
-            //Debug.Log(1);
             StartCoroutine(ToNerf());
             return;
         }
-
-
-
+        
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.zero;
         Vector2 inNormal = collision.GetContact(0).normal;
@@ -107,10 +96,11 @@ public class BulletLogic : MonoBehaviour
         }
     }
 
-
-
-
-    
-
+    private void AutoPickUp()
+    {
+        GameObject.FindWithTag("Player").GetComponentInChildren<GunLogic>().currentAmmo += 1;
+        PickUp();
+        UIController.AddAmmo();
+    }
 }
 

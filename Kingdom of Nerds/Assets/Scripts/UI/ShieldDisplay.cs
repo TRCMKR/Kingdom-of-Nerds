@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,11 @@ public class ShieldDisplay : MonoBehaviour
     public static int shieldHP = 0;
     public static bool isShielded = true;
     public static int MaxHP = 5;
+
+    private void Start()
+    {
+        if (PlayerPrefs.GetInt("ShieldBonus") == 0) gameObject.SetActive(false);
+    }
 
     public void Activate()
     {
