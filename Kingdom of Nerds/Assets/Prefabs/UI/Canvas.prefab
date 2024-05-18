@@ -5921,7 +5921,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d44d6c84a182b2249b13c0698db45506, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efa205370618c9543a647f5a882dbfa6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13117,6 +13117,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3076854086736167238, guid: b26cdb1fc6484fb41ace650c8d6898af, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b15dfcf0610ef042ac2b76c512c7e0e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b26cdb1fc6484fb41ace650c8d6898af, type: 3}
 --- !u!224 &8430530574046375951 stripped

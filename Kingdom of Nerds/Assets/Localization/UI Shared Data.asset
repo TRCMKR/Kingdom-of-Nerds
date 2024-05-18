@@ -172,7 +172,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11992118036807680
-    m_Key: store_ricochet
+    m_Key: store_ammo_speed
     m_Metadata:
       m_Items: []
   - m_Id: 11996782568423424
