@@ -100,7 +100,9 @@ public class ShootingGalleryStoreManager : MonoBehaviour
 
     public void BuyShots(int amount)
     {
-        int pointsNeeded = shotPrice * amount;
+        int pointsNeeded = 5;
+        if (amount == 2) pointsNeeded = 9;
+        if (amount == 3) pointsNeeded = 12;
 
         if (PointsCount >= pointsNeeded)
         {

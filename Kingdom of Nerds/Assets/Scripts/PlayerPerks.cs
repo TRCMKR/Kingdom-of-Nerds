@@ -25,10 +25,10 @@ public class PlayerPerks : MonoBehaviour
         }
         else
         {
-            //PlayerPrefs.SetInt("AmmoBonus", 0);
-            //PlayerPrefs.SetInt("BatRangeBonus", 0);
-            //PlayerPrefs.SetInt("HealthBonus", 0);
-            //PlayerPrefs.SetInt("AmmoSpeedBonus", 0);
+            PlayerPrefs.SetInt("AmmoBonus", 0);
+            PlayerPrefs.SetInt("BatRangeBonus", 0);
+            PlayerPrefs.SetInt("HealthBonus", 0);
+            PlayerPrefs.SetInt("AmmoSpeedBonus", 0);
             PlayerPrefs.SetInt("ShieldBonus", 0);
             PlayerPrefs.SetInt("AutoPickUp", 0);
             PlayerPrefs.SetInt("BatDebuff", 0);
