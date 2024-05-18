@@ -25,7 +25,10 @@ public class PlayerPerks : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("RicochetBonus", 0);
+            //PlayerPrefs.SetInt("AmmoBonus", 0);
+            //PlayerPrefs.SetInt("BatRangeBonus", 0);
+            //PlayerPrefs.SetInt("HealthBonus", 0);
+            //PlayerPrefs.SetInt("AmmoSpeedBonus", 0);
             PlayerPrefs.SetInt("ShieldBonus", 0);
             PlayerPrefs.SetInt("AutoPickUp", 0);
             PlayerPrefs.SetInt("BatDebuff", 0);
@@ -85,9 +88,9 @@ public class PlayerPerks : MonoBehaviour
         {
             playerGun.Damage += 1;
         }
-        if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
+        if (PlayerPrefs.GetInt("AmmoSpeedBonus", 0) == 1)
         {
-            playerGun.bounces += 3;
+            playerGun.speed *= 1.5f;
         }
         if (PlayerPrefs.GetInt("ShieldBonus", 0) == 1)
         {

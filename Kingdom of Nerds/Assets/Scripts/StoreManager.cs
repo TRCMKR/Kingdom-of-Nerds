@@ -41,15 +41,24 @@ public class StoreManager : MonoBehaviour
 
     private void OpenStore()
     {
+        PlayerPrefs.SetInt("points", 2);
+        PlayerPrefs.Save();
         storePanel.SetActive(true);
         pointsCount = PlayerPrefs.GetInt("points", 0);
+        CheckBonuses(bonuses);
+        Time.timeScale = 0f;
+        PauseMenu.isPaused = true;
+    }
+
+    private static void CheckBonuses(GameObject[] bonuses)
+    {
         foreach (GameObject b in bonuses)
         {
             string name = b.GetComponent<Bonus>().name;
-            b.GetComponent<Button>().interactable = (PlayerPrefs.GetInt(name, 0) == 0) ? true : false;
+            bool interactable = (PlayerPrefs.GetInt(name, 0) == 0) ? true : false;
+            b.GetComponent<Button>().interactable = interactable;
+            //b.GetComponent<Image>().color = (pointsCount >= b.GetComponent<Bonus>().bonusCost && interactable) ? Color.green : Color.red;
         }
-        Time.timeScale = 0f;
-        PauseMenu.isPaused = true;
     }
 
     public void CloseStore()
@@ -66,6 +75,7 @@ public class StoreManager : MonoBehaviour
             pointsCount -= bonus.bonusCost;
             UIController.TakePoints(bonus.bonusCost);
             bonus.GetComponent<Button>().interactable = false;
+            
         }
         
         PlayerPrefs.SetInt(bonus.name, 1);
