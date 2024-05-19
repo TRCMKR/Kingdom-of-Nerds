@@ -42,7 +42,7 @@ public class PortalLogic : MonoBehaviour
                 _timeSpent = 0;
                 int randomNum = Random.Range(1, 3);
                 if (_sceneName.Contains("Hub") && gameObject.name == "Portal")
-                    _nextSceneName = "ShootingGallery";
+                    _nextSceneName = "Shooting Gallery";
                 else if (_sceneName.Contains("Hub") && gameObject.name == "Portal 2")
                     _nextSceneName = "Endless Level";
                 else if (_sceneName.Contains("Shooting Gallery") || _sceneName == "Endless Level")

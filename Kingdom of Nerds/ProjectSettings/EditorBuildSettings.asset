@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Endless Level.unity
     guid: d527f0013e171402aa0e60df05607ead
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ShootingGallery.unity
     guid: 3ab80b5301e8962568bb8a4baac44840
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Shooting Gallery.unity
     guid: a191b35c360b64dbe8bd448a20df5a39
   - enabled: 1
