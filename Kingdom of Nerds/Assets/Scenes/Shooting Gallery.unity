@@ -14037,6 +14037,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1707430264248444037, guid: aa97b926b17096f42a0eaf68617e1896, type: 3}
+      propertyPath: Perks.Array.data[0]
+      value: 
+      objectReference: {fileID: 8898723722757511942, guid: 43d27ab469d253954849e28a19eab017, type: 3}
+    - target: {fileID: 1707430264248444037, guid: aa97b926b17096f42a0eaf68617e1896, type: 3}
+      propertyPath: Perks.Array.data[3]
+      value: 
+      objectReference: {fileID: 8898723722757511942, guid: 6b4959e8a18066c36b529cef2cfbcc08, type: 3}
     - target: {fileID: 2140795621415161984, guid: aa97b926b17096f42a0eaf68617e1896, type: 3}
       propertyPath: m_RootOrder
       value: 9
