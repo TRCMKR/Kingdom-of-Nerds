@@ -5,6 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization.Components;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -43,6 +45,8 @@ public class UIController : MonoBehaviour
     public ReceivedPerksDisplay perksDisplay;
     private bool showedPerks = false;
 
+    public LocalizeStringEvent waveString;
+
     private static Action hideAction;
     private static Action showAction;
     private static Action updateHealth;
@@ -53,6 +57,7 @@ public class UIController : MonoBehaviour
     private static Action<int> setSGPoint;
     private static Action showInvAction;
     private static Action hideInvAction;
+    private static Action<int, int> updateWaveInfoAction;
 
     void Start()
     {
@@ -60,7 +65,7 @@ public class UIController : MonoBehaviour
         pointsText.text = pointsAmount.ToString();       
 
         healthBar.maxValue = PlayerManager.Instance.MaxHP;
-        healthBar.value = playerHP.HP;
+        healthBar.value = PlayerManager.Instance.HP;
 
         pointsAmount = PlayerPrefs.GetInt("points", 0);
         pointsText.text = pointsAmount.ToString();
@@ -83,10 +88,13 @@ public class UIController : MonoBehaviour
             }
             pointsDisplay.SetActive(false);
 
+            waveString.gameObject.SetActive(true);
+
             if (SceneManager.GetActiveScene().name == "ShootingGallery")
             {
                 sgPointsDisplay.SetActive(true);
-            }
+                waveString.gameObject.SetActive(false);
+            }          
         }
 
         if (SceneManager.GetActiveScene().name == "Boss Level")
@@ -95,11 +103,10 @@ public class UIController : MonoBehaviour
             bossHealthSlider.maxValue = boss.MaxHP;
             bossHealthSlider.gameObject.SetActive(true);
             bossLevel = true;
+            waveString.gameObject.SetActive(false);
         }
 
         if (ShieldDisplay.isShielded) shieldDisplay.Activate();
-
-        
     }
 
     private void Awake()
@@ -117,6 +124,7 @@ public class UIController : MonoBehaviour
         setSGPoint = SetSGPoints;
         showInvAction = ShowInvBar;
         hideInvAction = HideInvBar;
+        updateWaveInfoAction = SetWaveCount;
     }
 
     private void Update()
@@ -172,62 +180,6 @@ public class UIController : MonoBehaviour
         bossHealthSlider.value = boss.HP;
     }
 
-    // private void BonusCheck()
-    // {
-    //     if (PlayerPrefs.GetInt("AmmoBonus", 0) == 1)
-    //     {
-    //         playerGun.maxAmmo += 5;
-    //         playerGun.currentAmmo = playerGun.maxAmmo;
-    //     }
-    //     if (PlayerPrefs.GetInt("LowerSpreadBonus", 0) == 1)
-    //     {
-    //         playerGun.bulletSpread -= 4;
-    //     }
-    //     if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
-    //     {
-    //         playerBat.attackRange += 2;
-    //     }
-    //     if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
-    //     {
-    //         playerBat.Damage += 3;
-    //     }
-    //     if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
-    //     {
-    //         playerBat.attackRate -= 1.5f;
-    //     }
-    //     if (PlayerPrefs.GetInt("RicochetBonus", 0) == 1)
-    //     {
-    //         playerGun.bounces += 3;
-    //     }
-    //     if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
-    //     {
-    //         playerGun.range *= 2f;
-    //     }
-    //     if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
-    //     {
-    //         playerGun.startTime *= 0.75f;
-    //     }
-    //     if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
-    //     {
-    //         playerHP.MaxHP += 5;
-    //         if (SceneManager.GetActiveScene().name == "Hub")
-    //             playerHP.HP = playerHP.MaxHP;
-    //     }
-    //     if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
-    //     {
-    //         playerGun.maxAmmo += 5;
-    //         playerGun.currentAmmo = playerGun.maxAmmo;
-    //     }
-    //     if (PlayerPrefs.GetInt("BatForceBonus", 0) == 1)
-    //     {
-    //         playerBat.knockbackForce *= 2;
-    //     }
-    //     if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
-    //     {
-    //         playerGun.Damage += 1;
-    //     }
-    // }
-
     private void OnApplicationQuit()
     {
         PlayerPrefs.SetInt("points", pointsAmount);
@@ -282,6 +234,11 @@ public class UIController : MonoBehaviour
     public static void HideInvincibilityBar()
     {
         hideInvAction.Invoke();
+    }
+
+    public static void UpdateWaveCount(int wavesPassed, int totalWaves)
+    {
+        updateWaveInfoAction.Invoke(wavesPassed, totalWaves);
     }
     #endregion
 
@@ -356,6 +313,19 @@ public class UIController : MonoBehaviour
     private void HideInvBar()
     {
         invincibilityBar.gameObject.SetActive(false);
+    }
+
+    private void SetWaveCount(int wavesPassed, int totalWaves)
+    {
+        IntVariable wp = new IntVariable();
+        wp.Value = wavesPassed;
+        waveString.StringReference["WaveCount"] = wp;
+
+        IntVariable tw = new IntVariable();
+        tw.Value = totalWaves;
+        waveString.StringReference["TotalWaves"] = tw;
+
+        waveString.RefreshString();
     }
     #endregion
 }

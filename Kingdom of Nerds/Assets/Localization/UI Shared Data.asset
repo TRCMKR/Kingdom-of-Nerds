@@ -227,6 +227,14 @@ MonoBehaviour:
     m_Key: sg_perks_list
     m_Metadata:
       m_Items: []
+  - m_Id: 23901607744782336
+    m_Key: ui_wave_count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23913320338702336
+    m_Key: sg_shop_decline
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

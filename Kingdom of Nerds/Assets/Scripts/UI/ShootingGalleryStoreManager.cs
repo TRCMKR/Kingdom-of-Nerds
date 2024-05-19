@@ -26,6 +26,10 @@ public class ShootingGalleryStoreManager : MonoBehaviour
     public static int maxShots = 3;
     public static bool gameDeclined = false;
 
+    private static Color boughtColor = new Color(0, 0, 0.6f, 0.1f);
+    private static Color greenColor = new Color(0, 1, 0, 0.2f);
+    private static Color redColor = new Color(1, 0, 0, 0.2f);
+
     public static int PointsCount 
     {
         get => PlayerPrefs.GetInt("sg_points", 0);
@@ -79,6 +83,18 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         shots3.GetComponent<Button>().interactable = false;
     }
 
+    private void ColorButtons()
+    {
+        if (shots1.GetComponent<Button>().interactable) shots1.GetComponent<Image>().color = PointsCount >= 5 ? greenColor : redColor;
+        else shots1.GetComponent<Image>().color = boughtColor;
+
+        if (shots2.GetComponent<Button>().interactable) shots2.GetComponent<Image>().color = PointsCount >= 9 ? greenColor : redColor;
+        else shots2.GetComponent<Image>().color = boughtColor;
+
+        if (shots3.GetComponent<Button>().interactable) shots3.GetComponent<Image>().color = PointsCount >= 12 ? greenColor : redColor;
+        else shots3.GetComponent<Image>().color = boughtColor;
+    }
+
     private void OpenStore()
     {
         if (!gameDeclined)
@@ -87,6 +103,8 @@ public class ShootingGalleryStoreManager : MonoBehaviour
             //CheckShotButtons();
             Time.timeScale = 0f;
             PauseMenu.isPaused = true;
+
+            ColorButtons();
         }
     }
 
@@ -118,6 +136,8 @@ public class ShootingGalleryStoreManager : MonoBehaviour
             cnt.Value = amount;
             buyString.StringReference["shots"] = cnt;
             buyString.gameObject.SetActive(true);
+
+            ColorButtons();
         }
     }
 
