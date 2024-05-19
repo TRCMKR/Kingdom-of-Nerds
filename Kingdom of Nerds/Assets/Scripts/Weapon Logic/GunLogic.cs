@@ -97,7 +97,7 @@ public class GunLogic : MonoBehaviour, IWeapon
             {
                 timeshot -= Time.deltaTime;
             }
-            else if (Input.GetMouseButton(0) && currentAmmo > 0) // Input.GetMouseButton(0) && 
+            else if (Input.GetMouseButton(0) && currentAmmo > 0 && Time.timeScale != 0) // Input.GetMouseButton(0) && 
             {
                 Vector2 difference = _mainCamera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
                 float angle = Mathf.Atan2(difference.x, difference.y) * Mathf.Rad2Deg;

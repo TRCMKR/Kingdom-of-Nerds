@@ -7,19 +7,30 @@ public class EnemyHealthController : MonoBehaviour
 {
     public EnemyDamageable enemyDamageable;
     public Slider healthSlider;
+    public GameObject debuffSprite;
 
     private void Start()
     {
-        healthSlider.maxValue = enemyDamageable.MaxHP;
+        if (healthSlider != null)
+            healthSlider.maxValue = enemyDamageable.MaxHP;
     }
 
     private void Update()
     {
-        if (enemyDamageable.HP == enemyDamageable.MaxHP) healthSlider.gameObject.SetActive(false);
-        else
+        if (healthSlider != null)
         {
-            healthSlider.value = enemyDamageable.HP;
-            healthSlider.gameObject.SetActive(true);
+            if (enemyDamageable.HP == enemyDamageable.MaxHP) healthSlider.gameObject.SetActive(false);
+            else
+            {
+                healthSlider.value = enemyDamageable.HP;
+                healthSlider.gameObject.SetActive(true);
+            }
         }
+
+        if (debuffSprite != null)
+        {
+            if (enemyDamageable.flag) debuffSprite.SetActive(true);
+            else debuffSprite.SetActive(false);
+        }        
     }
 }
