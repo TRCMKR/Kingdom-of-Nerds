@@ -22,6 +22,7 @@ public class RobotLogic : MonoBehaviour
         _armored = GetComponent<ArmoredEnemyDamageable>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _initSprite = _spriteRenderer.sprite;
+        speed = Random.Range(speed - 3f, speed + 6.5f);
     }
 
     // Update is called once per frame
