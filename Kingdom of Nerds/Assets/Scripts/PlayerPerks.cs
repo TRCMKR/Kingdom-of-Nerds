@@ -35,7 +35,7 @@ public class PlayerPerks : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("BatRangeBonus", 0) == 1)
         {
-            playerBat.attackRange += 2;
+            playerBat.attackRange += 3;
         }
         if (PlayerPrefs.GetInt("BatDamageBonus", 0) == 1)
         {
@@ -43,11 +43,11 @@ public class PlayerPerks : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("BatReloadBonus", 0) == 1)
         {
-            playerBat.attackRate -= 1.5f;
+            playerBat.attackRate -= 1f;
         }
         if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
         {
-            playerGun.range += 3;
+            playerGun.range += 60;
         }
         if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
         {
@@ -66,10 +66,10 @@ public class PlayerPerks : MonoBehaviour
         {
             playerBat.knockbackForce *= 2;
         }
-        if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
-        {
-            playerGun.Damage += 1;
-        }
+        // if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
+        // {
+        //     playerGun.Damage += 1;
+        // }
         if (PlayerPrefs.GetInt("AmmoDamageBonus", 0) == 1)
         {
             playerGun.Damage += 1;

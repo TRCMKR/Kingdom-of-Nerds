@@ -8,7 +8,7 @@ public class BossDamageable : EnemyDamageable
 
     public override void TakeDamage(int damage, GameObject sender = null)
     {
-        if (!isInvincible) base.TakeDamage(damage);
+        if (!isInvincible) base.TakeDamage(damage, sender);
     }
     
     protected override void Die()

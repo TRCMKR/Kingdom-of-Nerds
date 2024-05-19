@@ -16588,11 +16588,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4243971083393573212, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_Value
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4243971083393573212, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_MaxValue
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4460609835397630009, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -29273,11 +29273,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -6184184386629653366, guid: af023dffc09684b03bb07c781898f0b6, type: 3}
       propertyPath: _hp
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: -6184184386629653366, guid: af023dffc09684b03bb07c781898f0b6, type: 3}
       propertyPath: _maxHp
-      value: 200
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 979162156071723384, guid: af023dffc09684b03bb07c781898f0b6, type: 3}
       propertyPath: m_Pivot.x
@@ -29377,7 +29377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8744077277843541506, guid: af023dffc09684b03bb07c781898f0b6, type: 3}
       propertyPath: chaseSpeed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8744077277843541506, guid: af023dffc09684b03bb07c781898f0b6, type: 3}
       propertyPath: stageCompleted
@@ -45795,7 +45795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: randomPos
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5151818163424231302, guid: 76107095f1a51487c95ad1151895c09f, type: 3}
       propertyPath: incEnemies
@@ -45885,22 +45885,6 @@ PrefabInstance:
     - target: {fileID: 3488709354644382409, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782609058534330020, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: m_Mass
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782609058534330020, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: range
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 7002245209848637287, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}
-      propertyPath: speed
-      value: 300
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb0d477b9983c44f6b339c69288f16c4, type: 3}

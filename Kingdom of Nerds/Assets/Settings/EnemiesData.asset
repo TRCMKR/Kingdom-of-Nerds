@@ -37,18 +37,18 @@ MonoBehaviour:
     - {fileID: -139687642, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
     - {fileID: 973862833, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
     - {fileID: 945645167, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
-  - MaxHealth: 14
+  - MaxHealth: 12
     BulletForce: 650
     BulletPeriod: 0.37
-    Range: 1800
+    Range: 1700
     Sprites:
     - {fileID: 779023268, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
     - {fileID: 2118350490, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
     - {fileID: 1879728925, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
-  - MaxHealth: 17
+  - MaxHealth: 15
     BulletForce: 770
     BulletPeriod: 0.31
-    Range: 2100
+    Range: 1900
     Sprites:
     - {fileID: 873580125, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}
     - {fileID: 246722576, guid: 38b422e676eed45e78f7908e26d40f72, type: 3}

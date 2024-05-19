@@ -8,7 +8,7 @@ public class ArmoredEnemyDamageable : EnemyDamageable
     [SerializeField] private float _vulnerableTime;
     public override void TakeDamage(int damage, GameObject sender = null)
     {
-        if (isVulnerable) base.TakeDamage(damage);
+        if (isVulnerable) base.TakeDamage(damage, sender);
         if (sender?.name == "Bat") StartCoroutine(MakeVulnerable());
     }
 
