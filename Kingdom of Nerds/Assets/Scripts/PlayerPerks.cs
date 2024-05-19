@@ -47,7 +47,7 @@ public class PlayerPerks : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("AmmoRangeBonus", 0) == 1)
         {
-            playerGun.range *= 2f;
+            playerGun.range += 3;
         }
         if (PlayerPrefs.GetInt("ShootRateBonus", 0) == 1)
         {
@@ -56,7 +56,6 @@ public class PlayerPerks : MonoBehaviour
         if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
         {
             PlayerManager.Instance.MaxHP = 20;
-            PlayerManager.Instance.HP = 20;
         }
         if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
         {

@@ -92,4 +92,9 @@ public class PauseMenu : MonoBehaviour
         player._isInvincible = state;
         player.godmod = state;
     }
+
+    private void PlaySound()
+    {
+        
+    }
 }
