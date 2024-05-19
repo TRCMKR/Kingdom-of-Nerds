@@ -37,8 +37,8 @@ public class SettingsController : MonoBehaviour
         UIController.AddPoint(10);
     }
 
-    public void Add50PointsSG()
+    public void Add10PointsSG()
     {
-        ShootingGalleryStoreManager.AddPoints(50);
+        ShootingGalleryStoreManager.AddPoints(10);
     }
 }

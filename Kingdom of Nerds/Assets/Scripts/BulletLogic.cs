@@ -56,10 +56,10 @@ public class BulletLogic : MonoBehaviour
         var obj = collision.gameObject;
         if (obj.CompareTag("Enemy"))
         {
-            obj.GetComponent<IDamageable>().TakeDamage(damage);
-            _hasCollided = true;
-            StartCoroutine(ToNerf());
-            return;
+            obj.GetComponent<IDamageable>().TakeDamage(_outputDamage);
+            // _hasCollided = true;
+            // StartCoroutine(ToNerf());
+            // return;
         }
         
         var rb = GetComponent<Rigidbody2D>();

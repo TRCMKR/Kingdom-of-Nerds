@@ -60,7 +60,7 @@ public class UIController : MonoBehaviour
         pointsText.text = pointsAmount.ToString();       
 
         healthBar.maxValue = PlayerManager.Instance.MaxHP;
-        healthBar.value = playerHP.HP;
+        healthBar.value = PlayerManager.Instance.HP;
 
         pointsAmount = PlayerPrefs.GetInt("points", 0);
         pointsText.text = pointsAmount.ToString();

@@ -248,6 +248,7 @@ GameObject:
   - component: {fileID: 21157535}
   - component: {fileID: 21157534}
   - component: {fileID: 21157533}
+  - component: {fileID: 21157537}
   m_Layer: 5
   m_Name: HealthBonus
   m_TagString: Untagged
@@ -335,7 +336,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -401,6 +402,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 798767474}
   bonusImage: {fileID: 21300000, guid: 50af6a8947480114ab2ae0519d29c5bf, type: 3}
   bonusCost: 4
+--- !u!95 &21157537
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21157531}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &65449188
 GameObject:
   m_ObjectHideFlags: 0
@@ -45822,6 +45843,7 @@ GameObject:
   - component: {fileID: 99178296}
   - component: {fileID: 99178295}
   - component: {fileID: 99178294}
+  - component: {fileID: 99178298}
   m_Layer: 5
   m_Name: AmmoSpeedBonus
   m_TagString: Untagged
@@ -45909,7 +45931,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -45975,6 +45997,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 441037302}
   bonusImage: {fileID: 21300000, guid: 5ab4268766369c9408aeb557e7031b9e, type: 3}
   bonusCost: 2
+--- !u!95 &99178298
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99178292}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &111825843
 GameObject:
   m_ObjectHideFlags: 0
@@ -46164,6 +46206,7 @@ GameObject:
   - component: {fileID: 146713705}
   - component: {fileID: 146713704}
   - component: {fileID: 146713703}
+  - component: {fileID: 146713707}
   m_Layer: 5
   m_Name: MoreAmmoBonus
   m_TagString: Untagged
@@ -46251,7 +46294,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -46317,6 +46360,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 1666950156}
   bonusImage: {fileID: 21300000, guid: bd3c8bd00903cff41ab43c4b28a527dd, type: 3}
   bonusCost: 3
+--- !u!95 &146713707
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 146713701}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &149748126
 GameObject:
   m_ObjectHideFlags: 0
@@ -49367,6 +49430,7 @@ GameObject:
   - component: {fileID: 245203873}
   - component: {fileID: 245203872}
   - component: {fileID: 245203871}
+  - component: {fileID: 245203875}
   m_Layer: 5
   m_Name: BatReloadBonus
   m_TagString: Untagged
@@ -49454,7 +49518,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -49520,6 +49584,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 578666884}
   bonusImage: {fileID: 21300000, guid: 30c0209b7cf0b3749a5b9a0c393ed610, type: 3}
   bonusCost: 2
+--- !u!95 &245203875
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245203869}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &246488625
 GameObject:
   m_ObjectHideFlags: 0
@@ -49747,6 +49831,7 @@ GameObject:
   - component: {fileID: 268421662}
   - component: {fileID: 268421664}
   - component: {fileID: 268421663}
+  - component: {fileID: 268421665}
   m_Layer: 5
   m_Name: AmmoBonus
   m_TagString: Untagged
@@ -49813,7 +49898,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -49900,6 +49985,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268421659}
   m_CullTransparentMesh: 1
+--- !u!95 &268421665
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268421659}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &277088104
 GameObject:
   m_ObjectHideFlags: 0
@@ -50637,6 +50742,7 @@ GameObject:
   - component: {fileID: 444313181}
   - component: {fileID: 444313180}
   - component: {fileID: 444313179}
+  - component: {fileID: 444313183}
   m_Layer: 5
   m_Name: ShootRateBonus
   m_TagString: Untagged
@@ -50724,7 +50830,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -50790,6 +50896,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 1816077329}
   bonusImage: {fileID: 21300000, guid: 5ab4268766369c9408aeb557e7031b9e, type: 3}
   bonusCost: 4
+--- !u!95 &444313183
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444313177}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &446531060
 GameObject:
   m_ObjectHideFlags: 0
@@ -51442,6 +51568,7 @@ GameObject:
   - component: {fileID: 546880939}
   - component: {fileID: 546880938}
   - component: {fileID: 546880937}
+  - component: {fileID: 546880941}
   m_Layer: 5
   m_Name: LowerSpreadBonus
   m_TagString: Untagged
@@ -51529,7 +51656,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -51595,6 +51722,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 1318794573}
   bonusImage: {fileID: 21300000, guid: 714e5d704e5110b4fabf7c40d634e9a2, type: 3}
   bonusCost: 1
+--- !u!95 &546880941
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546880935}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &578666882
 GameObject:
   m_ObjectHideFlags: 0
@@ -52039,6 +52186,7 @@ GameObject:
   - component: {fileID: 682118205}
   - component: {fileID: 682118204}
   - component: {fileID: 682118203}
+  - component: {fileID: 682118207}
   m_Layer: 5
   m_Name: BatForceBonus
   m_TagString: Untagged
@@ -52126,7 +52274,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -52192,6 +52340,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 2129189657}
   bonusImage: {fileID: 21300000, guid: 88cf012d037aea948bb309c3d913936c, type: 3}
   bonusCost: 1
+--- !u!95 &682118207
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682118201}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &704167624
 GameObject:
   m_ObjectHideFlags: 0
@@ -123675,6 +123843,7 @@ GameObject:
   - component: {fileID: 1109696384}
   - component: {fileID: 1109696386}
   - component: {fileID: 1109696385}
+  - component: {fileID: 1109696387}
   m_Layer: 5
   m_Name: BatDamageBonus
   m_TagString: Untagged
@@ -123741,7 +123910,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -123828,6 +123997,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109696380}
   m_CullTransparentMesh: 1
+--- !u!95 &1109696387
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109696380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1139079686
 GameObject:
   m_ObjectHideFlags: 0
@@ -130999,6 +131188,7 @@ GameObject:
   - component: {fileID: 1508661274}
   - component: {fileID: 1508661273}
   - component: {fileID: 1508661272}
+  - component: {fileID: 1508661276}
   m_Layer: 5
   m_Name: AmmoDamageBonus
   m_TagString: Untagged
@@ -131086,7 +131276,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -131152,6 +131342,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 902151215}
   bonusImage: {fileID: 21300000, guid: a8c1bea80a5b38a4383281784ae3e881, type: 3}
   bonusCost: 2
+--- !u!95 &1508661276
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508661270}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1512626003
 GameObject:
   m_ObjectHideFlags: 0
@@ -131694,6 +131904,7 @@ GameObject:
   - component: {fileID: 1676592961}
   - component: {fileID: 1676592963}
   - component: {fileID: 1676592962}
+  - component: {fileID: 1676592964}
   m_Layer: 5
   m_Name: BatRangeBonus
   m_TagString: Untagged
@@ -131760,7 +131971,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -131847,6 +132058,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676592957}
   m_CullTransparentMesh: 1
+--- !u!95 &1676592964
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676592957}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1713251637
 GameObject:
   m_ObjectHideFlags: 0
@@ -131930,12 +132161,52 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2257203784443435321, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2257203784443435321, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854252260471650382, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854252260471650382, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2854252260471650382, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119690455101615608, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3119690455101615608, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4460609835397630009, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4460609835397630009, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442383378410294484, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442383378410294484, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6442383378410294484, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7263978915476505305, guid: e469f1828bc014118910686d014daf9e, type: 3}
@@ -132070,6 +132341,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8334884130307637254, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8334884130334916924, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -132108,6 +132383,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8334884130858883709, guid: e469f1828bc014118910686d014daf9e, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334884130863742132, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8334884130863742134, guid: e469f1828bc014118910686d014daf9e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8430530574046375951, guid: e469f1828bc014118910686d014daf9e, type: 3}
@@ -144700,6 +144983,7 @@ GameObject:
   - component: {fileID: 2017593919}
   - component: {fileID: 2017593918}
   - component: {fileID: 2017593917}
+  - component: {fileID: 2017593921}
   m_Layer: 5
   m_Name: AmmoRangeBonus
   m_TagString: Untagged
@@ -144787,7 +145071,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 3
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0.14901961}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -144853,6 +145137,26 @@ MonoBehaviour:
   bonusImageSpace: {fileID: 386740559}
   bonusImage: {fileID: 21300000, guid: 40b05aac7d1ccaa4492ab2d40308f19e, type: 3}
   bonusCost: 1
+--- !u!95 &2017593921
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017593915}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 254140adca9c3154cb476e24c39d1772, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2051466702
 GameObject:
   m_ObjectHideFlags: 0

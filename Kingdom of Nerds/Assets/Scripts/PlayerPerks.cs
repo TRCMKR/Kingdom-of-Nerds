@@ -12,10 +12,7 @@ public class PlayerPerks : MonoBehaviour
     void Awake()
     {
         playerHP = gameObject.GetComponent<IDamageable>();
-        if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
-        {
-            playerHP.MaxHP = 20;
-        }
+
         if (SceneManager.GetActiveScene().name != "Hub")
         {
             playerGun = gameObject.transform.Find("WeaponHolder").Find("Gun").GetComponent<GunLogic>();
@@ -27,7 +24,6 @@ public class PlayerPerks : MonoBehaviour
         {
             PlayerPrefs.SetInt("AmmoBonus", 0);
             PlayerPrefs.SetInt("BatRangeBonus", 0);
-            PlayerPrefs.SetInt("HealthBonus", 0);
             PlayerPrefs.SetInt("AmmoSpeedBonus", 0);
             PlayerPrefs.SetInt("ShieldBonus", 0);
             PlayerPrefs.SetInt("AutoPickUp", 0);
@@ -35,6 +31,17 @@ public class PlayerPerks : MonoBehaviour
             PlayerPrefs.Save();
         }
     }
+
+    /*private void Start()
+    {
+        if (SceneManager.GetActiveScene().name == "Hub" && PlayerPrefs.GetInt("HealthBonus", 0) == 1)
+        {
+            PlayerManager.Instance.MaxHP = 20;
+            PlayerManager.Instance.HP = 20;
+            playerHP.HP = PlayerManager.Instance.MaxHP;
+            PlayerManager.Instance.UpdateHP();
+        }
+    }*/
 
     private void PerksCheck()
     {
@@ -69,7 +76,7 @@ public class PlayerPerks : MonoBehaviour
         }
         if (PlayerPrefs.GetInt("HealthBonus", 0) == 1)
         {
-            playerHP.MaxHP = 20;    
+            PlayerManager.Instance.MaxHP = 20;
         }
         if (PlayerPrefs.GetInt("MoreAmmoBonus", 0) == 1)
         {

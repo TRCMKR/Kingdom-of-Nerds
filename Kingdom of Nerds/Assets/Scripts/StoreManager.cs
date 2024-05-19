@@ -16,6 +16,10 @@ public class StoreManager : MonoBehaviour
     public Sprite hubOn;
     private Sprite _hubOff;
 
+    private static Color boughtColor = new Color(0, 0, 0.6f, 0.1f);
+    private static Color greenColor = new Color(0, 1, 0, 0.2f);
+    private static Color redColor = new Color(1, 0, 0, 0.2f);
+
     private void Start()
     {
         _hubOff = GetComponentInChildren<SpriteRenderer>().sprite;
@@ -55,11 +59,8 @@ public class StoreManager : MonoBehaviour
             string name = b.GetComponent<Bonus>().name;
             bool interactable = PlayerPrefs.GetInt(name, 0) == 0;
             b.GetComponent<Button>().interactable = interactable;
-            if (interactable)
-            {
-                b.GetComponent<Image>().color = pointsCount >= b.GetComponent<Bonus>().bonusCost ? Color.green : Color.red;
-            }
-            
+            if (interactable) b.GetComponent<Image>().color = pointsCount >= b.GetComponent<Bonus>().bonusCost ? greenColor : redColor;
+            else b.GetComponent<Image>().color = boughtColor;
         }
     }
 
@@ -76,9 +77,15 @@ public class StoreManager : MonoBehaviour
         {
             pointsCount -= bonus.bonusCost;
             UIController.TakePoints(bonus.bonusCost);
-            //bonus.GetComponent<Button>().interactable = false;
+            bonus.GetComponent<Image>().color = boughtColor;
             PlayerPrefs.SetInt(bonus.name, 1);
             PlayerPrefs.Save();
+
+            if (bonus.name == "HealthBonus")
+            {
+                PlayerManager.Instance.HP = 20;
+                PlayerManager.Instance.MaxHP = 20;
+            }
         }       
     }
 
@@ -100,6 +107,8 @@ public class StoreManager : MonoBehaviour
         PlayerPrefs.SetInt("AmmoRangeBonus", 0);
         PlayerPrefs.SetInt("ShootRateBonus", 0);
         PlayerPrefs.SetInt("HealthBonus", 0);
+        PlayerManager.Instance.MaxHP = 15;
+        PlayerManager.Instance.HP = 15;
         PlayerPrefs.SetInt("MoreAmmoBonus", 0);
         PlayerPrefs.SetInt("BatForceBonus", 0);
         PlayerPrefs.SetInt("AmmoSpeedBonus", 0);

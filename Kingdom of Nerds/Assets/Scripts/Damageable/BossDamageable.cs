@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossDamageable : EnemyDamageable
 {
     public bool isInvincible = false;
-    
+
     public override void TakeDamage(int damage, GameObject sender = null)
     {
         if (!isInvincible) base.TakeDamage(damage);

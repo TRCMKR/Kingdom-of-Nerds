@@ -52,6 +52,7 @@ public class Bosslog : MonoBehaviour
     private List<PolygonCollider2D> _colliders = new List<PolygonCollider2D>(3);
     private PolygonCollider2D _currentCollider;
 
+    private Rigidbody2D _bossRb;
     void Start()
     {
         // Debug.Log("Start");
@@ -71,30 +72,15 @@ public class Bosslog : MonoBehaviour
         _colliders = GetComponents<PolygonCollider2D>().ToList();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _currentCollider = _colliders[0];
+
+        _bossRb = GetComponent<Rigidbody2D>();
     }
     
-    void FixedUpdate()
+    void LateUpdate()
     {
-        // Debug.Log(Status);
-        // if (Status == "tumbleweed")
-        // {
-        //     var rb = gameObject.GetComponent<Rigidbody2D>();
-        //     gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
-        //     // Debug.Log("tururu");
-        //     return;
-        // }
-
         if (!stageCompleted) StartCoroutine(ChangeStage());
 
         if (isAttacking || isSpawning) return;
-        
-        // if (!isSpawning && !isSpawnReloading && newStage)
-        // {
-        //     newStage = false;
-        //     StartCoroutine(Spawn());
-        //     return;
-        // }
-        
         if (!isReloading)
         {
             _direction = (_player.transform.position - transform.position).normalized;
@@ -103,11 +89,6 @@ public class Bosslog : MonoBehaviour
         }
 
         if (!isChasing) StartCoroutine(Chase());
-
-        // float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        //
-        // if (!isChasing && distanceToPlayer <= chaseRange) StartCoroutine(Chase());
-        // else Patrol();
     }
 
     void Patrol()
@@ -146,14 +127,12 @@ public class Bosslog : MonoBehaviour
                 stageCompleted = true;
                 reloadTimeTumbleweed /= 3;
                 speed += 50;
-                chaseSpeed += 6;
+                chaseSpeed += 3;
                 break;
             }
 
             yield return null;
         }
-
-        // stageCompleted = true;
     }
 
     IEnumerator Spawn()
@@ -176,18 +155,6 @@ public class Bosslog : MonoBehaviour
         while (true)
         {
             if (EnemySpawner.EnemiesNow == 0) break;
-            
-            // if (!_checked)
-            // {
-            //     if (Vector2.Distance(transform.position, _initPosition) < 0.1f)
-            //     {
-            //         transform.position =
-            //             Vector2.MoveTowards(transform.position, _initPosition, patrolSpeed * Time.deltaTime);
-            //     }
-            //     else
-            //         _checked = true;
-            // }
-            // else
             Patrol();
             
             yield return null;
@@ -220,11 +187,15 @@ public class Bosslog : MonoBehaviour
         _colliders[0].enabled = true;
         _currentCollider = _colliders[0];
         
+        
         isChasing = true;
         while (true)
         {
-            transform.position = Vector2.MoveTowards(transform.position, _player.transform.position, chaseSpeed * Time.deltaTime);
-            // float distanceToPlayer = Vector2.Distance(transform.position, player.transform.position);
+            // var direction = _player.transform.position - transform.position;
+            // _bossRb.AddForce(direction.normalized * (chaseSpeed * 90), ForceMode2D.Force);
+            var movePos = Vector2.MoveTowards(transform.position, _player.transform.position, chaseSpeed * Time.deltaTime);
+            _bossRb.MovePosition(movePos);
+            
             if (isAttacking) break; 
             yield return null;
         }
@@ -246,21 +217,8 @@ public class Bosslog : MonoBehaviour
         while (true)
         {
             if (_hasCollided) break;
-
-            // float angle = Mathf.Atan2(_direction.x, _direction.y) * Mathf.Rad2Deg;
-            // float actualAngle = angle;
-            // Vector2 direction = Quaternion.AngleAxis(actualAngle - angle, Vector3.forward) * _direction.normalized;
-        
-            // float vectorAngle = -Vector2.SignedAngle(direction, Vector2.right);
-            // Debug.Log(gameObject.GetComponent<Rigidbody2D>().velocity);
-            // gameObject.GetComponent<BossTumbleweed>().Direction = direction * speed;
-            
             rb.velocity = Vector2.zero;
-            rb.AddForce(_direction * _actualSpeed);
-            
-            // gameObject.GetComponent<BossTumbleweed>().Direction = rb.velocity;
-            // Debug.Log(rb.velocity);
-
+            rb.AddForce(_direction * (_actualSpeed * Time.deltaTime * 90));
             yield return null;
         }
 
@@ -288,18 +246,8 @@ public class Bosslog : MonoBehaviour
         }
 
         var obj = collision.gameObject;
-        // if (obj.CompareTag("Player"))
-        // {
-        //     // obj.GetComponent<IDamageable>().TakeDamage(damage);
-        //     _hasCollided = true;
-        //     // FinishAttack();
-        //     return;
-        // }
 
         var rb = GetComponent<Rigidbody2D>();
-        // Vector2 direction = rb.velocity;
-        // direction.Normalize();
-        // Debug.Log(Direction);
         Vector2 inNormal = collision.GetContact(0).normal;
         Vector2 newDirection = Vector2.Reflect(_direction, inNormal);
         
@@ -311,7 +259,7 @@ public class Bosslog : MonoBehaviour
             return;
         }
 
-        rb.AddForce(newDirection * _actualSpeed);
+        rb.AddForce(newDirection * (_actualSpeed * Time.deltaTime * 90));
         
         _direction = newDirection;
     }
