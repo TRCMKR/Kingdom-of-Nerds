@@ -32,12 +32,12 @@ public class PortalLogic : MonoBehaviour
         {
             // playerInPortal = true;
             _timeSpent += Time.deltaTime;
-            if (EnemySpawner.EnemiesNow == 0 || SceneManager.GetActiveScene().name == "Hub")
+            if (SceneManager.GetActiveScene().name == "Shooting Gallery" || EnemySpawner.EnemiesNow == 0 || SceneManager.GetActiveScene().name == "Hub")
                 UpdateTeleportProgress();
             else
                 UpdateTeleportProgress(true);
 
-            if (_timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
+            if (_timeSpent > timeToTeleport && (SceneManager.GetActiveScene().name == "Shooting Gallery" || SceneManager.GetActiveScene().name == "Hub" || EnemySpawner.EnemiesNow == 0))
             {
                 _timeSpent = 0;
                 int randomNum = Random.Range(1, 3);
@@ -45,7 +45,7 @@ public class PortalLogic : MonoBehaviour
                     _nextSceneName = "ShootingGallery";
                 else if (_sceneName.Contains("Hub") && gameObject.name == "Portal 2")
                     _nextSceneName = "Endless Level";
-                else if (_sceneName.Contains("ShootingGallery") || _sceneName == "Endless Level")
+                else if (_sceneName.Contains("Shooting Gallery") || _sceneName == "Endless Level")
                     _nextSceneName = "Level 1.";
                 else if (_sceneName.Contains("Level 1"))
                     _nextSceneName = "Level 2.";

@@ -90,7 +90,7 @@ public class UIController : MonoBehaviour
 
             waveString.gameObject.SetActive(true);
 
-            if (SceneManager.GetActiveScene().name == "ShootingGallery")
+            if (SceneManager.GetActiveScene().name == "Shooting Gallery")
             {
                 sgPointsDisplay.SetActive(true);
                 waveString.gameObject.SetActive(false);
@@ -160,11 +160,12 @@ public class UIController : MonoBehaviour
 
     private void CheckShootingGalleryEnd()
     {
-        if (!showedPerks && SceneManager.GetActiveScene().name == "ShootingGallery")
+        if (!showedPerks && SceneManager.GetActiveScene().name == "Shooting Gallery")
         {
             if (playerGun.maxAmmo != 0 && playerGun.currentAmmo == 0)
             {
-                Invoke("ShowPerks", 5);
+                player.GetComponent<PlayerMovement>().flag = true;
+                Invoke("ShowPerks", 2);
                 showedPerks = true;
             }
         }
@@ -273,7 +274,7 @@ public class UIController : MonoBehaviour
 
     private void AddBullet()
     {
-        if (SceneManager.GetActiveScene().name == "ShootingGallery")
+        if (SceneManager.GetActiveScene().name == "Shooting Gallery")
         {
             playerGun.maxAmmo += 1;
             playerGun.GetComponent<GunLogic>().currentAmmo += 1;

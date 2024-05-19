@@ -11,8 +11,11 @@ public class ReceivedPerksDisplay : MonoBehaviour
 
     private string[] perkNames = { "AutoPickUp", "BatDebuff", "RicochetBonus", "ShieldBonus" };
 
+    public static bool flag;
+
     public void ShowPerks()
     {
+        flag = true;
         gameObject.SetActive(true);
         PauseMenu.isPaused = true;
         Time.timeScale = 0;
@@ -33,6 +36,7 @@ public class ReceivedPerksDisplay : MonoBehaviour
 
     public void Close()
     {
+        flag = false;
         PauseMenu.isPaused = false;
         gameObject.SetActive(false);
         Time.timeScale = 1;

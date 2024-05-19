@@ -58,8 +58,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (gameDeclined) return;
-        GetComponentInChildren<SpriteRenderer>().sprite = hubOn;
+        if (!collision.gameObject.name.Contains("Player") || gameDeclined) return;
         buttonHelper.SetActive(true);
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -166,6 +165,7 @@ public class ShootingGalleryStoreManager : MonoBehaviour
         CloseStore();
         GetComponentInChildren<SpriteRenderer>().sprite = _hubOff;
         gameDeclined = true;
+        GameObject.FindWithTag("Player").GetComponentInChildren<PlayerMovement>().flag = true;
     }
 
     private void Update()

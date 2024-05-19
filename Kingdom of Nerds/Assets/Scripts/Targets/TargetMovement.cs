@@ -18,7 +18,7 @@ public class TargetMovement : MonoBehaviour
         // check the invariant
         for (int i = 1; i < Points.Count; i++)
         {
-            System.Diagnostics.Debug.Assert(Points[i - 1].x == Points[i].x || Points[i - 1].y == Points[i].y);
+        System.Diagnostics.Debug.Assert(Points[i - 1].x == Points[i].x || Points[i - 1].y == Points[i].y);
         }
         System.Diagnostics.Debug.Assert(Points[0].x == Points[^1].x || Points[0].y == Points[^1].y);
 
@@ -32,6 +32,8 @@ public class TargetMovement : MonoBehaviour
 
     void Update()
     {
+        if (ShootingGalleryStoreManager.gameDeclined || ReceivedPerksDisplay.flag) Destroy(gameObject);
+        
         Vector2 v = (-Points[_cpi] + Points[(_cpi + 1) % Points.Count]);
         v.Normalize();
         gameObject.transform.position += (Vector3) v * Speed * Time.deltaTime;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WeaponSwitch : MonoBehaviour
 {
@@ -74,6 +75,7 @@ public class WeaponSwitch : MonoBehaviour
 
     void SelectWeapon()
     {
+        if (SceneManager.GetActiveScene().name == "Shooting Gallery") weaponSwitch = 1;
         // int i = 0;
         // foreach (Transform weapon in transform)
         // {

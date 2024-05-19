@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     // [SerializeField] private float _maxSpeedTurnFactor;
     [SerializeField] private AnimationCurve _slowFactor;
 
+    public bool flag;
+    
     private void Awake()
     {
         input = new CustomInput();
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (SceneManager.GetActiveScene().name == "Shooting Gallery" && !flag) return; 
         Vector2 oldVelocity = body.velocity;
         _direction = moveVector;
 

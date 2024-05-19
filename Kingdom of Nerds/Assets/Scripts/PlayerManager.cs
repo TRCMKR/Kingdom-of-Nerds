@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
         {
             Instance = this;
             MaxHP = GameObject.FindGameObjectWithTag("Player").GetComponent<IDamageable>().MaxHP;
+            if (PlayerPrefs.GetInt("HealthBonus") == 1) MaxHP = 20;
             HP = MaxHP;
         }
         else if (Instance != this)
@@ -30,5 +31,6 @@ public class PlayerManager : MonoBehaviour
     public void UpdateHP()
     {
         Instance.HP = GameObject.FindGameObjectWithTag("Player").GetComponent<IDamageable>().HP;
+        Instance.MaxHP = GameObject.FindGameObjectWithTag("Player").GetComponent<IDamageable>().MaxHP;
     }
 }

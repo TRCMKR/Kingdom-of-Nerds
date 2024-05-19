@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BulletLogic : MonoBehaviour
 {
@@ -51,6 +52,7 @@ public class BulletLogic : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (SceneManager.GetActiveScene().name == "Shooting Gallery") Destroy(gameObject);
         if (_hasCollided) return;
         
         var obj = collision.gameObject;

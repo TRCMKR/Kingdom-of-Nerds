@@ -23,6 +23,12 @@ public class StoreManager : MonoBehaviour
     private void Start()
     {
         _hubOff = GetComponentInChildren<SpriteRenderer>().sprite;
+
+        PlayerPrefs.SetInt("RicochetBonus", 0);
+        PlayerPrefs.SetInt("BatDebuff", 0);
+        PlayerPrefs.SetInt("ShieldBonus", 0);
+        PlayerPrefs.SetInt("AutoPickUp", 0);
+        PlayerPrefs.Save();
     }
 
     private void OnTriggerStay2D(Collider2D collision)

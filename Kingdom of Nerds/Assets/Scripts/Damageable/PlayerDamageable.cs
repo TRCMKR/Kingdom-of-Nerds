@@ -13,6 +13,7 @@ public class PlayerDamageable: DamageableCharacter
     private void Start()
     {
         // HP = MaxHP;
+        MaxHP = PlayerManager.Instance.MaxHP;
         HP = PlayerManager.Instance.HP;
         UIController.UpdateHealth();
         // if (PlayerPrefs.GetInt("ShieldBonus") == 0) _flag = 
