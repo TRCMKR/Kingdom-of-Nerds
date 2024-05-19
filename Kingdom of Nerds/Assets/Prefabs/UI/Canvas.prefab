@@ -765,6 +765,7 @@ GameObject:
   - component: {fileID: 5666365961689536156}
   - component: {fileID: 1922153436109843984}
   - component: {fileID: 7073673732450794599}
+  - component: {fileID: 2502173283233063786}
   m_Layer: 5
   m_Name: VolumeSettings
   m_TagString: Untagged
@@ -833,6 +834,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2502173283233063786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771006485584784363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7a7e3e36991406f9e273876232f0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: 64fc13d3d0c604d7ca42f4fcef1d4f34, type: 2}
+  soundMixer: {fileID: 24100000, guid: 70c0234da679e4293893ef56015411f3, type: 2}
+  musicSlider: {fileID: 4458466451077736188}
+  volumeSlider: {fileID: 9028685313639059923}
 --- !u!1 &891267687710221514
 GameObject:
   m_ObjectHideFlags: 0
@@ -4588,7 +4605,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2502173283233063786}
         m_TargetAssemblyTypeName: VolumeChange, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 0
@@ -8211,7 +8228,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2502173283233063786}
         m_TargetAssemblyTypeName: VolumeChange, Assembly-CSharp
         m_MethodName: SetSoundsVolume
         m_Mode: 0
