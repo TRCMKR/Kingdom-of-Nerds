@@ -242,10 +242,20 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6338403455761907722
+  - m_Id: 23901607744782336
+    m_Localized: "\u0412\u043E\u043B\u043D\u0430 {WaveCount}/{TotalWaves}"
+    m_Metadata:
+      m_Items:
+      - rid: 6338403455761907722
+  - m_Id: 23913320338702336
+    m_Localized: "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F \u043E\u0442
+      \u043C\u0438\u043D\u0438-\u0438\u0433\u0440\u044B"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 6338403455761907722
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0040b0d3ef4b52000040f082b9595200
+        m_Entries: 0040b0d3ef4b52000040f082b9595200004030b762ea5400

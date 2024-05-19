@@ -20,28 +20,7 @@ public class PlayerPerks : MonoBehaviour
             playerShield = gameObject.GetComponent<Shield>();
             PerksCheck();
         }
-        else
-        {
-            PlayerPrefs.SetInt("AmmoBonus", 0);
-            PlayerPrefs.SetInt("BatRangeBonus", 0);
-            PlayerPrefs.SetInt("AmmoSpeedBonus", 0);
-            PlayerPrefs.SetInt("ShieldBonus", 0);
-            PlayerPrefs.SetInt("AutoPickUp", 0);
-            PlayerPrefs.SetInt("BatDebuff", 0);
-            PlayerPrefs.Save();
-        }
     }
-
-    /*private void Start()
-    {
-        if (SceneManager.GetActiveScene().name == "Hub" && PlayerPrefs.GetInt("HealthBonus", 0) == 1)
-        {
-            PlayerManager.Instance.MaxHP = 20;
-            PlayerManager.Instance.HP = 20;
-            playerHP.HP = PlayerManager.Instance.MaxHP;
-            PlayerManager.Instance.UpdateHP();
-        }
-    }*/
 
     private void PerksCheck()
     {

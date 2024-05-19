@@ -233,10 +233,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6338403455761907723
+  - m_Id: 23901607744782336
+    m_Localized: Wave {WaveCount}/{TotalWaves}
+    m_Metadata:
+      m_Items:
+      - rid: 6338403455761907723
+  - m_Id: 23913320338702336
+    m_Localized: Decline mini game
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 6338403455761907723
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0040b0d3ef4b52000040f082b9595200
+        m_Entries: 0040b0d3ef4b52000040f082b9595200004030b762ea5400

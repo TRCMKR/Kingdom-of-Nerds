@@ -95,6 +95,8 @@ public class EnemySpawner : MonoBehaviour
             }
             _timeBtwSpawns -= Time.deltaTime;
 
+            UIController.UpdateWaveCount(enemiesWavesPassed+1, maxWaves);
+
             if (_enemiesSpawned == maxEnemies)
             {
                 spawn = false;
