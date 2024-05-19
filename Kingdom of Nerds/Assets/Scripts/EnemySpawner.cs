@@ -108,7 +108,7 @@ public class EnemySpawner : MonoBehaviour
             spawn = true;
             _enemiesSpawned = 0;
             maxEnemies += incEnemies; //с каждой волной становится на incEnemies врага больше
-            ShootingGalleryStoreManager.AddPoints(1);
+            if (SceneManager.GetActiveScene().name == "Endless Level") ShootingGalleryStoreManager.AddPoints(1);
         }
     }
 }

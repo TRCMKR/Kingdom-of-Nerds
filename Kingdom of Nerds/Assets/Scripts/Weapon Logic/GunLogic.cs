@@ -44,6 +44,7 @@ public class GunLogic : MonoBehaviour, IWeapon
     {
         _mainCamera = Camera.main;
         currentAmmo = maxAmmo;
+        if (PlayerPrefs.GetInt("RicochetBonus") == 1) bounces += 3;
     }
 
     // public virtual void Use()
