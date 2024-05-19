@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ public class ReceivedPerksDisplay : MonoBehaviour
     private string[] perkNames = { "AutoPickUp", "BatDebuff", "RicochetBonus", "ShieldBonus" };
 
     public static bool flag;
+
+    private void Start()
+    {
+        flag = false;
+    }
 
     public void ShowPerks()
     {
