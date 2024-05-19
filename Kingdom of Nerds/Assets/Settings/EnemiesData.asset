@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listEnemy1:
   - MaxHealth: 6
-    ChargeForce: 40
+    ChargeForce: 45
     ChargePeriod: 2
     ChargeDuration: 0.2
     Sprite: {fileID: -1864453573, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
   - MaxHealth: 9
-    ChargeForce: 50
+    ChargeForce: 55
     ChargePeriod: 1.6
     ChargeDuration: 0.2
     Sprite: {fileID: -561275537, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
   - MaxHealth: 13
-    ChargeForce: 60
+    ChargeForce: 65
     ChargePeriod: 1.3
     ChargeDuration: 0.2
     Sprite: {fileID: -90388816, guid: fabc619e5d44cf240b8172e8351c8cc6, type: 3}
