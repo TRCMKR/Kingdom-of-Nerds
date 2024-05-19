@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
@@ -55,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (_timeBtwSpawns < 0)
             {
-                int randEnemy = Random.Range(1, spawnEnemy.Count + 1);
+                int randEnemy = Random.Range(0, spawnEnemy.Count * 10 - 5);
                 int randPoint = Random.Range(0, _spawnPoint.Count);
                 float randPosX = Random.Range(-randomPos, randomPos) * Random.value;
                 float randPosY = Random.Range(-randomPos, randomPos) * Random.value;
@@ -64,22 +66,23 @@ public class EnemySpawner : MonoBehaviour
                 
                 int randomDifficulty = Random.Range(1, 101);
                 // _enemy = spawnEnemy[randEnemy];
-                if (randEnemy == 3)
+                if (randEnemy / 10 == 2)
                 {
                     _enemy = spawnEnemy[2];
-                    Instantiate(_enemy, _spawnPoint[randPoint]);
+                    _enemy = Instantiate(_enemy);
+                    _enemy.transform.position = _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0);
                 }
-                else if (randomDifficulty < 71)
+                else if (randomDifficulty < 51)
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 0, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
+                    _enemy = enemyFactory.CreateEnemy(randEnemy / 10, 0, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
-                else if (randomDifficulty <  91)
+                else if (randomDifficulty <  81)
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 1, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
+                    _enemy = enemyFactory.CreateEnemy(randEnemy / 10, 1, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
                 else
                 {
-                    _enemy = enemyFactory.CreateEnemy(randEnemy, 2, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
+                    _enemy = enemyFactory.CreateEnemy(randEnemy / 10, 2, _spawnPoint[randPoint].position + new Vector3(randPosX, randPosY, 0));
                 }
                 // _enemy.transform.position = spawnPoint[randEnemy].position; // пока так
                 // Instantiate(_enemy);
@@ -100,6 +103,7 @@ public class EnemySpawner : MonoBehaviour
         
         if (_enemiesSpawned == maxEnemies && EnemiesNow == 0)
         {
+            if (SceneManager.GetActiveScene().name == "Endless Level") maxEnemies = Random.Range(2, 8);
             enemiesWavesPassed++;
             spawn = true;
             _enemiesSpawned = 0;

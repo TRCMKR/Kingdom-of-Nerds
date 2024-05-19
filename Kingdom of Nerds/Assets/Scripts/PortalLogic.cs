@@ -41,29 +41,21 @@ public class PortalLogic : MonoBehaviour
             {
                 _timeSpent = 0;
                 int randomNum = Random.Range(1, 3);
-                if (_sceneName.Contains("Hub"))
-                /*{
-                    _nextSceneName = "Shooting Gallery";
-                    SceneManager.LoadScene(_nextSceneName);
-                    return;
-                }*/
-                //
-                // if (_sceneName.Contains("Preview"))
+                if (_sceneName.Contains("Hub") && gameObject.name == "Portal")
+                    _nextSceneName = "ShootingGallery";
+                else if (_sceneName.Contains("Hub") && gameObject.name == "Portal 2")
+                    _nextSceneName = "Endless Level";
+                else if (_sceneName.Contains("ShootingGallery") || _sceneName == "Endless Level")
                     _nextSceneName = "Level 1.";
                 else if (_sceneName.Contains("Level 1"))
                     _nextSceneName = "Level 2.";
                 else if (_sceneName.Contains("Level 2"))
                     _nextSceneName = "Level 3.";
                 else if (_sceneName.Contains("Level 3"))
-                {
                     _nextSceneName = "Boss Level";
-                    SceneManager.LoadScene(_nextSceneName);
-                    return;
-                    // EndGame();
-                    // return;
-                }
 
-                SceneManager.LoadScene(_nextSceneName + randomNum);
+                if (_nextSceneName.Contains("Level") && !_nextSceneName.Contains("Endless") && !_nextSceneName.Contains("Boss")) _nextSceneName += +randomNum;
+                SceneManager.LoadScene(_nextSceneName );
             }
         }
     }
