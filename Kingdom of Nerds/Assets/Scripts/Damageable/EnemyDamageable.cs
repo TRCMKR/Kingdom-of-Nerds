@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyDamageable : DamageableCharacter
 {
@@ -34,6 +35,6 @@ public class EnemyDamageable : DamageableCharacter
     {
         if (flag) damage += 2;
         base.TakeDamage(damage, sender);
-        if (sender?.name == "Bat") DebuffFunc();
+        if (PlayerPrefs.GetInt("BatDebuff") == 1 && sender?.name == "Bat") DebuffFunc();
     }
 }
