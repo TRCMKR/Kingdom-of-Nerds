@@ -6,6 +6,8 @@
   height=200>
 </p>
 
+(this doc is to be updated)
+
 ## О проекте
 2D top-down игра на движке Unity, которая сочетает в себе элементы буллет-хэлла, rogue-lite’а и тактики. 
 _______
